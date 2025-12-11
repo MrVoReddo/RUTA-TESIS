@@ -1,0 +1,575 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[normalem]{ulem}
+\usepackage{tabularx}
+\usepackage{array}
+
+% Configuración de BibLaTeX para bibliografía
+\usepackage[backend=biber,style=apa,citestyle=authoryear,sorting=nyt,natbib=true]{biblatex}
+\addbibresource{referencias.bib}
+
+% Definir colores personalizados
+\definecolor{azulsuave}{RGB}{173,216,230}
+\definecolor{verdesuave}{RGB}{144,238,144}
+\definecolor{naranjasuave}{RGB}{255,218,185}
+\definecolor{rosasuave}{RGB}{255,182,193}
+\definecolor{violetasuave}{RGB}{221,160,221}
+\definecolor{colorcruz}{RGB}{242,111,111}
+
+% Definir entornos de cajas coloreadas
+\newtcolorbox{seccionbox}[2][azulsuave]{
+  colback=#1!20,
+  colframe=#1!80!black,
+  fonttitle=\bfseries,
+  title=#2,
+  breakable,
+  enhanced jigsaw
+}
+
+\newtcolorbox{seccionboxnegado}[3][azulsuave]{
+  colback=#1!20,
+  colframe=#1!80!black,
+  fonttitle=\bfseries,
+  title=#2,
+  breakable,
+  enhanced jigsaw,
+  watermark opacity=0.25,
+  watermark text=\rotatebox{30}{\Huge \textbf{#3}},
+  watermark color=red,
+  watermark zoom=1.0
+}
+
+% Definir caja con línea divisoria
+\newtcolorbox{seccionboxdividido}[2][azulsuave]{
+  colback=#1!29,
+  colframe=#1!80!black,
+  fonttitle=\bfseries,
+  title=#2,
+  breakable,
+  enhanced jigsaw,
+  segmentation style={solid, line width=1.5pt}
+}
+
+\newtcolorbox{caja}[3]{
+  colback=#1!20,
+  colframe=#1!80!black,
+  fonttitle=\bfseries,
+  title=#2,
+  breakable,
+  enhanced jigsaw,
+  watermark opacity=0.25,
+  watermark text=\rotatebox{30}{\Huge \textbf{#3}},
+  watermark color=red,
+  watermark zoom=1.0
+}
+
+%Definimos cajas de UPDATES
+\newtcolorbox{updateo}[1]{
+    enhanced,
+    colback=red!10!white,colframe=red!75!black,
+    colbacktitle=red!50!yellow,fonttitle=\bfseries,
+    frame hidden,
+    title=#1,
+    boxrule=0pt,titlerule=1mm,
+    titlerule style=red!50!black
+}
+
+
+
+\title{TESIS DOCTORAL}
+\author{Una hoja de ruta para la tesis de John Vo}
+\date{\today}
+
+
+
+\begin{document}
+
+
+
+\maketitle
+
+\newpage
+
+
+\begin{seccionbox}[naranjasuave]{ACTUALIZACIONES}
+    \begin{updateo}{15 noviembre 2025}
+        \begin{itemize}
+            \item Se ha hecho un resumen del libro \textbf{Masa crítica: cambio, caos y complejidad (Philip Ball)}
+            \item Se han hecho notas de este resumen, y me ha servido para adquirir una panorámica mayor de las múltiples aplicaciones que tiene la física estadística en ciencias sociales (lo hecho, lo que se está haciendo y lo que falta por hacer)
+        \end{itemize}
+        
+    \end{updateo}
+    \begin{updateo}{25 noviembre 2025}
+        \begin{itemize}
+            \item Se ha hecho un resumen del libro \textbf{Social Revolution in the Modern World (Theda Scokpol)}
+            \item \textcolor{red}{PENDIENTE de leer con más calma}
+        \end{itemize}
+    \end{updateo}
+    \begin{updateo}{27 noviembre 2025}
+        \begin{itemize}
+            \item Se ha descargado el paper de Khalil sobre las taxonomías de cooperación/reciprocidad
+            \item Se han empezado notas del paper
+            \item \textcolor{red}{PENDIENTE de leer con más calma y acabar}
+        \end{itemize}
+    \end{updateo}
+    \begin{updateo}{7 diciembre 2025}
+        \begin{itemize}
+            \item Se ha instalado el software NetLogo para simulaciones por modelado basado en agentes
+            \item \textcolor{red}{PENDIENTE de ver tutoriales con más calma}
+        \end{itemize}
+    \end{updateo}
+    \begin{updateo}{8 diciembre 2025}
+        \begin{itemize}
+            \item Se han definido mejor (y más certeramente) las preguntas principales de la TESIS
+            \item Se han redefinido los objetivos
+            \item Se han actualizado las aportaciones de la tesis al campo de la sociología
+        \end{itemize}
+    \end{updateo}
+\end{seccionbox}
+
+\newpage 
+
+\begin{seccionboxnegado}[verdesuave]{\section*{Objetivo de la tesis}}{DESFASADO}
+El objetivo central de la tesis es modelar la transición caótica entre conflicto y cooperación en comunidades humanas, combinando herramientas de la teoría del caos y sistemas dinámicos (desde la física) con variables y análisis propios de la sociología.
+
+Esto implica:
+\begin{enumerate}
+    \item Estudiar cómo los grupos sociales atraviesan fases de desorden y conflicto (“caos social”), y cómo surgen espontáneamente patrones de cooperación tras bifurcaciones críticas o crisis.
+    \item Utilizar modelos matemáticos y simulaciones para representar estas dinámicas caóticas y, a la vez, incorporar e interpretar variables sociológicas clave (como confianza, liderazgo, capital social, normas).
+    \item Validar y analizar tanto los resultados cuantitativos del modelo como sus implicaciones sociológicas, evitando que la parte social quede diluida por los formalismos físicos.
+    \item Comprender y predecir los factores y condiciones que favorecen la estabilidad cooperativa en contextos de turbulencia social y transición.
+\end{enumerate}
+La finalidad es aportar conocimiento interdisciplinar en la frontera entre física, modelos matemáticos complejos y ciencias sociales, con impacto en la comprensión de la cooperación emergente en escenarios reales de crisis, cambio social y reorganización colectiva.
+    
+\end{seccionboxnegado}
+
+\begin{seccionboxnegado}[verdesuave]
+    {\section*{Objetivos y Preguntas de Investigación (26-11-25)}}{DESFASADO}
+
+\begin{enumerate}
+
+    \begin{caja}{violetasuave}{Pregunta guía}{}
+         ¿Cómo se pueden traducir, de modo formal y riguroso, los distintos tipos de cooperación/reciprocidad en mecanismos micro de modelos de agentes o juegos evolutivos en red, preservando los matices conceptuales de la taxonomía?
+    \end{caja}
+    \item \textbf{Formalizar operativamente los distintos tipos de cooperación y reciprocidad.} \\
+    Adaptar y traducir, desde la taxonomía interdisciplinar, las características distintivas de cada tipo (cooperación equilibrada, basada en reputación, basada en deuda/expectativa, altruismo/no condicional, etc.) al lenguaje formal de los modelos de agentes y redes complejas. Esto implica definir reglas de decisión, información relevante, esquemas de interacción y condiciones iniciales para asegurar la equivalencia conceptual entre los modelos y las definiciones teóricas.
+
+\tcbline
+    
+   \begin{caja}{violetasuave}{Pregunta guía}{}
+         ¿Qué dinámicas sociales globales y patrones de desigualdad y cooperación surgen para cada mecanismo y bajo qué condiciones estructurales o paramétricas se producen transiciones relevantes?
+    \end{caja}
+
+    \item \textbf{Analizar la dinámica colectiva resultante según tipo de cooperación y estructura social.} \\
+    Utilizar simulaciones y técnicas de física estadística social para estudiar los patrones globales, dinámicas colectivas y transiciones críticas que emergen al implementar diferentes tipos o combinaciones de mecanismos cooperativos en redes complejas. Identificar regímenes posibles, sensibilidad a parámetros clave y condiciones críticas de transición entre cooperación y colapso.
+
+\tcbline
+
+    \begin{caja}{violetasuave}{Pregunta guía}{}
+        ¿Cómo modifican las asimetrías y la coevolución de redes y estrategias los resultados colectivos en términos de sostenibilidad y desigualdad para cada tipo de cooperación?
+    \end{caja}
+    
+    
+
+    \item \textbf{Investigar el impacto de poder, recursos y coevolución en la cooperación y desigualdad.} \\
+    Modelar asimetrías de poder y recursos, así como la coevolución simultánea de estructura de red y estrategia individual, para analizar su efecto sobre la viabilidad, estabilidad y equidad de diferentes mecanismos cooperativos. Evaluar la potencialidad de los distintos tipos para perpetuar, reducir o revertir desigualdades sociales.
+
+\tcbline
+
+    
+    \begin{caja}{violetasuave}{Pregunta guía}{}
+        ¿Hasta qué punto el marco teórico-modelístico desarrollado permite explicar y comparar mecanismos cooperativos en ejemplos reales y qué ajustes requiere para fenómenos complejos en la práctica?
+    \end{caja}
+
+    \item \textbf{Aplicar el marco desarrollado a casos y debates sociológicos concretos.} \\
+    Utilizar la taxonomía y los modelos formales para analizar casos empíricos (ayuda mutua, bienes públicos, organizaciones colectivas), evaluando la capacidad explicativa del enfoque propuesto respecto a los mecanismos observados y la interpretación de fenómenos clásicos como normas, capital social y resiliencia.
+
+\end{enumerate}
+
+\end{seccionboxnegado}
+
+\begin{seccionbox}[verdesuave]
+    {\section*{Objetivos y Preguntas de Investigación (8-12-25)} }
+
+\begin{enumerate}
+
+\begin{comment}
+    %-------------------------------- OBJETIVO GENERAL --------------------------------
+    \begin{caja}{violetasuave}{Pregunta guía central}{}
+        ¿Cómo se pueden conectar de forma rigurosa distintos tipos de cooperación/reciprocidad con modelos de física estadística social informados por casos reales de crisis, para explicar dinámicas colectivas y patrones de desigualdad y poder?
+    \end{caja}
+
+    \item \textbf{Objetivo general}\\[0.2cm]
+    Desarrollar un marco integrador que conecte una taxonomía de tipos de cooperación/reciprocidad con modelos de física estadística social (juegos evolutivos, agentes en redes complejas, aprendizaje multiagente), informados por varios casos empíricos de crisis, para analizar cómo diferentes combinaciones de tipos de cooperación y estructuras de red generan dinámicas colectivas y patrones de desigualdad y poder.
+
+\tcbline
+\end{comment}
+
+    %-------------------------------- OBJETIVO 1 --------------------------------
+    \begin{caja}{violetasuave}{Preguntas guía}{}
+        ¿Qué formas de cooperación aparecen de manera recurrente en distintos tipos de crisis y cómo se pueden clasificar de forma sistemática mediante una taxonomía de cooperación/reciprocidad?\\[0.2cm]
+        ¿Qué estructuras de red (núcleos, periferias, brokers, vínculos con instituciones) se observan en esos casos y cómo se relacionan con los tipos de cooperación presentes?
+    \end{caja}
+
+    \item \textbf{Objetivo 1: Extracción empírico‑comparada de mecanismos de cooperación.}\\[0.2cm]
+    Identificar, a partir de varios tipos de crisis reales (por ejemplo, desastres ambientales tipo DANA/Prestige, crisis sanitarias o económicas y crisis políticas de legitimidad), qué formas de cooperación aparecen de manera recurrente, clasificándolas mediante la taxonomía de cooperación/reciprocidad y describiendo las estructuras de red en las que se insertan (núcleos, periferias, intermediarios, vínculos con instituciones).
+
+\tcbline
+
+    %-------------------------------- OBJETIVO 2 --------------------------------
+    \begin{caja}{violetasuave}{Preguntas guía}{}
+        ¿Cómo se pueden traducir, de modo formal y riguroso, los distintos tipos de cooperación/reciprocidad en mecanismos micro de modelos de agentes o juegos evolutivos en red, preservando los matices conceptuales de la taxonomía?\\[0.2cm]
+        ¿Qué parámetros deben anclarse empíricamente (rangos observados en los casos) y cuáles es mejor tratar como grados de libertad para explorar escenarios contrafácticos?
+    \end{caja}
+
+    \item \textbf{Objetivo 2: Formalización y parametrización del modelo “core”.}\\[0.2cm]
+    Traducir los tipos de cooperación recurrentes identificados en los casos empíricos en reglas micro y parámetros de modelos basados en agentes o aprendizaje multiagente sobre redes complejas, distinguiendo explícitamente entre parámetros anclados empíricamente (rangos observados en los casos de crisis) y parámetros de exploración usados para construir escenarios contrafácticos y probar la robustez de los mecanismos.
+
+\tcbline
+
+    %-------------------------------- OBJETIVO 3 --------------------------------
+    \begin{caja}{violetasuave}{Preguntas guía}{}
+        ¿Qué dinámicas sociales globales y patrones de desigualdad y cooperación surgen para cada combinación de mecanismos y bajo qué condiciones estructurales o paramétricas se producen transiciones relevantes (cooperación/colapso, inclusión/exclusión, estabilidad/caos)?\\[0.2cm]
+        ¿En qué medida ciertas combinaciones de tipos de cooperación y estructuras de red se asocian sistemáticamente con más o menos desigualdad y con diferentes configuraciones de poder?
+    \end{caja}
+
+    \item \textbf{Objetivo 3: Análisis de dinámicas y regímenes en distintos contextos de crisis.}\\[0.2cm]
+    Explorar, mediante simulaciones y herramientas de física de sistemas complejos, qué regímenes emergen (cooperación alta o baja, ciclos, caos, formación de élites cooperativas, exclusión, colapsos) cuando se combinan diferentes tipos de cooperación y estructuras de red inspiradas en distintos tipos de crisis (ambientales, tecnológicas, sanitarias, económicas, políticas), analizando su impacto en la distribución de recursos, oportunidades y posiciones de poder.
+
+\tcbline
+
+    %-------------------------------- OBJETIVO 4 --------------------------------
+    \begin{caja}{violetasuave}{Preguntas guía}{}
+        ¿Hasta qué punto los patrones producidos por los modelos capturan rasgos clave de los casos reales estudiados y qué mecanismos parecen robustos entre crisis distintas?\\[0.2cm]
+        ¿Cómo ayuda el marco (taxonomía + modelos) a clarificar debates sociológicos sobre ayuda mutua, bienes comunes, movilización colectiva, desigualdad y poder en contextos de crisis y a formular escenarios “qué pasaría si…”?
+    \end{caja}
+
+    \item \textbf{Objetivo 4: Contraste comparado e interpretación sociológica.}\\[0.2cm]
+    Contrastar los patrones generados por los modelos con la evidencia disponible de los casos de crisis estudiados y con debates sociológicos sobre ayuda mutua, bienes comunes, movilización colectiva, desigualdad y poder, evaluando qué mecanismos cooperativos parecen robustos entre contextos diferentes y hasta qué punto el marco (taxonomía + modelos) mejora la descripción, explicación y exploración de escenarios en crisis de diversa naturaleza.
+
+\end{enumerate}
+
+\end{seccionbox}
+
+
+
+
+\newpage
+\begin{caja}{azulsuave}{\section*{Aportaciones de la tesis al campo de la sociología}}{DESFASADO}
+    
+Esta tesis aporta una nueva forma de comprender y analizar la cooperación humana en contextos de caos y crisis colectiva mediante la aplicación rigurosa de modelos matemáticos y físicos (teoría del caos, dinámica no lineal, redes complejas). Lo novedoso que se plantea incluye:
+
+\begin{itemize}[leftmargin=*, label=--]
+    \item \textbf{Modelización formal de transiciones sociales:} Proporciona herramientas matemáticas para describir cómo los grupos pasan del conflicto/desorden a la cooperación, cubriendo una carencia de la sociología tradicional centrada en conceptualizaciones cualitativas.
+    \item \textbf{Identificación de métricas innovadoras:} Introduce indicadores físicos como atractores sociales, entropía social y bifurcaciones, permitiendo cuantificar y comparar resiliencia, cohesión y capacidad de reorganización social.
+    \item \textbf{Prevención y predicción de crisis:} Ofrece marcos para anticipar puntos de inflexión social y señales tempranas de reorganización cooperativa, útil para investigación aplicada e intervención social.
+    \item \textbf{Interdisciplinariedad genuina:} Establece bases metodológicas que combinan simulación cuantitativa y análisis empírico social, propiciando el diálogo real entre sociología y ciencias de la complejidad.
+    \item \textbf{Relevancia práctica y teórica:} El trabajo ayuda a comprender y gestionar crisis en comunidades, organizaciones y movimientos sociales, aportando estrategias para favorecer la cooperación emergente tras episodios de caos.
+\end{itemize}
+
+En resumen, la tesis amplía los métodos sociológicos, moderniza el lenguaje científico del análisis social y abre nuevos caminos para investigar y gestionar la cooperación humana en escenarios de incertidumbre y cambio.
+    
+\end{caja}
+
+\begin{seccionbox}[azulsuave]{\section*{Aportaciones al campo de la sociología}}
+    
+
+La tesis propuesta pretende realizar contribuciones relevantes en varios frentes de la sociología, en particular en la sociología analítica, la sociología de la cooperación y la sociología computacional, mediante la integración de una taxonomía de tipos de cooperación/reciprocidad con modelos de física estadística social.
+
+\begin{itemize}
+\item \sout{\textbf{Clarificación conceptual de cooperación y reciprocidad}}
+
+\sout{En primer lugar, la tesis contribuirá a desagregar los conceptos de ``cooperación'' y ``reciprocidad'' en un conjunto de tipos bien definidos, apoyados en una taxonomía explícita y transdisciplinar. Esta clarificación permitirá reformular debates sociológicos clásicos sobre normas, capital social, justicia, don, ayuda mutua o redistribución en términos de mecanismos cooperativos diferenciados, facilitando la comparación entre enfoques provenientes de la antropología, la economía, la psicología y la biología evolutiva.}
+
+\item \textbf{Clarificación de cooperación en contextos de crisis}
+
+La tesis desagrega “cooperación” y “reciprocidad” en tipos bien definidos (ayuda no condicional, deuda, reputación, coordinación estratégica, redistribución, etc.) y muestra qué combinaciones aparecen recurrentemente en crisis ambientales, sanitarias, económicas y políticas. Esto permite reformular debates sobre ayuda mutua, resiliencia, acción colectiva o protesta no solo en términos de “más o menos cooperación”, sino de qué tipo de cooperación está operando en cada contexto y cómo se reconfigura a lo largo de la crisis.
+
+\item \textbf{Marco puente entre teoría sociológica y modelos de sistemas complejos}
+
+En segundo lugar, al traducir los tipos de cooperación y reciprocidad a reglas micro en modelos de agentes y redes complejas, la tesis ofrecerá un marco puente entre el lenguaje propio de la teoría sociológica (roles, obligaciones, expectativas normativas, poder) y los formalismos de la física estadística social y la teoría de juegos evolutiva. De este modo, se refuerza la agenda de la sociofísica y de la teoría de sistemas complejos aplicada a lo social, proporcionando herramientas para vincular de manera explícita y comprobable los niveles micro y macro en el estudio de la cooperación.
+
+\item \textbf{Comprensión de la relación entre cooperación, poder y desigualdad}
+
+En tercer lugar, al modelar de forma explícita cómo diferentes tipos de cooperación operan en contextos con asimetrías de poder y recursos, la tesis permitirá generar resultados novedosos sobre desigualdad horizontal, estabilidad de coaliciones y efectos de las instituciones (por ejemplo, mecanismos de \emph{checks and balances} o normas de reparto) sobre la cooperación. Esto aporta elementos analíticos para dialogar con preocupaciones centrales de la sociología sobre conflicto, dominación, estratificación y variación entre sociedades en términos de sus configuraciones cooperativas e institucionales.
+
+ \item \textbf{Desarrollo metodológico para la sociología computacional}
+
+Por último, la combinación de taxonomía, modelos de redes y posibles aplicaciones a casos empíricos proporcionará una plantilla metodológica para futuros trabajos en sociología computacional. En particular, se propone un procedimiento para codificar interacciones reales según tipos de cooperación, conectarlas con parámetros de modelos de agentes y utilizar simulaciones como laboratorio conceptual para explorar escenarios contrafácticos y dinámicas de cambio social en contextos complejos.
+\end{itemize}
+\end{seccionbox}
+
+
+
+
+
+
+\newpage
+\section*{Hoja de ruta para la revisión de la literatura físico-matemática}
+
+\begin{seccionbox}[rosasuave]{\subsection*{1. Fundamentos de sistemas dinámicos}}
+    \begin{itemize}[leftmargin=*, label=--]
+    \item Estado de un sistema. Espacio de fases multidimensional.
+    \item Sistemas deterministas vs. estocásticos; ejemplos.
+    \item Estabilidad, atractores puntuales y su interpretación en modelos sociales.
+    \item Trayectorias, convergencia/divergencia, visualización de trayectorias.
+    \item Puntos fijos y ciclos límite: condiciones para su existencia, interpretación física y social.
+\end{itemize}
+\end{seccionbox}
+
+
+
+\subsection*{2. Ecuaciones diferenciales aplicadas}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Solución analítica y numérica de EDO (Euler, Runge-Kutta).
+    \item Sistemas acoplados: Ejemplo Lotka-Volterra, replicadores, SIR.
+    \item Modelado social mediante EDO: traducción de interacción social a ecuaciones matemáticas.
+\end{itemize}
+
+\subsection*{3. Introducción a la teoría del caos}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Sensibilidad a condiciones iniciales; visualización y ejemplos.
+    \item Exponentes de Lyapunov: significado y cálculo.
+    \item Tipos de bifurcaciones, diagrama de bifurcación y consecuencias.
+    \item Atractores: puntos, ciclos, atractores extraños y ejemplos.
+\end{itemize}
+
+\subsection*{4. Dinámica no lineal y caos}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Mapas discretos (logístico, Henon, etc.) y transiciones al caos.
+    \item Efecto mariposa y sus implicaciones para el modelado social.
+    \item Caos determinista vs. aleatoriedad: distinciones y similitudes.
+\end{itemize}
+
+\subsection*{5. Teoría de redes complejas}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Tipos de redes: Erdős-Rényi, Barabasi-Albert, Watts-Strogatz.
+    \item Propiedades topológicas: grado, clustering, longitud de camino, modularidad, componentes.
+    \item Representación de redes sociales humanas y análisis de propagación.
+    \item Robustez y vulnerabilidad estructural: perturbaciones y cooperación social.
+\end{itemize}
+
+\subsection*{6. Modelos físicos en sociofísica}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Modelos de Ising y Potts para dinámica de opinión y cooperación.
+    \item Autómatas celulares: reglas locales, patrones globales, ejemplos y herramientas.
+    \item Simulaciones multiagente: diseño, parametrización e interpretación.
+\end{itemize}
+
+\subsection*{7. Transiciones de fase y fenómenos críticos}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Umbrales críticos: percolación, sincronización, umbrales de cooperación.
+    \item Analogías física-social: movimientos colectivos, crisis, resiliencia.
+    \item Perturbaciones, shocks externos, estabilidad y transiciones.
+\end{itemize}
+
+\subsection*{8. Métodos de análisis y visualización}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Análisis de series temporales: reconstrucción de atractores y ventanas de retardo.
+    \item Medidas de entropía: Shannon, topológica, redundancia.
+    \item Visualización: trayectorias en espacio de fases, diagramas de bifurcación, mapas de calor en redes.
+\end{itemize}
+
+\subsection*{9. Integración interdisciplinaria}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Traducción conceptual: obtener interpretaciones sociales a partir de resultados cuantitativos.
+    \item Ejemplos de modelos publicados que combinen física y ciencias sociales.
+    \item Métodos para integrar el feedback sociológico y ajustar la interpretación.
+\end{itemize}
+
+\newpage
+\section*{Hoja de ruta para la revisión de la literatura sociológica}
+
+\subsection*{1. Teorías clásicas de la cooperación social}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Fundamentos de la cooperación: Durkheim sobre solidaridad mecánica y orgánica, cohesión social.
+    \item Acción social y cooperación: Weber sobre tipos de acción social, racionalidad y coordinación.
+    \item Teoría de la acción colectiva: Mancur Olson y el problema del free-rider.
+    \item Capital social: Concepto de Bourdieu, Coleman y Putnam; confianza, redes y reciprocidad.
+\end{itemize}
+
+\subsection*{2. Cambio social y crisis}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Teorías del cambio social: Transformaciones estructurales, revoluciones, evolución social.
+    \item Sociología de las crisis: Cómo las sociedades responden a disrupciones (económicas, políticas, sanitarias).
+    \item Desorden y caos social: Anomia (Durkheim), desorganización social, colapso institucional.
+    \item Transiciones y puntos de inflexión: Momentos críticos que redefinen estructuras sociales.
+\end{itemize}
+
+\subsection*{3. Teoría del caos aplicada a lo social}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Georges Balandier: "El desorden: la teoría del caos y las ciencias sociales" - caos como generador de orden.
+    \item Caos social y reorganización: Procesos de autoorganización tras crisis.
+    \item Entropía social: Concepto de desorden, pérdida de estructura y energía social.
+    \item Bifurcaciones sociales: Puntos críticos donde la sociedad puede tomar diferentes caminos.
+\end{itemize}
+
+\subsection*{4. Movimientos sociales y acción colectiva}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Teoría de la movilización de recursos: Cómo surgen y se organizan los movimientos.
+    \item Teoría de los nuevos movimientos sociales: Identidad, cultura y acción colectiva.
+    \item Frames y repertorios de acción: Cómo los grupos construyen narrativas y estrategias.
+    \item Organización espontánea: Emergencia de solidaridad en contextos de crisis.
+\end{itemize}
+
+\subsection*{5. Resiliencia y cohesión social}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Resiliencia comunitaria: Capacidad de comunidades para recuperarse de shocks.
+    \item Cohesión social: Vínculos que mantienen unida a una sociedad, factores que la fortalecen o debilitan.
+    \item Solidaridad en tiempos de crisis: Estudios sobre comportamiento prosocial durante desastres, pandemias.
+    \item Capital social y crisis: Cómo las redes sociales actúan como amortiguadores.
+\end{itemize}
+
+\subsection*{6. Normas, confianza y reciprocidad}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Teoría de normas sociales: Cómo emergen, se mantienen y cambian las normas.
+    \item Confianza social: Tipos de confianza (interpersonal, institucional), su rol en la cooperación.
+    \item Reciprocidad: Mecanismos de intercambio social, reciprocidad generalizada.
+    \item Dilemas sociales: Teoría de juegos aplicada (dilema del prisionero, tragedia de los comunes).
+\end{itemize}
+
+\subsection*{7. Redes sociales y estructura relacional}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Análisis de redes sociales: Enfoque estructural de las relaciones humanas.
+    \item Lazos fuertes y débiles: Granovetter sobre la fuerza de los lazos débiles.
+    \item Redes y difusión: Propagación de información, comportamientos, innovaciones.
+    \item Comunidades y clusters: Formación de grupos cohesivos dentro de redes más amplias.
+\end{itemize}
+
+\subsection*{8. Sociología de las organizaciones}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Teoría organizacional: Estructuras formales e informales, cooperación intraorganizacional.
+    \item Cambio organizacional: Adaptación, resistencia, transformación en contextos de crisis.
+    \item Cultura organizacional: Valores compartidos, clima, influencia en la cooperación.
+    \item Liderazgo y coordinación: Rol del liderazgo en momentos de transición.
+\end{itemize}
+
+\subsection*{9. Métodos cualitativos y estudios de caso}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Etnografía y observación: Métodos para estudiar cooperación en contextos naturales.
+    \item Entrevistas en profundidad: Capturar narrativas sobre experiencias de crisis y cooperación.
+    \item Análisis de contenido: Examinar documentos, medios, discursos sobre crisis sociales.
+    \item Estudios de caso comparativos: Analizar múltiples contextos de transición caos-cooperación.
+\end{itemize}
+
+\subsection*{10. Integración interdisciplinaria}
+\begin{itemize}[leftmargin=*, label=--]
+    \item Sociofísica y complejidad social: Literatura que conecta física y sociología.
+    \item Modelización social: Críticas y debates sobre el uso de modelos formales en sociología.
+    \item Validación empírica de modelos: Cómo contrastar predicciones teóricas con datos sociales reales.
+    \item Diálogo epistemológico: Compatibilidad y tensiones entre enfoques cuantitativos y cualitativos.
+\end{itemize}
+
+\vspace{2cm}
+\newpage
+\begin{seccionbox}[naranjasuave]{\section{Eje cronológico y temático de los autores y obras clave sobre cooperación}}
+
+\subsection{Fundamentos evolutivos y teóricos clásicos}
+
+\begin{enumerate}
+    \item \textbf{Adam Smith (1776):} \textit{La riqueza de las naciones}\\
+    Interés propio y sistemas económicos como base de la cooperación.
+    \item \textbf{Charles Darwin (1859):} \textit{El origen de las especies}\\
+    Cooperación y selección natural, punto de partida de debates evolutivos.
+\end{enumerate}
+
+\subsection{Apoyo mutuo y sociología temprana}
+
+\begin{enumerate}
+    \item \textbf{Émile Durkheim (1893):} \textit{La división del trabajo social}\\
+    Cooperación y cohesión funcional en sociedades modernas.
+    \item \textbf{Piotr Kropotkin (1902):} \textit{El apoyo mutuo}\\
+    Fuerza evolutiva y social de la cooperación frente a la competencia.
+    \item \textbf{Henrik F. Infield (1920s–1950s):} \textit{Sociología de la cooperación}, \textit{Utopía y experimento}\\
+    Primeros estudios teóricos y empíricos sobre cooperación institucionalizada.
+\end{enumerate}
+
+\subsection{Psicología evolutiva y social}
+
+\begin{enumerate}
+    \item \textbf{John Bowlby (1969–1980s):} Teoría del apego\\
+    Vínculo emocional y desarrollo de la cooperación en psicología evolutiva.
+\end{enumerate}
+
+\subsection{Teoría de juegos y dilemas sociales}
+
+\begin{enumerate}
+    \item \textbf{John von Neumann \& Oskar Morgenstern (1944):} \textit{Theory of Games and Economic Behavior}\\
+    Base matemática para cooperación y competencia estratégica.
+    \item \textbf{Robert Axelrod (1984):} \textit{The Evolution of Cooperation}\\
+    Reciprocidad, reputación y estrategias iteradas en la génesis de la cooperación.
+\end{enumerate}
+
+\subsection{Sociología contemporánea, identidad y conflicto}
+
+\begin{enumerate}
+    \item \textbf{Tajfel \& Turner (1979, 1986):} \textit{Teoría de la identidad social}\\
+    El papel de la identidad grupal en la transición entre hostilidad y cooperación.
+    \item \textbf{Theda Skocpol (1979, 1994):} \textit{States and Social Revolutions}, \textit{Social Revolutions in the Modern World}\\
+    Dinámicas de cooperación masiva en procesos revolucionarios.
+\end{enumerate}
+
+\subsection{Bienes comunes y cooperación institucional}
+
+\begin{enumerate}
+    \item \textbf{Elinor Ostrom (1990):} \textit{Governing the Commons}\\
+    Modelos colaborativos para gestión de bienes comunes y evolución empírica de reglas cooperativas.
+\end{enumerate}
+
+\subsection{Modelos evolutivos y matemáticos}
+
+\begin{enumerate}
+    \item \textbf{Martin Nowak (2006):} \textit{Evolutionary Dynamics}\\
+    Redes, modelos matemáticos y evolución de la cooperación.
+    \item \textbf{Samuel Bowles \& Herbert Gintis (2011):} \textit{A Cooperative Species}\\
+    Modelo interdisciplinario: evolución, economía, normas sociales y reputación.
+\end{enumerate}
+
+\subsection{Perspectivas cotidianas, rituales y psicología moderna}
+
+\begin{enumerate}
+    \item \textbf{Richard Sennett (2012):} \textit{Juntos. Rituales, placeres y política de la cooperación}\\
+    Cooperación en la vida cotidiana, rituales sociales y espacio público.
+    \item \textbf{Michael Tomasello (2014):} \textit{Natural History of Human Thinking}, \textit{Why We Cooperate}\\
+    Psicología y biología evolutiva de la cooperación humana.
+\end{enumerate}
+
+\subsection{Actualidad y tendencias contemporáneas}
+
+\begin{enumerate}
+    \item \textbf{Actualidad (2000–2025):} Artículos, libros y revisiones sobre cooperación internacional, economía colaborativa, comunidades virtuales y sistemas multiagente.\\
+    Destacan Ostrom, Bowles, Gintis, Sennett, Tomasello y artículos clave en \textit{Nature}, \textit{PNAS}, \textit{Annual Review of Sociology}.
+\end{enumerate}
+
+
+    
+\end{seccionbox}
+
+\cite{axelrod_1984}, \cite{axelrod.dilon_2004}, \cite{ball_2008}, \cite{strogatz_2019}, \cite{khalil_2025a}, \cite{skocpol_1994}
+
+
+%***********************************************Nota: si no citas en el texto, en la bibliografía no aparece************************************%
+
+% Bibliografía
+\newpage
+\printbibliography[title={Referencias}]
+
+
+\newpage
+
+
+
+
+\newpage
+
+
+
+\end{document}

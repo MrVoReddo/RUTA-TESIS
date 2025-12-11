@@ -1,0 +1,525 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/apasortcite//global/global/global}
+    \entry{axelrod_1984}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5806c3a1826ab7800a84dc8c5a4fb566}{%
+           family={Axelrod},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Basic books}%
+      }
+      \strng{namehash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{fullhash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{fullhashraw}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{bibnamehash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{authorbibnamehash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{authornamehash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{authorfullhash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{authorfullhashraw}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-465-02121-5}
+      \field{langid}{english}
+      \field{title}{The Evolution of Cooperation}
+      \field{year}{1984}
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/BIBLIOGRAFÍA/LIBROS/Axelrod_Robert_The_Evolution_of_Cooperation (1).pdf
+      \endverb
+    \endentry
+    \entry{axelrod.dilon_2004}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5806c3a1826ab7800a84dc8c5a4fb566}{%
+           family={Axelrod},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5921e7ab33ae9d73ec2edf0c550b8723}{%
+           family={Dilon},
+           familyi={D\bibinitperiod},
+           given={Ariel},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {México}%
+      }
+      \list{publisher}{1}{%
+        {Fondo de Cultura Económica}%
+      }
+      \strng{namehash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{fullhash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{fullhashraw}{15fcc944c948135a1337086f86ab2a63}
+      \strng{bibnamehash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{authorbibnamehash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{authornamehash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{authorfullhash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{authorfullhashraw}{15fcc944c948135a1337086f86ab2a63}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{annotation}{OCLC: 57391699}
+      \field{isbn}{978-950-557-609-8}
+      \field{langid}{english}
+      \field{shorttitle}{La Complejidad de La Cooperación}
+      \field{title}{La Complejidad de La Cooperación: Modelos de Cooperación y Colaboración Basados En Los Agentes}
+      \field{year}{2004}
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/BIBLIOGRAFÍA/LIBROS/Axelrod,Dillon - La complejidad de la cooperacion.pdf
+      \endverb
+    \endentry
+    \entry{ball_2008}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1825f9782b3d1c2f34758342145de25}{%
+           family={Ball},
+           familyi={B\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Madrid, México D.F}%
+      }
+      \list{publisher}{1}{%
+        {Turner ; Fondo de Cultura Económica}%
+      }
+      \strng{namehash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{fullhash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{fullhashraw}{f1825f9782b3d1c2f34758342145de25}
+      \strng{bibnamehash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{authorbibnamehash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{authornamehash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{authorfullhash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{authorfullhashraw}{f1825f9782b3d1c2f34758342145de25}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{La Bolsa, los atascos de la mañana, las absorciones entre empresas, las relaciones entre los actores de Hollywood...¿Es posible que todo esto se rija por una serie de leyes naturales que no tenemos en cuenta?¿Somos libres de crear nuestra propia sociedad o estamos atrapados por la "naturaleza humana"?¿Hay algún orden en los cambios, el caos y la complejidad que nos rodean? Philip Ball, célebre divulgador científico conocido por convertir los temas más complejos en las lecturas más agradables, se atreve a plantear estas preguntas; y a contar con un inesperado aliado para las respuestas: la física. Así, retoma el viaje intelectual que empezó Hobbes en el siglo XVII y lo lleva más allá, en un original tour de foce que le valió el premio Aventis a la divulgación científica}
+      \field{annotation}{OCLC: 433974582}
+      \field{edition}{1a. ed. en castellano}
+      \field{isbn}{978-84-7506-851-0}
+      \field{langid}{spanish}
+      \field{title}{{Masa crítica cambio, caos y complejidad}}
+      \field{year}{2008}
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/BIBLIOGRAFÍA/LIBROS/Ball, Phillip. Masa critica. Cambio, caos y complejidad.pdf
+      \endverb
+    \endentry
+    \entry{khalil_2025a}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=462d264a0ff4a55bd5686a0e403a3cbf}{%
+           family={Khalil},
+           familyi={K\bibinitperiod},
+           given={Elias\bibnamedelima L.},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{fullhash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{fullhashraw}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{bibnamehash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{authorbibnamehash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{authornamehash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{authorfullhash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{authorfullhashraw}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The literature on cooperation acknowledges different forms of cooperation and their corresponding forms of reciprocity. This paper goes further and shows that most of these different forms are indeed distinct types; hence, the terms ``cooperation'' and ``reciprocity'' are portmanteau. This paper proposes a taxonomy of ten types: i) quid pro quo; ii) intertemporal allocation; iii) altruism; iv) formal obligations (justice); v) informal obligations (repayment of favors); vi) gifts; vii) allegiance; viii) hegemony; ix) grants; and x) philanthropy. Nonetheless, ``beneficence'', defined as the promotion of the good, is common to all ten types. The promotion of the good entails actions that are free from i) opportunism and deception; ii) self-aggrandizement; and iii) malevolence (envy, schadenfreude, etc.). One payoff of the proposed ten-type taxonomy of cooperation/reciprocity is the delineation of five disciplines: anthropology, economics, political science, sociology, and psychology. Each discipline is suitable for the study of one or two types of cooperation/reciprocity. This raises a question: how does each discipline conceive of the other types appropriate for adjacent disciplines? This paper finds that each discipline effectively sculptures the other types after its own preconceived mode of conception (toolkit)---amounting to ``interdisciplinary social science imperialism.'' The proposed ten-type taxonomy promises a transdisciplinary platform that is impartial, i.e., able to help researchers avoid interdisciplinary imperialism. This payoff shows the possibility of unifying the social sciences without interdisciplinary imperialism, i.e., reducing all types of cooperation/reciprocity to one's favored preconceived toolkit.}
+      \field{issn}{1932-4502, 1936-3567}
+      \field{journaltitle}{Integrative Psychological and Behavioral Science}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{2}
+      \field{shorttitle}{Taxonomy of {{Cooperation}} and {{Reciprocity}}}
+      \field{title}{Taxonomy of {{Cooperation}} and {{Reciprocity}}: {{Beyond Interdisciplinary Social Science Imperialism}}}
+      \field{urlday}{27}
+      \field{urlmonth}{11}
+      \field{urlyear}{2025}
+      \field{volume}{59}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \field{pages}{44}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s12124-025-09906-7
+      \endverb
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/Zotero_Biblio/storage/T454VRJE/Khalil - 2025 - Taxonomy of Cooperation and Reciprocity Beyond Interdisciplinary Social Science Imperialism.pdf
+      \endverb
+    \endentry
+    \entry{skocpol_1994}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a6c7d3389d5ad65fa5d2c9a5d7c657a8}{%
+           family={Skocpol},
+           familyi={S\bibinitperiod},
+           given={Theda},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{fullhash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{fullhashraw}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{bibnamehash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{authorbibnamehash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{authornamehash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{authorfullhash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{authorfullhashraw}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-40088-6}
+      \field{langid}{english}
+      \field{series}{Cambridge Studies in Comparative Politics}
+      \field{title}{Social Revolutions in the Modern World}
+      \field{year}{1994}
+    \endentry
+    \entry{strogatz_2019}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d480d599f54ec701a6ef4b5120dd1c59}{%
+           family={Strogatz},
+           familyi={S\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boca Raton London New York}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{fullhash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{fullhashraw}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{bibnamehash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{authorbibnamehash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{authornamehash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{authorfullhash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{authorfullhashraw}{d480d599f54ec701a6ef4b5120dd1c59}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{Second edition, first issued in hardback}
+      \field{isbn}{978-0-8133-4910-7 978-0-367-09206-1}
+      \field{langid}{english}
+      \field{series}{A {{Chapman}} \& {{Hall}} Book}
+      \field{shorttitle}{Nonlinear Dynamics and Chaos}
+      \field{title}{Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering}
+      \field{year}{2019}
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/BIBLIOGRAFÍA/LIBROS/Nonlinear_Dynamics_and_Chaos_2018_Steven_H._Strogatz.pdf;/Users/jvo/Desktop/Doctorado/Zotero_Biblio/storage/MLIIBNJL/Strogatz - 2019 - Nonlinear dynamics and chaos with applications to physics, biology, chemistry, and engineering.pdf
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{axelrod_1984}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5806c3a1826ab7800a84dc8c5a4fb566}{%
+           family={Axelrod},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Basic books}%
+      }
+      \strng{namehash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{fullhash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{fullhashraw}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{bibnamehash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{authorbibnamehash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{authornamehash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{authorfullhash}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \strng{authorfullhashraw}{5806c3a1826ab7800a84dc8c5a4fb566}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-465-02121-5}
+      \field{langid}{english}
+      \field{title}{The Evolution of Cooperation}
+      \field{year}{1984}
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/BIBLIOGRAFÍA/LIBROS/Axelrod_Robert_The_Evolution_of_Cooperation (1).pdf
+      \endverb
+    \endentry
+    \entry{axelrod.dilon_2004}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5806c3a1826ab7800a84dc8c5a4fb566}{%
+           family={Axelrod},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5921e7ab33ae9d73ec2edf0c550b8723}{%
+           family={Dilon},
+           familyi={D\bibinitperiod},
+           given={Ariel},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {México}%
+      }
+      \list{publisher}{1}{%
+        {Fondo de Cultura Económica}%
+      }
+      \strng{namehash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{fullhash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{fullhashraw}{15fcc944c948135a1337086f86ab2a63}
+      \strng{bibnamehash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{authorbibnamehash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{authornamehash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{authorfullhash}{15fcc944c948135a1337086f86ab2a63}
+      \strng{authorfullhashraw}{15fcc944c948135a1337086f86ab2a63}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{annotation}{OCLC: 57391699}
+      \field{isbn}{978-950-557-609-8}
+      \field{langid}{english}
+      \field{shorttitle}{La Complejidad de La Cooperación}
+      \field{title}{La Complejidad de La Cooperación: Modelos de Cooperación y Colaboración Basados En Los Agentes}
+      \field{year}{2004}
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/BIBLIOGRAFÍA/LIBROS/Axelrod,Dillon - La complejidad de la cooperacion.pdf
+      \endverb
+    \endentry
+    \entry{ball_2008}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1825f9782b3d1c2f34758342145de25}{%
+           family={Ball},
+           familyi={B\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Madrid, México D.F}%
+      }
+      \list{publisher}{1}{%
+        {Turner ; Fondo de Cultura Económica}%
+      }
+      \strng{namehash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{fullhash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{fullhashraw}{f1825f9782b3d1c2f34758342145de25}
+      \strng{bibnamehash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{authorbibnamehash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{authornamehash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{authorfullhash}{f1825f9782b3d1c2f34758342145de25}
+      \strng{authorfullhashraw}{f1825f9782b3d1c2f34758342145de25}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{La Bolsa, los atascos de la mañana, las absorciones entre empresas, las relaciones entre los actores de Hollywood...¿Es posible que todo esto se rija por una serie de leyes naturales que no tenemos en cuenta?¿Somos libres de crear nuestra propia sociedad o estamos atrapados por la "naturaleza humana"?¿Hay algún orden en los cambios, el caos y la complejidad que nos rodean? Philip Ball, célebre divulgador científico conocido por convertir los temas más complejos en las lecturas más agradables, se atreve a plantear estas preguntas; y a contar con un inesperado aliado para las respuestas: la física. Así, retoma el viaje intelectual que empezó Hobbes en el siglo XVII y lo lleva más allá, en un original tour de foce que le valió el premio Aventis a la divulgación científica}
+      \field{annotation}{OCLC: 433974582}
+      \field{edition}{1a. ed. en castellano}
+      \field{isbn}{978-84-7506-851-0}
+      \field{langid}{spanish}
+      \field{title}{{Masa crítica cambio, caos y complejidad}}
+      \field{year}{2008}
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/BIBLIOGRAFÍA/LIBROS/Ball, Phillip. Masa critica. Cambio, caos y complejidad.pdf
+      \endverb
+    \endentry
+    \entry{khalil_2025a}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=462d264a0ff4a55bd5686a0e403a3cbf}{%
+           family={Khalil},
+           familyi={K\bibinitperiod},
+           given={Elias\bibnamedelima L.},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{fullhash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{fullhashraw}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{bibnamehash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{authorbibnamehash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{authornamehash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{authorfullhash}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \strng{authorfullhashraw}{462d264a0ff4a55bd5686a0e403a3cbf}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The literature on cooperation acknowledges different forms of cooperation and their corresponding forms of reciprocity. This paper goes further and shows that most of these different forms are indeed distinct types; hence, the terms ``cooperation'' and ``reciprocity'' are portmanteau. This paper proposes a taxonomy of ten types: i) quid pro quo; ii) intertemporal allocation; iii) altruism; iv) formal obligations (justice); v) informal obligations (repayment of favors); vi) gifts; vii) allegiance; viii) hegemony; ix) grants; and x) philanthropy. Nonetheless, ``beneficence'', defined as the promotion of the good, is common to all ten types. The promotion of the good entails actions that are free from i) opportunism and deception; ii) self-aggrandizement; and iii) malevolence (envy, schadenfreude, etc.). One payoff of the proposed ten-type taxonomy of cooperation/reciprocity is the delineation of five disciplines: anthropology, economics, political science, sociology, and psychology. Each discipline is suitable for the study of one or two types of cooperation/reciprocity. This raises a question: how does each discipline conceive of the other types appropriate for adjacent disciplines? This paper finds that each discipline effectively sculptures the other types after its own preconceived mode of conception (toolkit)---amounting to ``interdisciplinary social science imperialism.'' The proposed ten-type taxonomy promises a transdisciplinary platform that is impartial, i.e., able to help researchers avoid interdisciplinary imperialism. This payoff shows the possibility of unifying the social sciences without interdisciplinary imperialism, i.e., reducing all types of cooperation/reciprocity to one's favored preconceived toolkit.}
+      \field{issn}{1932-4502, 1936-3567}
+      \field{journaltitle}{Integrative Psychological and Behavioral Science}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{2}
+      \field{shorttitle}{Taxonomy of {{Cooperation}} and {{Reciprocity}}}
+      \field{title}{Taxonomy of {{Cooperation}} and {{Reciprocity}}: {{Beyond Interdisciplinary Social Science Imperialism}}}
+      \field{urlday}{27}
+      \field{urlmonth}{11}
+      \field{urlyear}{2025}
+      \field{volume}{59}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \field{pages}{44}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s12124-025-09906-7
+      \endverb
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/Zotero_Biblio/storage/T454VRJE/Khalil - 2025 - Taxonomy of Cooperation and Reciprocity Beyond Interdisciplinary Social Science Imperialism.pdf
+      \endverb
+    \endentry
+    \entry{skocpol_1994}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a6c7d3389d5ad65fa5d2c9a5d7c657a8}{%
+           family={Skocpol},
+           familyi={S\bibinitperiod},
+           given={Theda},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{fullhash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{fullhashraw}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{bibnamehash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{authorbibnamehash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{authornamehash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{authorfullhash}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \strng{authorfullhashraw}{a6c7d3389d5ad65fa5d2c9a5d7c657a8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-40088-6}
+      \field{langid}{english}
+      \field{series}{Cambridge Studies in Comparative Politics}
+      \field{title}{Social Revolutions in the Modern World}
+      \field{year}{1994}
+    \endentry
+    \entry{strogatz_2019}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d480d599f54ec701a6ef4b5120dd1c59}{%
+           family={Strogatz},
+           familyi={S\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boca Raton London New York}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{fullhash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{fullhashraw}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{bibnamehash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{authorbibnamehash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{authornamehash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{authorfullhash}{d480d599f54ec701a6ef4b5120dd1c59}
+      \strng{authorfullhashraw}{d480d599f54ec701a6ef4b5120dd1c59}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{Second edition, first issued in hardback}
+      \field{isbn}{978-0-8133-4910-7 978-0-367-09206-1}
+      \field{langid}{english}
+      \field{series}{A {{Chapman}} \& {{Hall}} Book}
+      \field{shorttitle}{Nonlinear Dynamics and Chaos}
+      \field{title}{Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering}
+      \field{year}{2019}
+      \verb{file}
+      \verb /Users/jvo/Desktop/Doctorado/BIBLIOGRAFÍA/LIBROS/Nonlinear_Dynamics_and_Chaos_2018_Steven_H._Strogatz.pdf;/Users/jvo/Desktop/Doctorado/Zotero_Biblio/storage/MLIIBNJL/Strogatz - 2019 - Nonlinear dynamics and chaos with applications to physics, biology, chemistry, and engineering.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
