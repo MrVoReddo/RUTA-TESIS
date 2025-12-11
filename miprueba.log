@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  11 DEC 2025 09:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  11 DEC 2025 10:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -928,6 +928,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 2582) in paragraph at lines 119--120
+[]\OT1/cmr/m/n/10.95 Se ha des-car-ga-do el pa-per de Kha-lil so-bre las ta-xo-nom^^S^^Pas de coope-ra-
+ []
+
+
 
 [2]
 
@@ -936,7 +941,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [4]
 
 [5]
-Underfull \hbox (badness 1629) in paragraph at lines 290--291
+Underfull \hbox (badness 1629) in paragraph at lines 294--295
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []
  []
 
@@ -974,15 +979,15 @@ Package logreq Info: Writing requests to 'miprueba.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34245 strings out of 473190
- 676585 string characters out of 5715800
+ 34247 strings out of 473190
+ 676622 string characters out of 5715800
  1625808 words of memory out of 5000000
- 56950 multiletter control sequences out of 15000+600000
+ 56952 multiletter control sequences out of 15000+600000
  567607 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,11n,121p,1919b,2813s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on miprueba.pdf (14 pages, 155282 bytes).
+Output written on miprueba.pdf (14 pages, 155467 bytes).
 PDF statistics:
  236 PDF objects out of 1000 (max. 8388607)
  203 compressed objects within 3 object streams
