@@ -11,6 +11,8 @@
 \usepackage[normalem]{ulem}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{lmodern}
+\usepackage{anyfontsize}
 
 % Configuración de BibLaTeX para bibliografía
 \usepackage[backend=biber,style=apa,citestyle=authoryear,sorting=nyt,natbib=true]{biblatex}
@@ -100,6 +102,7 @@
 
 
 \begin{seccionbox}[naranjasuave]{FLUJO DE TRABAJO}
+
     \begin{seccionbox}[violetasuave]{Reunión 10-12-25}
         \begin{updateo}{8 diciembre 2025}
             \begin{itemize}
@@ -135,70 +138,20 @@
         \end{updateo}
     \end{seccionbox}
 
+    \begin{seccionbox}[violetasuave]{Reunión Enero 2026}
+        \begin{updateo}{11 de diciembre}
+            \begin{itemize}
+                \item Se ha hecho un repositorio de GitHub con el proyecto de la tesis 
+                \item Se ha depurado este documento
+            \end{itemize} 
+        \end{updateo}
+    \end{seccionbox}
+
     
 
 \end{seccionbox}
 
 \newpage 
-
-\begin{seccionboxnegado}[verdesuave]{\section*{Objetivo de la tesis}}{DESFASADO}
-El objetivo central de la tesis es modelar la transición caótica entre conflicto y cooperación en comunidades humanas, combinando herramientas de la teoría del caos y sistemas dinámicos (desde la física) con variables y análisis propios de la sociología.
-
-Esto implica:
-\begin{enumerate}
-    \item Estudiar cómo los grupos sociales atraviesan fases de desorden y conflicto (“caos social”), y cómo surgen espontáneamente patrones de cooperación tras bifurcaciones críticas o crisis.
-    \item Utilizar modelos matemáticos y simulaciones para representar estas dinámicas caóticas y, a la vez, incorporar e interpretar variables sociológicas clave (como confianza, liderazgo, capital social, normas).
-    \item Validar y analizar tanto los resultados cuantitativos del modelo como sus implicaciones sociológicas, evitando que la parte social quede diluida por los formalismos físicos.
-    \item Comprender y predecir los factores y condiciones que favorecen la estabilidad cooperativa en contextos de turbulencia social y transición.
-\end{enumerate}
-La finalidad es aportar conocimiento interdisciplinar en la frontera entre física, modelos matemáticos complejos y ciencias sociales, con impacto en la comprensión de la cooperación emergente en escenarios reales de crisis, cambio social y reorganización colectiva.
-    
-\end{seccionboxnegado}
-
-\begin{seccionboxnegado}[verdesuave]
-    {\section*{Objetivos y Preguntas de Investigación (26-11-25)}}{DESFASADO}
-
-\begin{enumerate}
-
-    \begin{caja}{violetasuave}{Pregunta guía}{}
-         ¿Cómo se pueden traducir, de modo formal y riguroso, los distintos tipos de cooperación/reciprocidad en mecanismos micro de modelos de agentes o juegos evolutivos en red, preservando los matices conceptuales de la taxonomía?
-    \end{caja}
-    \item \textbf{Formalizar operativamente los distintos tipos de cooperación y reciprocidad.} \\
-    Adaptar y traducir, desde la taxonomía interdisciplinar, las características distintivas de cada tipo (cooperación equilibrada, basada en reputación, basada en deuda/expectativa, altruismo/no condicional, etc.) al lenguaje formal de los modelos de agentes y redes complejas. Esto implica definir reglas de decisión, información relevante, esquemas de interacción y condiciones iniciales para asegurar la equivalencia conceptual entre los modelos y las definiciones teóricas.
-
-\tcbline
-    
-   \begin{caja}{violetasuave}{Pregunta guía}{}
-         ¿Qué dinámicas sociales globales y patrones de desigualdad y cooperación surgen para cada mecanismo y bajo qué condiciones estructurales o paramétricas se producen transiciones relevantes?
-    \end{caja}
-
-    \item \textbf{Analizar la dinámica colectiva resultante según tipo de cooperación y estructura social.} \\
-    Utilizar simulaciones y técnicas de física estadística social para estudiar los patrones globales, dinámicas colectivas y transiciones críticas que emergen al implementar diferentes tipos o combinaciones de mecanismos cooperativos en redes complejas. Identificar regímenes posibles, sensibilidad a parámetros clave y condiciones críticas de transición entre cooperación y colapso.
-
-\tcbline
-
-    \begin{caja}{violetasuave}{Pregunta guía}{}
-        ¿Cómo modifican las asimetrías y la coevolución de redes y estrategias los resultados colectivos en términos de sostenibilidad y desigualdad para cada tipo de cooperación?
-    \end{caja}
-    
-    
-
-    \item \textbf{Investigar el impacto de poder, recursos y coevolución en la cooperación y desigualdad.} \\
-    Modelar asimetrías de poder y recursos, así como la coevolución simultánea de estructura de red y estrategia individual, para analizar su efecto sobre la viabilidad, estabilidad y equidad de diferentes mecanismos cooperativos. Evaluar la potencialidad de los distintos tipos para perpetuar, reducir o revertir desigualdades sociales.
-
-\tcbline
-
-    
-    \begin{caja}{violetasuave}{Pregunta guía}{}
-        ¿Hasta qué punto el marco teórico-modelístico desarrollado permite explicar y comparar mecanismos cooperativos en ejemplos reales y qué ajustes requiere para fenómenos complejos en la práctica?
-    \end{caja}
-
-    \item \textbf{Aplicar el marco desarrollado a casos y debates sociológicos concretos.} \\
-    Utilizar la taxonomía y los modelos formales para analizar casos empíricos (ayuda mutua, bienes públicos, organizaciones colectivas), evaluando la capacidad explicativa del enfoque propuesto respecto a los mecanismos observados y la interpretación de fenómenos clásicos como normas, capital social y resiliencia.
-
-\end{enumerate}
-
-\end{seccionboxnegado}
 
 \begin{seccionbox}[verdesuave]
     {\section*{Objetivos y Preguntas de Investigación (8-12-25)} }
@@ -263,35 +216,13 @@ La finalidad es aportar conocimiento interdisciplinar en la frontera entre físi
 
 \end{seccionbox}
 
-
-
-
 \newpage
-\begin{caja}{azulsuave}{\section*{Aportaciones de la tesis al campo de la sociología}}{DESFASADO}
-    
-Esta tesis aporta una nueva forma de comprender y analizar la cooperación humana en contextos de caos y crisis colectiva mediante la aplicación rigurosa de modelos matemáticos y físicos (teoría del caos, dinámica no lineal, redes complejas). Lo novedoso que se plantea incluye:
-
-\begin{itemize}[leftmargin=*, label=--]
-    \item \textbf{Modelización formal de transiciones sociales:} Proporciona herramientas matemáticas para describir cómo los grupos pasan del conflicto/desorden a la cooperación, cubriendo una carencia de la sociología tradicional centrada en conceptualizaciones cualitativas.
-    \item \textbf{Identificación de métricas innovadoras:} Introduce indicadores físicos como atractores sociales, entropía social y bifurcaciones, permitiendo cuantificar y comparar resiliencia, cohesión y capacidad de reorganización social.
-    \item \textbf{Prevención y predicción de crisis:} Ofrece marcos para anticipar puntos de inflexión social y señales tempranas de reorganización cooperativa, útil para investigación aplicada e intervención social.
-    \item \textbf{Interdisciplinariedad genuina:} Establece bases metodológicas que combinan simulación cuantitativa y análisis empírico social, propiciando el diálogo real entre sociología y ciencias de la complejidad.
-    \item \textbf{Relevancia práctica y teórica:} El trabajo ayuda a comprender y gestionar crisis en comunidades, organizaciones y movimientos sociales, aportando estrategias para favorecer la cooperación emergente tras episodios de caos.
-\end{itemize}
-
-En resumen, la tesis amplía los métodos sociológicos, moderniza el lenguaje científico del análisis social y abre nuevos caminos para investigar y gestionar la cooperación humana en escenarios de incertidumbre y cambio.
-    
-\end{caja}
 
 \begin{seccionbox}[azulsuave]{\section*{Aportaciones al campo de la sociología}}
     
-
 La tesis propuesta pretende realizar contribuciones relevantes en varios frentes de la sociología, en particular en la sociología analítica, la sociología de la cooperación y la sociología computacional, mediante la integración de una taxonomía de tipos de cooperación/reciprocidad con modelos de física estadística social.
 
 \begin{itemize}
-\item \sout{\textbf{Clarificación conceptual de cooperación y reciprocidad}}
-
-\sout{En primer lugar, la tesis contribuirá a desagregar los conceptos de ``cooperación'' y ``reciprocidad'' en un conjunto de tipos bien definidos, apoyados en una taxonomía explícita y transdisciplinar. Esta clarificación permitirá reformular debates sociológicos clásicos sobre normas, capital social, justicia, don, ayuda mutua o redistribución en términos de mecanismos cooperativos diferenciados, facilitando la comparación entre enfoques provenientes de la antropología, la economía, la psicología y la biología evolutiva.}
 
 \item \textbf{Clarificación de cooperación en contextos de crisis}
 
@@ -311,10 +242,15 @@ Por último, la combinación de taxonomía, modelos de redes y posibles aplicaci
 \end{itemize}
 \end{seccionbox}
 
+%%%%%%%%%%%%%%%%%%%ANEXOS%%%%%%%%%%%%%%%%%%%
+\newpage
 
-
-
-
+\vspace*{\fill}
+\begin{center}
+    {\fontsize{3cm}{16pt}\selectfont ANEXOS}
+\end{center}
+\vspace*{\fill}
+   
 
 \newpage
 \section*{Hoja de ruta para la revisión de la literatura físico-matemática}
