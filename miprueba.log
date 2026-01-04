@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  22 DEC 2025 10:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  4 JAN 2026 23:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -985,7 +985,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-Underfull \hbox (badness 2582) in paragraph at lines 137--138
+Underfull \hbox (badness 2582) in paragraph at lines 143--144
 []\OT1/lmr/m/n/10.95 Se ha des-car-ga-do el pa-per de Kha-lil so-bre las ta-xo-nom^^S^^Pas de coope-ra-
  []
 
@@ -1012,11 +1012,13 @@ Underfull \hbox (badness 2582) in paragraph at lines 137--138
 [11]
 
 [12]
+
+[13]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 511.
+(Font)              <10.95> on input line 517.
 
 
-[13] (./miprueba.aux
+[14] (./miprueba.aux
 LaTeX Info: Redefining \sptext on input line 12.
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
@@ -1032,18 +1034,18 @@ Package logreq Info: Writing requests to 'miprueba.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34338 strings out of 473190
- 679280 string characters out of 5715800
+ 34345 strings out of 473190
+ 679373 string characters out of 5715800
  1616168 words of memory out of 5000000
- 57032 multiletter control sequences out of 15000+600000
+ 57038 multiletter control sequences out of 15000+600000
  603355 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,11n,121p,1919b,2813s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on miprueba.pdf (13 pages, 220320 bytes).
+Output written on miprueba.pdf (14 pages, 221176 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
- 74 named destinations out of 1000 (max. 500000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 191 compressed objects within 2 object streams
+ 75 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
