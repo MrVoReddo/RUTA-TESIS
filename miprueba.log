@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  4 JAN 2026 23:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.9)  8 MAR 2026 01:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1048,23 +1048,23 @@ LaTeX Font Info:    Font shape `OT1/Roboto-LF/boldcondensed/n' will be
 
 [3]
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/c/n' aliased to
-(Font)              `OT1/Roboto-LF/condensed/n' on input line 172.
+(Font)              `OT1/Roboto-LF/condensed/n' on input line 180.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/condensed/n' will be
-(Font)              scaled to size 14.4pt on input line 172.
+(Font)              scaled to size 14.4pt on input line 180.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/bc/n' aliased to
-(Font)              `OT1/Roboto-LF/boldcondensed/n' on input line 172.
+(Font)              `OT1/Roboto-LF/boldcondensed/n' on input line 180.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/boldcondensed/n' will be
-(Font)              scaled to size 14.4pt on input line 172.
+(Font)              scaled to size 14.4pt on input line 180.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/c/n' aliased to
-(Font)              `OT1/Roboto-LF/condensed/n' on input line 192.
+(Font)              `OT1/Roboto-LF/condensed/n' on input line 200.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/condensed/n' will be
-(Font)              scaled to size 24.88pt on input line 192.
+(Font)              scaled to size 24.88pt on input line 200.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/bc/n' aliased to
-(Font)              `OT1/Roboto-LF/boldcondensed/n' on input line 192.
+(Font)              `OT1/Roboto-LF/boldcondensed/n' on input line 200.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/boldcondensed/n' will be
-(Font)              scaled to size 24.88pt on input line 192.
+(Font)              scaled to size 24.88pt on input line 200.
 
-Underfull \hbox (badness 4266) in paragraph at lines 201--203
+Underfull \hbox (badness 4266) in paragraph at lines 209--211
 []\OT1/Roboto-LF/condensed/n/10.95 ?`C[]omo se pue-den tra-du-cir, de mo-do for-mal y ri-gu-ro-so, los dis-tin-tos ti-pos de coope-ra-
  []
 
@@ -1074,32 +1074,32 @@ Underfull \hbox (badness 4266) in paragraph at lines 201--203
 
 [5]
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/c/it' aliased to
-(Font)              `OT1/Roboto-LF/condensed/it' on input line 252.
+(Font)              `OT1/Roboto-LF/condensed/it' on input line 260.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/condensed/it' will be
-(Font)              scaled to size 10.95pt on input line 252.
+(Font)              scaled to size 10.95pt on input line 260.
 
 
 [6]
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/c/n' aliased to
-(Font)              `OT1/Roboto-LF/condensed/n' on input line 265.
+(Font)              `OT1/Roboto-LF/condensed/n' on input line 273.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/condensed/n' will be
-(Font)              scaled to size 85.35826pt on input line 265.
+(Font)              scaled to size 85.35826pt on input line 273.
 
 
 [7]
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/bc/n' aliased to
-(Font)              `OT1/Roboto-LF/boldcondensed/n' on input line 273.
+(Font)              `OT1/Roboto-LF/boldcondensed/n' on input line 281.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/boldcondensed/n' will be
-(Font)              scaled to size 12.0pt on input line 273.
+(Font)              scaled to size 12.0pt on input line 281.
 
 
 [8]
 
 [9]
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/c/n' aliased to
-(Font)              `OT1/Roboto-LF/condensed/n' on input line 364.
+(Font)              `OT1/Roboto-LF/condensed/n' on input line 372.
 LaTeX Font Info:    Font shape `OT1/Roboto-LF/condensed/n' will be
-(Font)              scaled to size 6.0pt on input line 364.
+(Font)              scaled to size 6.0pt on input line 372.
 
 
 [10]
@@ -1110,7 +1110,7 @@ LaTeX Font Info:    Font shape `OT1/Roboto-LF/condensed/n' will be
 
 [13]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 518.
+(Font)              <10.95> on input line 526.
 
 
 [14] (./miprueba.aux
@@ -1133,15 +1133,15 @@ Package logreq Info: Writing requests to 'miprueba.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35369 strings out of 473190
- 699061 string characters out of 5715800
- 1627251 words of memory out of 5000000
- 58031 multiletter control sequences out of 15000+600000
+ 35374 strings out of 473190
+ 699117 string characters out of 5715800
+ 1626250 words of memory out of 5000000
+ 58036 multiletter control sequences out of 15000+600000
  590481 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,11n,121p,1919b,2899s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/google/roboto/RobotoCondensed-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/google/roboto/RobotoCondensed-Italic.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/google/roboto/RobotoCondensed-Regular.pfb>
-Output written on miprueba.pdf (14 pages, 107545 bytes).
+Output written on miprueba.pdf (14 pages, 108194 bytes).
 PDF statistics:
  202 PDF objects out of 1000 (max. 8388607)
  178 compressed objects within 2 object streams
