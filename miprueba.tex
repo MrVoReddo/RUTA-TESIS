@@ -14,6 +14,8 @@
 \usepackage{array}
 \usepackage{lmodern}
 \usepackage{anyfontsize}
+\usepackage{booktabs}
+%\tcbset{enforce breakable}
 
 % Configuración de BibLaTeX para bibliografía
 \usepackage[backend=biber,style=apa,citestyle=authoryear,sorting=nyt,natbib=true]{biblatex}
@@ -26,6 +28,8 @@
 \definecolor{rosasuave}{RGB}{255,182,193}
 \definecolor{violetasuave}{RGB}{221,160,221}
 \definecolor{colorcruz}{RGB}{242,111,111}
+
+\definecolor{micolor}{RGB}{43,87,0}
 
 % Definir entornos de cajas coloreadas
 \newtcolorbox{seccionbox}[2][azulsuave]{
@@ -76,16 +80,20 @@
 
 %Definimos cajas de UPDATES
 \newtcolorbox{updateo}[1]{
-    enhanced,
+    enhanced jigsaw,
     colback=red!10!white,colframe=red!75!black,
     colbacktitle=red!50!yellow,fonttitle=\bfseries,
     frame hidden,
     title=#1,
+    breakable,
     boxrule=0pt,titlerule=1mm,
     titlerule style=red!50!black
 }
 
 
+\newcommand{\resaltar}[1]{%
+    \textcolor{micolor}{\textbf{\Large #1}}%
+}
 
 \title{TESIS DOCTORAL}
 \author{Una hoja de ruta para la tesis de John Vo}
@@ -101,16 +109,69 @@
 
 \newpage
 
-
-\begin{seccionbox}[naranjasuave]{FLUJO DE TRABAJO}
+%\begin{seccionbox}[naranjasuave]{FLUJO DE TRABAJO}
+\vspace*{\fill}
+\begin{center}
+    {\fontsize{1.5cm}{16pt}\selectfont FLUJO DE TRABAJO}
+\end{center}
+\vspace*{\fill}
+\newpage
 
     \begin{seccionbox}[violetasuave]{Reunión Abril 2026}
         \begin{updateo}{16 de febrero}
             \begin{itemize}
                 \item Se ha realizado y entregado el curso obligatorio sobre BÚSQUEDA, GESTIÓN, EVALUACIÓN Y COMUNICACIÓN DE LA INFORMACIÓN CIENTÍFICA - DOCTORADO R.D. 2011
+            \end{itemize}
+        \end{updateo} 
+        \begin{updateo}{2 de abril}
+            \begin{itemize}
                 \item Leído y resumido el paper de \textcite{khalil_2025a}. 
+                \item De las ideas fundamentales, los 3 tipos importantes de tipo de coordinación que mejor intervendrían en los agentes en una situación de crisis serían las de altruismo, regalos (gifts) y ayudas (grants), aunque también habrá que tener en cuenta - quizás desde otro enfoque - la lealtad (allegiance).
+                \item Lo que llamamos coloquialmente \textbf{'volcarse con las víctimas'} es en realidad una superposición de los tres tipos actuando a la vez, sobre distintos actores y momentos. El voluntario desconocido que excava barro actúa por altruismo; el amigo que lleva comida y pasa horas acompañando hace un gift; el familiar que costea la reparación del techo y se muda temporalmente para ayudar realiza un grant. Esta distinción es precisamente lo que hace útil la taxonomía para el análisis: permite desagregar lo que el sentido común trata como un fenómeno unitario.
+                \item \textbf{Imperialismo interdisciplinar}: si una catástrofe natural activa simultáneamente altruismo, gifts y grants, ninguna disciplina por sí sola puede explicar la respuesta social completa. El economista verá la ayuda de desconocidos como altruismo y la analizará en términos de eficiencia (quién ayuda más, a quién, con qué coste marginal). Pero si aplica ese mismo toolkit a los gifts —los gestos simbólicos de afecto y pertenencia comunitaria— los distorsionará, reduciéndolos a cálculo de utilidad: eso es precisamente lo que Khalil llama imperialismo interdisciplinar
+                \item La \textbf{respuesta transdisciplinar}: Khalil propone que el único modo de analizar un fenómeno donde coexisten estos tres tipos sin deformarlos es partir de una plataforma transdisciplinar, es decir, respetar el toolkit propio de cada disciplina para cada tipo de cooperación en lugar de reducirlo todo a un solo marco. Como él dice, \textit{each discipline effectively sculptures the other types after its own preconceived mode of conception toolkit — amounting to interdisciplinary social science imperialism}.
+                \item Esto podría ser el \resaltar{núcleo del marco teórico}:
+                \begin{enumerate}
+                    \item \textbf{Conceptos operativos}: los 10 tipos de cooperación/reciprocidad, cada uno con su motivo y su lógica interna, permiten codificar y distinguir empíricamente formas de ayuda que el lenguaje cotidiano trata como si fueran lo mismo.
+                    \item Una \textbf{epistemología}: la noción de plataforma transdisciplinar justifica metodológicamente por qué la tesis necesita movilizar más de una disciplina para estudiar la respuesta social a una catástrofe, sin caer en el imperialismo interdisciplinar.
+                    \item Un \textbf{argumento propio}: Khalil demuestra que \textit{no single toolkit is suitable for all ten types}, lo que convierte al objeto de estudio (la emergencia social) en un caso ejemplar de por qué la transdisciplinariedad es necesaria, no opcional.
+                \end{enumerate}
+                \item Una \resaltar{posible planificación} podría ser:
+                \begin{enumerate}
+                    \item La \textbf{beneficencia como denominador común}: introducir la idea de que todos los tipos comparten la ausencia de oportunismo, autoengrandecimiento y malevolencia, lo que los hace todos formas de cooperación legítima pese a sus diferencias.
+                    \item Los \textbf{tipos relevantes para el objeto}: seleccionar y definir los tipos que efectivamente operan en una emergencia (altruismo, gifts, grants, obligaciones formales e informales, allegiance, hegemonía), explicando qué motivo y qué satisfacción —sustantiva, de integridad o trascendental— moviliza cada uno.
+                    \item El \textbf{argumento transdisciplinar}: mostrar que estudiar la respuesta social ante una catástrofe requiere lentes de al menos tres disciplinas distintas (economía, antropología, sociología), y que la taxonomía de Khalil ofrece precisamente esa plataforma sin imponer una sola sobre las demás.
+                \end{enumerate}
+            
+            \end{itemize}        
+        \end{updateo}
+        \begin{updateo}{3 de febrero}
+            \begin{itemize}
+                \item Construyo el siguiente cuadro \ref{tab:tipos-cooperacion-khalil} para delimitar bien cada tipo de "cooperación"
+                \item He pensado que habría otros parámetros que también intervendrían en la activación de la intención cooperadora de los agentes (resumido en el cuadro \ref{tab:parametros-contextuals}), que no se mencionan o se mencionan parcialmente en el artículo de Khalil, que podrían ser:
+                \begin{enumerate}
+                    \item \textbf{La fase temporal de la emergencia} Altruismo, gifts y grants no operan igual en el momento agudo de la catástrofe que en la fase de reconstrucción meses después. En el momento inmediato dominan reacciones emocionales intensas que favorecen el altruismo entre desconocidos; con el tiempo, las obligaciones informales (repayment) y los grants entre redes cercanas tienden a cobrar protagonismo. Khalil no incorpora la dimensión temporal como modulador.
+                    \item \textbf{La percepción de identidad compartida (in-group / out-group)}. El artículo menciona que el altruista tiende a ayudar más a personas "familiar" que "nonfamiliar", pero no desarrolla el papel de la identidad de grupo como continuo. En una emergencia, la percepción de que las víctimas son "de los nuestros" (vecinos del mismo barrio, compatriotas, correligionarios) amplifica los tres tipos, mientras que la percepción de otredad puede inhibirlos incluso en contextos de necesidad extrema. Esto va más allá de la mera familiaridad que menciona Khalil.
+                    \item \textbf{La visibilidad y la mediación simbólica}. Los gifts, según Khalil, expresan amor y pertenencia comunitaria, pero no contempla cómo la visibilidad pública del gesto (redes sociales, cobertura mediática) puede distorsionar o amplificar el tipo: un gesto que estructuralmente sería altruismo puede convertirse en algo más parecido al autoengrandecimiento si se hace visible, lo que el propio Khalil excluiría de la beneficencia.
+                    \item \textbf{La desigualdad previa entre ayudante y receptor}. Khalil diferencia hegemony (poder asimétrico que no vela por el otro) de allegiance (autoridad que sí vela), pero no contempla cómo la desigualdad socioeconómica preexistente entre quien da y quien recibe modula la percepción y la forma concreta de los tres tipos. Un grant de alguien con muchos recursos hacia alguien sin ninguno tiene dinámicas distintas al grant entre iguales.
+                    \item \textbf{La reciprocidad comunitaria diferida (capital social)}. El artículo vincula la reciprocidad comunitaria a las obligaciones informales (repayment), pero en situaciones de emergencia aparece una forma distinta: la reciprocidad generalizada, donde no se devuelve a quien ayudó sino a la comunidad en abstracto en el futuro. Esto no encaja limpiamente en ninguno de los diez tipos.
+                    \item \textbf{La distancia física entre ayudante y ayudado}. En el momento agudo de la emergencia, la proximidad espacial aumenta la probabilidad de ayuda espontánea entre desconocidos (altruismo), mientras que la ayuda desde lugares lejanos tiende a canalizarse como grants (apoyo material mediado por instituciones) o como gifts simbólicos (mensajes, campañas, gestos de apoyo). Khalil no introduce la distancia física como variable independiente, pese a que condiciona fuertemente qué tipo de cooperación se activa.
+                    \item \textbf{La percepción de la intensidad mediada por los medios de comunicación}.  La decisión de cooperar no depende únicamente de la necesidad objetiva del receptor ni de la distancia física real, sino de la representación que el agente tiene de esa necesidad, que está fuertemente mediada por la cobertura mediática. Esta percepción opera en dos sentidos: amplifica la respuesta cooperativa en el momento agudo (especialmente el altruismo entre desconocidos) y la inhibe con el tiempo por fatiga de la compasión, efecto especialmente relevante para las formas de cooperación que requieren compromiso sostenido como los grants. Khalil no contempla este modulador porque su taxonomía opera en el nivel del motivo individual, no en el de los mecanismos de construcción social de la necesidad.
+                \end{enumerate}
             \end{itemize}
         \end{updateo}
+        \begin{updateo}{6 de abril}
+            \begin{itemize}
+                \item Habría que revisar con más profundidad los estudios que dan soporte teórico a los parámetros del cuadro \ref{tab:parametros-contextuals}.
+                \item Habría que pensar en cómo validamos dichos parámetros de cara a poderlos parametrizar en nuestro modelo de ABM:
+                    \begin{itemize}
+                        \item Metaanálisis?
+                        \item Cuestionario propio? Accesibilidad de la muestra? Extensión? 
+                    \end{itemize}
+            \end{itemize}
+        \end{updateo} 
+       
+        
     \end{seccionbox}
 
     \begin{seccionbox}[violetasuave]{Reunión Enero 2026}
@@ -173,9 +234,15 @@
 
     
 
-\end{seccionbox}
+%\end{seccionbox}
 
 \newpage 
+\vspace*{\fill}
+\begin{center}
+    {\fontsize{1.5cm}{16pt}\selectfont OBJETIVOS, PREGUNTAS Y APORTACIONES}
+\end{center}
+\vspace*{\fill}
+\newpage
 
 \begin{seccionbox}[verdesuave]
     {\section*{Objetivos y Preguntas de Investigación (8-12-25)} }
@@ -519,21 +586,113 @@ Por último, la combinación de taxonomía, modelos de redes y posibles aplicaci
 
 \cite{axelrod_1984}, \cite{axelrod.dilon_2004}, \cite{ball_2008}, \cite{strogatz_2019}, \cite{khalil_2025a}, \cite{skocpol_1994}
 
+\newpage
+\begin{seccionbox}[verdesuave]{\subsection*{Ideas y conceptos importantes del paper de Khalil}}
+    \begin{itemize}
+        \item \textbf{Introducción}: “Cooperación” y “reciprocidad” son términos maleta que esconden al menos diez tipos distintos; todos comparten una noción amplia de beneficencia y se relacionan con cinco disciplinas y sus respectivos toolkits.
+        \item \textbf{Preludio a la transdisciplinariedad}: Cada disciplina privilegia ciertos motivos y tipos de cooperación según su toolkit, lo que genera miradas parciales y la necesidad de una plataforma transdisciplinar imparcial.
+        \item \textbf{Cinco disciplinas y toolkits}: Antropología (normas culturales), economía (eficiencia), ciencia política (poder), sociología (roles sociales) y psicología (psique dividida) son las disciplinas con toolkits claros para distintos tipos de cooperación.
+        \item \textbf{Beneficencia y satisfacciones}: La beneficencia se define como promoción del bien sin engaño, autoengrandecimiento ni malevolencia, y se despliega en tres géneros de satisfacción: sustantivas, de integridad y trascendentales.
+        \item \textbf{Quid pro quo}: Intercambio directo y contractual de prestaciones, típico de la economía, centrado en resultados sustantivos y eficiencia bajo supuestos de poder e información relativamente simétricos.
+        \item \textbf{Asignación intertemporal}: Cooperación a través del tiempo (ahorro, inversión, acuerdos intergeneracionales) que redistribuye sacrificios entre presente y futuro dentro del marco económico.
+        \item \textbf{Altruismo}: Sacrificio de recursos propios para beneficiar a otros sin contraprestación equivalente inmediata, incorporado por la economía vía preferencias interdependientes.
+        \item \textbf{Obligaciones formales}: Cooperación mediada por normas jurídicas y principios de justicia, donde la ciencia política analiza derechos, deberes y el alcance de la comunidad protegida.
+        \item \textbf{Obligaciones informales}: Devolución de favores y reciprocidades implícitas regidas por normas sociales y reputación, objeto privilegiado de la sociología.
+        \item \textbf{Dones}: Entregas no contractuales que refuerzan lazos simbólicos y pertenencia, creando obligaciones difusas de reciprocidad dentro de marcos culturales estudiados por la antropología.
+        \item \textbf{Lealtad}: Compromisos duraderos con grupos o instituciones que combinan beneficios materiales y sentido de identidad, explicados por narrativas y símbolos colectivos.
+        \item \textbf{Hegemonía}: Cooperación asimétrica y explotadora donde un actor poderoso fija términos ventajosos sin necesariamente violar normas internas de justicia.
+        \item \textbf{Grants}: Subvenciones que mezclan ayuda material y expresión afectiva, típicas de redes familiares e institucionales en sociedades complejas.
+        \item \textbf{Filantropía}: Beneficencia que une amor o compromiso con la expansión del propio yo y la búsqueda de legado, mejor entendida desde la psicología de motivaciones mixtas.
+        \item \textbf{Imperialismo interdisciplinar}: Cada disciplina tiende a esculpir todos los tipos de cooperación según su toolkit, generando “imperialismos” que distorsionan fenómenos ajenos.
+        \item \textbf{Síntesis final}: La taxonomía de diez tipos y tres satisfacciones primordiales ofrece un mapa para repartir competencias entre disciplinas y avanzar hacia una ciencia social unificada sin reduccionismos.
+    \end{itemize}
+ \end{seccionbox}
+ 
+ 
+
+\begin{table}
+    \centering
+    \caption{Dimensiones para distinguir altruismo, gifts y grants}
+    \label{tab:tipos-cooperacion-khalil}
+    \begin{tabular}{p{4cm} p{3.5cm} p{3.5cm} p{3.5cm}}
+        \toprule
+        & \textbf{Altruismo} & \textbf{Gifts} & \textbf{Grants} \\
+        \midrule
+        Disciplina asociada
+        & Economía
+        & Antropología
+        & Sociología \\
+        \midrule
+        Tipo de vínculo previo 
+        & No requiere vínculo previo; ayuda a personas desconocidas en situaciones de necesidad aguda (p.\ ej., accidente, inundación).
+        & Requiere vínculo afectivo preexistente; central en el mantenimiento de familias, vecindarios y comunidades.
+        & Requiere vínculo fuerte, típicamente familiar o de red social cercana (p.\ ej., ayuda financiera a un sobrino recién casado). \\
+        \midrule
+        Peso material vs.\ función simbólica 
+        & Ayuda principalmente \textbf{sustantiva}, orientada al bienestar del otro y calculada de forma eficiente (coste/beneficio).
+        & Función primordialmente \textbf{simbólica}; los bienes materiales son secundarios frente al significado expresivo del gesto.
+        & Combina función \textbf{simbólica} y \textbf{sustantiva}; la ayuda señala amor a la vez que proporciona apoyo material relevante. \\
+        \midrule
+        Tipo de reciprocidad esperada 
+        & No se espera devolución; si hubiera expectativa de retorno dejaría de ser altruismo y pasaría a ser auto-interés.
+        & Reciprocidad simbólica y afectiva (gestos de cariño, reconocimiento), no necesariamente de igual valor material.
+        & Reciprocidad afectiva a corto plazo y expectativa de que el beneficiario actúe como benefactor en el futuro con su propia red. \\
+        \midrule
+        Tipo de satisfacción generada 
+        & Satisfacción \textbf{sustantiva}: incremento del bienestar del otro como extensión del propio.
+        & Satisfacción \textbf{trascendental}: pertenencia, identidad y amor comunitario.
+        & Satisfacción mixta \textbf{sustantiva} y \textbf{trascendental}: apoyo material efectivo y refuerzo del vínculo afectivo. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \small
+    \caption{Parámetros contextuales no contemplados en Khalil (2025) y su efecto sobre los tipos de cooperación}
+    \label{tab:parametros-contextuals}
+    \begin{tabular}{p{5cm} p{7.5cm} p{3.5cm}}
+        \toprule
+        \textbf{Parámetro} & \textbf{Descripción y efecto sobre los tipos} & \textbf{Referencias} \\
+        \midrule
+        1. Fase temporal de la emergencia
+        & El altruismo entre desconocidos domina en la fase aguda, impulsado por reacciones emocionales intensas. Con el tiempo, las obligaciones informales y los grants entre redes cercanas cobran protagonismo. La taxonomía de Khalil es atemporal y no incorpora esta dinámica de transición.
+        & Tierney (2019); Solnit (2009); Norris et al.\ (2008) \\
+        \midrule
+        2. Percepción de identidad compartida (in-group / out-group)
+        & La percepción de que las víctimas son del propio grupo amplifica los tres tipos; la otredad los inhibe incluso ante necesidad extrema. Va más allá de la distinción familiar/no familiar de Khalil, operando como un continuo modulado por categorías sociales (etnia, territorio, religión). Variable ortogonal al parámetro 6.
+        & Tajfel y Turner (1979); Levine et al.\ (2005); Stürmer y Snyder (2010) \\
+        \midrule
+        3. Visibilidad y mediación simbólica del gesto
+        & Opera desde el lado del ayudante: la visibilidad pública del acto de cooperación (redes sociales, medios) puede desplazar el motivo de altruismo hacia autoengrandecimiento, que Khalil excluye expresamente de la beneficencia. Complementario pero distinto al parámetro 7, que opera desde el lado del receptor.
+        & Andreoni y Petrie (2004); Ariely et al.\ (2009); van Doesum et al.\ (2013) \\
+        \midrule
+        4. Desigualdad previa entre ayudante y receptor
+        & La asimetría socioeconómica preexistente modula la percepción y la forma concreta de los tres tipos. Un grant entre iguales tiene dinámicas distintas a uno entre personas de distinto estatus. Khalil distingue hegemony de allegiance, pero no incorpora la desigualdad como variable continua.
+        & Piff et al.\ (2010); Côté et al.\ (2015); Giving What We Can (Ord, 2010) \\
+        \midrule
+        5. Reciprocidad comunitaria diferida (capital social)
+        & En emergencias emerge una forma de reciprocidad generalizada donde se devuelve a la comunidad en abstracto, no al benefactor original. No encaja limpiamente en ninguno de los diez tipos de Khalil y puede constituir un tipo adicional. Conviene tratarlo no solo como modulador sino como extensión de la taxonomía.
+        & Putnam (2000); Ostrom (1990); Gouldner (1960) \\
+        \midrule
+        6. Distancia física entre ayudante y ayudado
+        & La proximidad espacial favorece el altruismo espontáneo entre desconocidos; la ayuda a distancia tiende a canalizarse como grants mediados institucionalmente o como gifts simbólicos. Variable ortogonal al parámetro 2: alta distancia física es compatible con alta identidad compartida (diáspora).
+        & Butts et al.\ (2022, European Economic Review); Small et al.\ (2007); Nagel y Waldmann (2013) \\
+        \midrule
+        7. Percepción de la intensidad mediada por los medios
+        & Opera desde el lado del receptor: la cobertura mediática construye la representación de la necesidad y amplifica la respuesta cooperativa en el momento agudo. Con el tiempo, la sobreexposición genera fatiga de la compasión, inhibiendo especialmente las formas sostenidas como los grants. Distinto al parámetro 3, que opera desde el lado del ayudante.
+        & Moeller (1999); Small et al.\ (2007); Slovic (2007); RTVE (2024) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+ 
 
 %***********************************************Nota: si no citas en el texto, en la bibliografía no aparece************************************%
 
 % Bibliografía
 \newpage
 \printbibliography[title={Referencias}]
-
-
-\newpage
-
-
-
-
-\newpage
-
 
 
 \end{document}
