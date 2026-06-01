@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber miprueba"] 1775155805.74516 "miprueba.bcf" "miprueba.bbl" "miprueba" 1775505861.83308 0
-  "miprueba.bcf" 1775505861.67239 133751 010f988db5d92d2d0ec5214d831fc64a "pdflatex"
+["biber miprueba"] 1775155805.74516 "miprueba.bcf" "miprueba.bbl" "miprueba" 1779576687.95859 0
+  "miprueba.bcf" 1779576687.79891 133751 010f988db5d92d2d0ec5214d831fc64a "pdflatex"
   "referencias.bib" 1765321684.69001 5738 0203e54f058cfac8d8c520b6f30b88c4 ""
   (generated)
   "miprueba.bbl"
   "miprueba.blg"
   (rewritten before read)
-["pdflatex"] 1775505858.83296 "/Users/jvo/Documents/DOCUMENTOS LATEX/RUTA TESIS/miprueba.tex" "miprueba.pdf" "miprueba" 1775505861.83354 0
-  "/Users/jvo/Documents/DOCUMENTOS LATEX/RUTA TESIS/miprueba.tex" 1775505858.63015 46956 cb37a43cd155f2a44eba7c2b1931cbc4 ""
+["pdflatex"] 1779576684.96304 "/Users/jvo/Documents/DOCUMENTOS LATEX/RUTA TESIS/miprueba.tex" "miprueba.pdf" "miprueba" 1779576687.9591 0
+  "/Users/jvo/Documents/DOCUMENTOS LATEX/RUTA TESIS/miprueba.tex" 1779576684.71776 46954 b056e699c2fa9d40e04b108ddea047f0 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/roboto/rbto_ocbbsb.enc" 1576101225 3314 42351250ac95a91f488e14b5633f75ce ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/roboto/rbto_schjax.enc" 1576101225 2974 729e60f1953f7d28deb744dead16208c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -227,11 +227,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1765279019 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1765278945 3345726 c40496fb3d332e27af06f29491100c6d ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "miprueba.aux" 1775505861.664 4262 ff54049309ad23eee2ac6f740c20ff44 "pdflatex"
+  "miprueba.aux" 1779576687.79102 4262 ff54049309ad23eee2ac6f740c20ff44 "pdflatex"
   "miprueba.bbl" 1775155808.70354 26718 8c0808af662adf2567a4c7ce9af01fe9 "biber miprueba"
-  "miprueba.out" 1775505861.6679 2862 eccc7c14205387df9bacf9cf1ea18632 "pdflatex"
-  "miprueba.run.xml" 1775505861.67363 2429 65a2ac2673ae0427ae81578afdafecc4 "pdflatex"
-  "miprueba.tex" 1775505858.63015 46956 cb37a43cd155f2a44eba7c2b1931cbc4 ""
+  "miprueba.out" 1779576687.79428 2862 eccc7c14205387df9bacf9cf1ea18632 "pdflatex"
+  "miprueba.run.xml" 1779576687.79989 2429 65a2ac2673ae0427ae81578afdafecc4 "pdflatex"
+  "miprueba.tex" 1779576684.71776 46954 b056e699c2fa9d40e04b108ddea047f0 ""
   (generated)
   "miprueba.aux"
   "miprueba.bcf"
