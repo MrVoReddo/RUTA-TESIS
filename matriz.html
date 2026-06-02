@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matriz de casos × parámetros</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      margin: 40px auto;
+      max-width: 1100px;
+      color: #222;
+      background: #fff;
+      padding: 0 24px 48px;
+    }
+    h1, h2, h3 {
+      color: #1f2d3d;
+    }
+    h1 {
+      font-size: 1.9rem;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 38px;
+      border-left: 5px solid #5c7cfa;
+      padding-left: 12px;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 24px;
+    }
+    .meta {
+      background: #f6f8fb;
+      border: 1px solid #d9e2ef;
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 28px;
+      font-size: 0.93rem;
+    }
+    th, td {
+      border: 1px solid #cfd6df;
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: #eef3f9;
+      font-weight: bold;
+    }
+    tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+    .param {
+      font-weight: bold;
+      color: #1e3a5f;
+      white-space: nowrap;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .alto   { background: #dcfce7; color: #166534; }
+    .medio  { background: #fef9c3; color: #854d0e; }
+    .bajo   { background: #fee2e2; color: #991b1b; }
+    .mixto  { background: #e0e7ff; color: #3730a3; }
+    .pendiente { background: #f3f4f6; color: #6b7280; font-style: italic; }
+    .patterns {
+      margin-top: 10px;
+    }
+    .patterns ul {
+      margin: 8px 0 16px 20px;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-top: 32px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Matriz de casos × parámetros</h1>
+
+  <div class="meta">
+    <p><strong>Objetivo:</strong> asignar un valor orientativo a cada parámetro para cada caso, con indicación de la fuente que lo justifica. Funciona como núcleo metodológico del artículo empírico comparado y como base de calibración del modelo basado en agentes.</p>
+    <p><strong>Escala cromática:</strong>
+      <span class="badge alto">Alto</span>
+      <span class="badge medio">Medio</span>
+      <span class="badge bajo">Bajo</span>
+      <span class="badge mixto">Mixto</span>
+      <span class="badge pendiente">Pendiente (datos propios)</span>
+    </p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:16%">Parámetro</th>
+        <th style="width:21%">Kobe 1995</th>
+        <th style="width:21%">Katrina 2005</th>
+        <th style="width:21%">Chile 2010</th>
+        <th style="width:21%">DANA 2024</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td class="param">P1<br/>Fase temporal</td>
+        <td>
+          <span class="badge alto">Tres fases documentadas</span><br/>
+          Espontánea → organizada → institucional.<br/>
+          <small><em>Aldrich (2012); Yasui (2007)</em></small>
+        </td>
+        <td>
+          <span class="badge bajo">Fase aguda prolongada</span><br/>
+          Colapso institucional retrasó la transición de forma desigual.<br/>
+          <small><em>Tierney et al. (2006)</em></small>
+        </td>
+        <td>
+          <span class="badge mixto">Dos fases visibles</span><br/>
+          Transición rápida en zonas rurales; más lenta en áreas urbanas.<br/>
+          <small><em>Grandón et al. (2014)</em></small>
+        </td>
+        <td>
+          <span class="badge pendiente">Fase aguda muy marcada</span><br/>
+          Transición en curso; sin estudios longitudinales consolidados aún.<br/>
+          <small><em>Rodríguez Salgado (2025); datos propios</em></small>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="param">P2<br/>Identidad compartida</td>
+        <td>
+          <span class="badge alto">Alta</span><br/>
+          Comunidad cohesionada; baja fragmentación identitaria.<br/>
+          <small><em>Yasui (2007); Aldrich (2012)</em></small>
+        </td>
+        <td>
+          <span class="badge bajo">Baja</span><br/>
+          Fractura racial documentada; "elite panic" y violencia vigilante racializada.<br/>
+          <small><em>Tierney et al. (2006); Solnit (2009)</em></small>
+        </td>
+        <td>
+          <span class="badge medio">Media</span><br/>
+          Alta cohesión en comunidades rurales costeras; tensión en zonas urbanas.<br/>
+          <small><em>Grandón et al. (2014)</em></small>
+        </td>
+        <td>
+          <span class="badge mixto">Alta inicial / fragmentación posterior</span><br/>
+          Identidad territorial fuerte al inicio; divisiones políticas emergentes.<br/>
+          <small><em>Chaves &amp; Pitarch (2024); datos propios pendientes</em></small>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="param">P3<br/>Visibilidad simbólica</td>
+        <td>
+          <span class="badge bajo">Baja</span><br/>
+          Voluntariado vecinal discreto; sin mediación digital.<br/>
+          <small><em>Yasui (2007)</em></small>
+        </td>
+        <td>
+          <span class="badge medio">Media</span><br/>
+          Cobertura masiva centrada en el conflicto, no en el gesto individual.<br/>
+          <small><em>Tierney et al. (2006); Moeller (1999)</em></small>
+        </td>
+        <td>
+          <span class="badge bajo">Baja-media</span><br/>
+          Escasa documentación individual; cobertura mediática nacional del desastre.<br/>
+          <small><em>Grandón et al. (2014)</em></small>
+        </td>
+        <td>
+          <span class="badge alto">Alta</span><br/>
+          TikTok, Instagram, WhatsApp; "turismo del voluntariado" documentado.<br/>
+          <small><em>Congosto (2024); datos propios</em></small>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="param">P4<br/>Desigualdad previa</td>
+        <td>
+          <span class="badge bajo">Baja</span><br/>
+          Gini Japón ~0,25; cooperación entre iguales dominante.<br/>
+          <small><em>World Bank; Aldrich (2012)</em></small>
+        </td>
+        <td>
+          <span class="badge alto">Alta</span><br/>
+          Gini EE.UU. ~0,47; fractura racial equivalente a fractura de clase.<br/>
+          <small><em>Brunsma et al. (2007)</em></small>
+        </td>
+        <td>
+          <span class="badge alto">Alta con variación interna</span><br/>
+          Gini Chile ~0,52; diferencias territoriales significativas.<br/>
+          <small><em>EURE (2016); Grandón (2014)</em></small>
+        </td>
+        <td>
+          <span class="badge medio">Media</span><br/>
+          Gini España ~0,33; desigualdad territorial marcada en la Comunitat Valenciana.<br/>
+          <small><em>INE (2023)</em></small>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="param">P5<br/>Reciprocidad comunitaria diferida</td>
+        <td>
+          <span class="badge alto">Alto</span><br/>
+          Capital social predictor robusto de recuperación; redes latentes activadas.<br/>
+          <small><em>Aldrich (2011, 2012)</em></small>
+        </td>
+        <td>
+          <span class="badge mixto">Bajo / medio según zona</span><br/>
+          Bajo en zonas de fractura racial; medio en comunidades con ayuda mutua histórica.<br/>
+          <small><em>Common Ground Collective; Solnit (2009)</em></small>
+        </td>
+        <td>
+          <span class="badge mixto">Medio-alto rural / bajo urbano</span><br/>
+          Reciprocidad diferida activa en zonas rurales; saqueos en zonas urbanas.<br/>
+          <small><em>Grandón et al. (2014)</em></small>
+        </td>
+        <td>
+          <span class="badge pendiente">Medio (estimado)</span><br/>
+          Cooperación sostenida más allá del impulso inicial; pendiente de codificación.<br/>
+          <small><em>Datos propios pendientes</em></small>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="param">P6<br/>Distancia física</td>
+        <td>
+          <span class="badge bajo">Baja</span><br/>
+          Cooperación predominantemente vecinal y local.<br/>
+          <small><em>Yasui (2007); Aldrich (2012)</em></small>
+        </td>
+        <td>
+          <span class="badge alto">Alta</span><br/>
+          Fuerte peso de ONGs externas, diáspora y estructuras federales.<br/>
+          <small><em>Tierney (2006); Aldrich (2012)</em></small>
+        </td>
+        <td>
+          <span class="badge mixto">Mixta</span><br/>
+          Local en El Morro; externo e institucionalizado en Gran Concepción.<br/>
+          <small><em>Grandón (2014); EURE (2016)</em></small>
+        </td>
+        <td>
+          <span class="badge mixto">Mixta-alta</span><br/>
+          Oleada masiva de voluntarios externos (45.000–50.000) + ayuda vecinal local.<br/>
+          <small><em>Serrano/EFE (2024); Cruz Roja (2024)</em></small>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="param">P7<br/>Intensidad mediática</td>
+        <td>
+          <span class="badge medio">Media</span><br/>
+          Alta cobertura nacional; moderada internacional; sin fatiga documentada a corto plazo.<br/>
+          <small><em>Aldrich (2012)</em></small>
+        </td>
+        <td>
+          <span class="badge alto">Alta sostenida</span><br/>
+          Marco "guerra" en medios; cobertura global prolongada.<br/>
+          <small><em>Tierney et al. (2006); Moeller (1999)</em></small>
+        </td>
+        <td>
+          <span class="badge medio">Alta inicial con caída rápida</span><br/>
+          Eclipsada por agenda política chilena en pocas semanas.<br/>
+          <small><em>Grandón (2014)</em></small>
+        </td>
+        <td>
+          <span class="badge mixto">Alta aguda / fatiga temprana</span><br/>
+          Caída detectable en donaciones y voluntariado organizado.<br/>
+          <small><em>Cruz Roja (2024); RTVE (2024)</em></small>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <h2>Patrones identificados</h2>
+
+  <div class="patterns">
+    <h3>Por columna (perfiles de caso)</h3>
+    <ul>
+      <li><strong>Kobe 1995:</strong> caso de referencia positivo — alta identidad, baja desigualdad, reciprocidad diferida robusta, cooperación local y discreta. Perfil ideal para validar P2, P4 y P5 en su valor alto.</li>
+      <li><strong>Katrina 2005:</strong> caso polar opuesto en P2, P4 y P5; fractura social como variable explicativa central. Caso de referencia para los valores bajos y las condiciones de inhibición de la cooperación.</li>
+      <li><strong>Chile 2010:</strong> único caso con variación interna fuerte en casi todos los parámetros. Analíticamente el más rico para comparar zonas dentro del mismo evento.</li>
+      <li><strong>DANA 2024:</strong> perfil singular en P3 y P6 por la dimensión digital y la oleada externa de voluntarios. Las celdas pendientes de datos propios son el núcleo de la investigación original.</li>
+    </ul>
+
+    <h3>Por fila (poder discriminante de los parámetros)</h3>
+    <ul>
+      <li><strong>P2 y P5</strong> son los que muestran mayor variación entre casos: máximo poder discriminante para el artículo y para el ABM.</li>
+      <li><strong>P3</strong> es casi exclusivo de la DANA: refuerza la necesidad de datos primarios propios para ese caso.</li>
+      <li><strong>P4</strong> tiene variación clara entre Kobe (bajo) y Katrina/Chile (alto), con España en posición intermedia.</li>
+      <li><strong>P1 y P7</strong> requieren datos longitudinales: su codificación es la más exigente metodológicamente.</li>
+    </ul>
+
+    <h3>Celdas débiles</h3>
+    <ul>
+      <li>Las celdas de la DANA marcadas como pendientes son el trabajo de campo que equipara este caso a los históricos en densidad analítica.</li>
+      <li>Sin ellas, la DANA funciona como caso ilustrativo pero no como caso comparativamente equivalente.</li>
+    </ul>
+  </div>
+
+  <p class="note">
+    <strong>Nota metodológica:</strong> los valores de esta matriz son orientativos y están sujetos a revisión tras la codificación sistemática. Las fuentes citadas son las referencias primarias que justifican cada asignación. Las celdas marcadas como "pendientes" requieren datos primarios propios (entrevistas, análisis de redes sociales, registros de voluntariado).
+  </p>
+
+</body>
+</html>
