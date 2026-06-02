@@ -9,7 +9,7 @@
       font-family: Georgia, "Times New Roman", serif;
       line-height: 1.55;
       margin: 40px auto;
-      max-width: 1100px;
+      max-width: 1200px;
       color: #222;
       background: #fff;
       padding: 0 24px 48px;
@@ -45,11 +45,11 @@
       width: 100%;
       border-collapse: collapse;
       margin: 16px 0 28px;
-      font-size: 0.93rem;
+      font-size: 0.88rem;
     }
     th, td {
       border: 1px solid #cfd6df;
-      padding: 10px 12px;
+      padding: 9px 11px;
       vertical-align: top;
       text-align: left;
     }
@@ -69,27 +69,36 @@
       display: inline-block;
       padding: 2px 8px;
       border-radius: 12px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: bold;
       margin-bottom: 4px;
     }
-    .alto   { background: #dcfce7; color: #166534; }
-    .medio  { background: #fef9c3; color: #854d0e; }
-    .bajo   { background: #fee2e2; color: #991b1b; }
-    .mixto  { background: #e0e7ff; color: #3730a3; }
+    .alto      { background: #dcfce7; color: #166534; }
+    .medio     { background: #fef9c3; color: #854d0e; }
+    .bajo      { background: #fee2e2; color: #991b1b; }
+    .mixto     { background: #e0e7ff; color: #3730a3; }
+    .singular  { background: #fce7f3; color: #9d174d; }
     .pendiente { background: #f3f4f6; color: #6b7280; font-style: italic; }
-    .patterns {
-      margin-top: 10px;
-    }
-    .patterns ul {
-      margin: 8px 0 16px 20px;
-    }
     .note {
       font-size: 0.9rem;
       color: #475569;
       margin-top: 32px;
       border-top: 1px solid #e5e7eb;
       padding-top: 16px;
+    }
+    .prestige-col {
+      background: #fdf4ff !important;
+    }
+    .patterns ul {
+      margin: 8px 0 16px 20px;
+    }
+    .callout {
+      background: #fdf4ff;
+      border: 1px solid #e9d5ff;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 20px 0;
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -104,6 +113,7 @@
       <span class="badge medio">Medio</span>
       <span class="badge bajo">Bajo</span>
       <span class="badge mixto">Mixto</span>
+      <span class="badge singular">Singular / sin equivalente</span>
       <span class="badge pendiente">Pendiente (datos propios)</span>
     </p>
   </div>
@@ -111,11 +121,12 @@
   <table>
     <thead>
       <tr>
-        <th style="width:16%">Parámetro</th>
-        <th style="width:21%">Kobe 1995</th>
-        <th style="width:21%">Katrina 2005</th>
-        <th style="width:21%">Chile 2010</th>
-        <th style="width:21%">DANA 2024</th>
+        <th style="width:13%">Parámetro</th>
+        <th style="width:17%">Kobe 1995</th>
+        <th style="width:17%">Katrina 2005</th>
+        <th style="width:17%">Chile 2010</th>
+        <th style="width:17%">DANA 2024</th>
+        <th style="width:17%" class="prestige-col">Prestige 2002</th>
       </tr>
     </thead>
     <tbody>
@@ -134,13 +145,18 @@
         </td>
         <td>
           <span class="badge mixto">Dos fases visibles</span><br/>
-          Transición rápida en zonas rurales; más lenta en áreas urbanas.<br/>
+          Transición rápida en zonas rurales; lenta en áreas urbanas.<br/>
           <small><em>Grandón et al. (2014)</em></small>
         </td>
         <td>
           <span class="badge pendiente">Fase aguda muy marcada</span><br/>
-          Transición en curso; sin estudios longitudinales consolidados aún.<br/>
+          Transición en curso; sin estudios longitudinales consolidados.<br/>
           <small><em>Rodríguez Salgado (2025); datos propios</em></small>
+        </td>
+        <td class="prestige-col">
+          <span class="badge alto">Tres fases muy nítidas</span><br/>
+          Marea blanca → Nunca Máis → litigación y recuperación a largo plazo.<br/>
+          <small><em>Greenpeace (2022); El País (2012)</em></small>
         </td>
       </tr>
 
@@ -158,13 +174,18 @@
         </td>
         <td>
           <span class="badge medio">Media</span><br/>
-          Alta cohesión en comunidades rurales costeras; tensión en zonas urbanas.<br/>
+          Alta cohesión rural costera; tensión en zonas urbanas.<br/>
           <small><em>Grandón et al. (2014)</em></small>
         </td>
         <td>
           <span class="badge mixto">Alta inicial / fragmentación posterior</span><br/>
           Identidad territorial fuerte al inicio; divisiones políticas emergentes.<br/>
-          <small><em>Chaves &amp; Pitarch (2024); datos propios pendientes</em></small>
+          <small><em>Chaves &amp; Pitarch (2024); datos propios</em></small>
+        </td>
+        <td class="prestige-col">
+          <span class="badge singular">Doble capa identitaria</span><br/>
+          Identidad gallega/territorial intensa + identidad medioambiental difusa que amplió la cooperación a escala nacional y europea.<br/>
+          <small><em>RTVE (2022); Greenpeace (2022)</em></small>
         </td>
       </tr>
 
@@ -182,13 +203,18 @@
         </td>
         <td>
           <span class="badge bajo">Baja-media</span><br/>
-          Escasa documentación individual; cobertura mediática nacional del desastre.<br/>
+          Escasa documentación individual; cobertura mediática nacional.<br/>
           <small><em>Grandón et al. (2014)</em></small>
         </td>
         <td>
           <span class="badge alto">Alta</span><br/>
-          TikTok, Instagram, WhatsApp; "turismo del voluntariado" documentado.<br/>
+          TikTok, Instagram, WhatsApp; "turismo del voluntariado".<br/>
           <small><em>Congosto (2024); datos propios</em></small>
+        </td>
+        <td class="prestige-col">
+          <span class="badge medio">Media-alta analógica</span><br/>
+          Trajes blancos y mascarillas como imagen icónica en TV y prensa; alta mediación simbólica sin redes sociales.<br/>
+          <small><em>RTVE (2022); MMB (2022)</em></small>
         </td>
       </tr>
 
@@ -214,6 +240,11 @@
           Gini España ~0,33; desigualdad territorial marcada en la Comunitat Valenciana.<br/>
           <small><em>INE (2023)</em></small>
         </td>
+        <td class="prestige-col">
+          <span class="badge bajo">Baja-media</span><br/>
+          Impacto concentrado en comunidades pesqueras homogéneas; cooperación mayoritariamente horizontal.<br/>
+          <small><em>El País (2012); Poder Popular (2020)</em></small>
+        </td>
       </tr>
 
       <tr>
@@ -230,13 +261,18 @@
         </td>
         <td>
           <span class="badge mixto">Medio-alto rural / bajo urbano</span><br/>
-          Reciprocidad diferida activa en zonas rurales; saqueos en zonas urbanas.<br/>
+          Reciprocidad activa en zonas rurales; saqueos en zonas urbanas.<br/>
           <small><em>Grandón et al. (2014)</em></small>
         </td>
         <td>
           <span class="badge pendiente">Medio (estimado)</span><br/>
           Cooperación sostenida más allá del impulso inicial; pendiente de codificación.<br/>
           <small><em>Datos propios pendientes</em></small>
+        </td>
+        <td class="prestige-col">
+          <span class="badge singular">Alto con dimensión ambiental</span><br/>
+          Reciprocidad articulada como defensa del bien común ecológico; la comunidad incluye el ecosistema como contraparte simbólica. Dimensión no contemplada en los otros casos.<br/>
+          <small><em>Greenpeace (2022); Nunca Máis (2020)</em></small>
         </td>
       </tr>
 
@@ -254,7 +290,7 @@
         </td>
         <td>
           <span class="badge mixto">Mixta</span><br/>
-          Local en El Morro; externo e institucionalizado en Gran Concepción.<br/>
+          Local en El Morro; externo en Gran Concepción.<br/>
           <small><em>Grandón (2014); EURE (2016)</em></small>
         </td>
         <td>
@@ -262,13 +298,18 @@
           Oleada masiva de voluntarios externos (45.000–50.000) + ayuda vecinal local.<br/>
           <small><em>Serrano/EFE (2024); Cruz Roja (2024)</em></small>
         </td>
+        <td class="prestige-col">
+          <span class="badge singular">Alta y distribuida</span><br/>
+          Catástrofe lineal en 2.000 km de costa; cooperación necesariamente distribuida en el espacio. Lista de espera de 11.000 voluntarios en enero de 2003.<br/>
+          <small><em>RTVE (2022); El País (2012)</em></small>
+        </td>
       </tr>
 
       <tr>
         <td class="param">P7<br/>Intensidad mediática</td>
         <td>
           <span class="badge medio">Media</span><br/>
-          Alta cobertura nacional; moderada internacional; sin fatiga documentada a corto plazo.<br/>
+          Alta cobertura nacional; moderada internacional; sin fatiga documentada.<br/>
           <small><em>Aldrich (2012)</em></small>
         </td>
         <td>
@@ -286,39 +327,43 @@
           Caída detectable en donaciones y voluntariado organizado.<br/>
           <small><em>Cruz Roja (2024); RTVE (2024)</em></small>
         </td>
+        <td class="prestige-col">
+          <span class="badge singular">Alta con efecto político amplificador</span><br/>
+          La crisis de credibilidad institucional ("hilo de plastilina") amplificó la respuesta cooperativa como acto de contestación. La cobertura construyó activamente el contraste sociedad civil / fracaso institucional.<br/>
+          <small><em>Greenpeace (2022); RTVE (2022)</em></small>
+        </td>
       </tr>
 
     </tbody>
   </table>
+
+  <div class="callout">
+    <strong>Por qué el Prestige es un caso singular en la matriz:</strong> es el único desastre tecnológico-ambiental del conjunto, lo que introduce dos dimensiones no presentes en los otros cuatro casos: (1) la reciprocidad comunitaria diferida con objeto ambiental, donde la comunidad incluye el ecosistema como contraparte simbólica; y (2) la mediación simbólica analógica de alta intensidad, que permite contrastar directamente con la DANA el mismo fenómeno (visibilidad masiva + fracaso institucional) en dos entornos mediáticos completamente distintos (2002 vs. 2024). Las celdas marcadas en rosa indican rasgos sin equivalente directo en los otros casos.
+  </div>
 
   <h2>Patrones identificados</h2>
 
   <div class="patterns">
     <h3>Por columna (perfiles de caso)</h3>
     <ul>
-      <li><strong>Kobe 1995:</strong> caso de referencia positivo — alta identidad, baja desigualdad, reciprocidad diferida robusta, cooperación local y discreta. Perfil ideal para validar P2, P4 y P5 en su valor alto.</li>
-      <li><strong>Katrina 2005:</strong> caso polar opuesto en P2, P4 y P5; fractura social como variable explicativa central. Caso de referencia para los valores bajos y las condiciones de inhibición de la cooperación.</li>
-      <li><strong>Chile 2010:</strong> único caso con variación interna fuerte en casi todos los parámetros. Analíticamente el más rico para comparar zonas dentro del mismo evento.</li>
-      <li><strong>DANA 2024:</strong> perfil singular en P3 y P6 por la dimensión digital y la oleada externa de voluntarios. Las celdas pendientes de datos propios son el núcleo de la investigación original.</li>
+      <li><strong>Kobe 1995:</strong> caso de referencia positivo — alta identidad, baja desigualdad, reciprocidad diferida robusta, cooperación local y discreta.</li>
+      <li><strong>Katrina 2005:</strong> caso polar en P2, P4 y P5; fractura social como variable explicativa central.</li>
+      <li><strong>Chile 2010:</strong> único caso con variación interna fuerte en casi todos los parámetros.</li>
+      <li><strong>DANA 2024:</strong> perfil singular en P3 y P6 por la dimensión digital y la oleada externa de voluntarios.</li>
+      <li><strong>Prestige 2002:</strong> único desastre tecnológico-ambiental; perfil singular en P2 (doble capa identitaria), P5 (dimensión ecológica) y P7 (efecto político amplificador). Caso de contraste privilegiado con la DANA por contexto español compartido.</li>
     </ul>
 
     <h3>Por fila (poder discriminante de los parámetros)</h3>
     <ul>
-      <li><strong>P2 y P5</strong> son los que muestran mayor variación entre casos: máximo poder discriminante para el artículo y para el ABM.</li>
-      <li><strong>P3</strong> es casi exclusivo de la DANA: refuerza la necesidad de datos primarios propios para ese caso.</li>
-      <li><strong>P4</strong> tiene variación clara entre Kobe (bajo) y Katrina/Chile (alto), con España en posición intermedia.</li>
-      <li><strong>P1 y P7</strong> requieren datos longitudinales: su codificación es la más exigente metodológicamente.</li>
-    </ul>
-
-    <h3>Celdas débiles</h3>
-    <ul>
-      <li>Las celdas de la DANA marcadas como pendientes son el trabajo de campo que equipara este caso a los históricos en densidad analítica.</li>
-      <li>Sin ellas, la DANA funciona como caso ilustrativo pero no como caso comparativamente equivalente.</li>
+      <li><strong>P2 y P5</strong> muestran mayor variación entre casos: máximo poder discriminante.</li>
+      <li><strong>P3</strong> permite el contraste más directo entre Prestige (analógico) y DANA (digital).</li>
+      <li><strong>P7</strong> revela que el fracaso institucional actúa como amplificador cooperativo tanto en 2002 como en 2024 — patrón recurrente en el contexto español.</li>
+      <li><strong>P5</strong> en el Prestige abre una dimensión nueva (reciprocidad ambiental) que puede requerir una extensión del constructo en el marco teórico.</li>
     </ul>
   </div>
 
   <p class="note">
-    <strong>Nota metodológica:</strong> los valores de esta matriz son orientativos y están sujetos a revisión tras la codificación sistemática. Las fuentes citadas son las referencias primarias que justifican cada asignación. Las celdas marcadas como "pendientes" requieren datos primarios propios (entrevistas, análisis de redes sociales, registros de voluntariado).
+    <strong>Nota metodológica:</strong> los valores son orientativos y están sujetos a revisión tras la codificación sistemática. Las celdas marcadas como "pendientes" requieren datos primarios propios. Las celdas marcadas como "singular" indican rasgos sin equivalente directo en los otros casos y que pueden requerir extensión o matización del marco de parámetros.
   </p>
 
 </body>
