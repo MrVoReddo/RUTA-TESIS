@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tesis Doctoral — Objetivos y Aportaciones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0e1520;
+    --surface:   #141c2a;
+    --surface2:  #1a2438;
+    --border:    #253045;
+    --teal:      #4ab8a8;
+    --teal-dim:  #2d7a6e;
+    --blue:      #6b9fd4;
+    --gold:      #d4a74a;
+    --sage:      #7ab87a;
+    --cream:     #e4e0d5;
+    --muted:     #7888a4;
+    --red-soft:  #c97070;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: linear-gradient(160deg, #0a1220 0%, #0e1a2e 50%, #0e1520 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 40px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--teal), transparent);
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 350px;
+    background: radial-gradient(ellipse, rgba(74,184,168,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ─── MAIN ─── */
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+  }
+
+  /* ─── SECTION LABEL ─── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+    margin-top: 56px;
+  }
+  .section-label:first-of-type { margin-top: 0; }
+  .label-bar {
+    width: 4px;
+    height: 32px;
+    border-radius: 2px;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+  .label-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--teal);
+    text-transform: uppercase;
+  }
+  .label-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ─── OBJECTIVE CARD ─── */
+  .obj-card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    margin-bottom: 28px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .obj-card:hover {
+    border-color: var(--teal-dim);
+    box-shadow: 0 4px 24px rgba(74,184,168,0.06);
+  }
+
+  .obj-num {
+    background: var(--surface2);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 0 0;
+    border-right: 1px solid var(--border);
+  }
+  .num-inner {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--teal);
+    opacity: 0.35;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .obj-body { background: var(--surface); padding: 24px 28px; }
+
+  .obj-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .obj-desc {
+    font-size: 14px;
+    color: #b8c4d8;
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  /* ─── PREGUNTAS GUÍA ─── */
+  .preguntas {
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 4px;
+  }
+  .preguntas-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .pregunta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+    color: #c8d4e0;
+    line-height: 1.6;
+  }
+  .pregunta::before {
+    content: '?';
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: -1px;
+  }
+
+  /* ─── APORTACIONES ─── */
+  .aport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  .aport-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    transition: border-color 0.25s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .aport-card:hover { border-color: var(--sage); }
+
+  .aport-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: rgba(122,184,122,0.12);
+    border: 1px solid rgba(122,184,122,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .aport-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.35;
+  }
+  .aport-desc {
+    font-size: 13.5px;
+    color: #a8b8cc;
+    line-height: 1.75;
+  }
+
+  /* ─── Intro block for aportaciones ─── */
+  .intro-box {
+    background: rgba(74,184,168,0.05);
+    border: 1px solid rgba(74,184,168,0.18);
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: #b8ccdc;
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  strong { color: var(--cream); font-weight: 600; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--border);
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  @media (max-width: 640px) {
+    .obj-card { grid-template-columns: 56px 1fr; }
+    .num-inner { font-size: 2rem; }
+    .aport-grid { grid-template-columns: 1fr; }
+    header { padding: 44px 20px 40px; }
+    main { padding: 40px 16px 60px; }
+    .obj-body { padding: 18px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Tesis Doctoral · John Vo</p>
+  <h1>Objetivos, Preguntas<br>y Aportaciones</h1>
+  <p class="subtitle">Marco de investigación — versión 8 de diciembre de 2025</p>
+</header>
+
+<main>
+
+  <!-- ════════════════════════════════════
+       OBJETIVOS
+  ════════════════════════════════════ -->
+  <div class="section-label">
+    <span class="label-bar"></span>
+    <span class="label-text">Objetivos de investigación</span>
+    <span class="label-line"></span>
+  </div>
+
+  <!-- Objetivo 1 -->
+  <div class="obj-card">
+    <div class="obj-num"><span class="num-inner">1</span></div>
+    <div class="obj-body">
+      <h3 class="obj-title">Extracción y validación empírico-comparada de mecanismos de cooperación</h3>
+      <p class="obj-desc">
+        Identificar, a partir de varios tipos de crisis reales (fundalmentalmente desastres ambientales), qué formas de cooperación aparecen de manera recurrente, a través de la taxonomía de cooperación/reciprocidad (Khalil). Seguidamente se propondrán qué variables modulan estos tipos de mecanismos de cooperación y se validarán a través del análisis de la literatura existente sobre los casos elegidos. <del> describiendo las estructuras de red en las que se insertan: núcleos, periferias, intermediarios y vínculos con instituciones. <\del>
+      </p>
+      <div class="preguntas">
+        <p class="preguntas-label">Preguntas guía</p>
+        <div class="pregunta">¿Qué formas de cooperación aparecen de manera recurrente en distintos tipos de crisis y cómo se pueden clasificar mediante una taxonomía de cooperación/reciprocidad?</div>
+        <div class="pregunta">¿Qué estructuras de red (núcleos, periferias, brokers, vínculos con instituciones) se observan en esos casos y cómo se relacionan con los tipos de cooperación presentes?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objetivo 2 -->
+  <div class="obj-card">
+    <div class="obj-num"><span class="num-inner">2</span></div>
+    <div class="obj-body">
+      <h3 class="obj-title">Formalización y parametrización del modelo «core»</h3>
+      <p class="obj-desc">
+        Traducir los tipos de cooperación recurrentes identificados en los casos empíricos en reglas micro y parámetros de modelos basados en agentes (o aprendizaje multiagente) sobre redes complejas, distinguiendo explícitamente entre parámetros anclados empíricamente (rangos observados en las crisis) y parámetros de exploración para construir escenarios contrafácticos y probar la robustez de los mecanismos.
+      </p>
+      <div class="preguntas">
+        <p class="preguntas-label">Preguntas guía</p>
+        <div class="pregunta">¿Cómo se pueden traducir, de modo formal y riguroso, los distintos tipos de cooperación/reciprocidad en mecanismos micro de modelos de agentes o juegos evolutivos en red, preservando los matices conceptuales de la taxonomía?</div>
+        <div class="pregunta">¿Qué parámetros deben anclarse empíricamente (rangos observados en los casos) y cuáles es mejor tratar como grados de libertad para explorar escenarios contrafácticos?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objetivo 3 -->
+  <div class="obj-card">
+    <div class="obj-num"><span class="num-inner">3</span></div>
+    <div class="obj-body">
+      <h3 class="obj-title">Análisis de dinámicas y regímenes en distintos contextos de crisis</h3>
+      <p class="obj-desc">
+        Explorar, mediante simulaciones y herramientas de física de sistemas complejos, qué regímenes emergen —cooperación alta o baja, ciclos, caos, formación de élites cooperativas, exclusión, colapsos— cuando se combinan diferentes tipos de cooperación y estructuras de red inspiradas en crisis ambientales, tecnológicas, sanitarias, económicas y políticas, analizando su impacto en la distribución de recursos, oportunidades y posiciones de poder.
+      </p>
+      <div class="preguntas">
+        <p class="preguntas-label">Preguntas guía</p>
+        <div class="pregunta">¿Qué dinámicas sociales globales y patrones de desigualdad surgen para cada combinación de mecanismos y bajo qué condiciones se producen transiciones relevantes (cooperación/colapso, inclusión/exclusión, estabilidad/caos)?</div>
+        <div class="pregunta">¿En qué medida ciertas combinaciones de tipos de cooperación y estructuras de red se asocian sistemáticamente con más o menos desigualdad y con diferentes configuraciones de poder?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objetivo 4 -->
+  <div class="obj-card">
+    <div class="obj-num"><span class="num-inner">4</span></div>
+    <div class="obj-body">
+      <h3 class="obj-title">Contraste comparado e interpretación sociológica</h3>
+      <p class="obj-desc">
+        Contrastar los patrones generados por los modelos con la evidencia disponible de los casos de crisis estudiados y con debates sociológicos sobre ayuda mutua, bienes comunes, movilización colectiva, desigualdad y poder, evaluando qué mecanismos cooperativos parecen robustos entre contextos diferentes y hasta qué punto el marco (taxonomía + modelos) mejora la descripción, explicación y exploración de escenarios en crisis de diversa naturaleza.
+      </p>
+      <div class="preguntas">
+        <p class="preguntas-label">Preguntas guía</p>
+        <div class="pregunta">¿Hasta qué punto los patrones producidos por los modelos capturan rasgos clave de los casos reales estudiados y qué mecanismos parecen robustos entre crisis distintas?</div>
+        <div class="pregunta">¿Cómo ayuda el marco (taxonomía + modelos) a clarificar debates sociológicos y a formular escenarios «¿qué pasaría si…?»?</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════
+       APORTACIONES
+  ════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:72px;">
+    <span class="label-bar" style="background:var(--sage);"></span>
+    <span class="label-text" style="color:var(--sage);">Aportaciones al campo de la sociología</span>
+    <span class="label-line"></span>
+  </div>
+
+  <div class="intro-box">
+    La tesis pretende realizar contribuciones relevantes en la <strong>sociología analítica</strong>, la <strong>sociología de la cooperación</strong> y la <strong>sociología computacional</strong>, mediante la integración de una taxonomía de tipos de cooperación/reciprocidad con modelos de física estadística social.
+  </div>
+
+  <div class="aport-grid">
+
+    <div class="aport-card">
+      <div class="aport-icon">🔬</div>
+      <h4 class="aport-title">Clarificación de la cooperación en contextos de crisis</h4>
+      <p class="aport-desc">
+        Desagregar «cooperación» y «reciprocidad» en tipos bien definidos (ayuda no condicional, deuda, reputación, coordinación estratégica, redistribución…) y mostrar qué combinaciones aparecen recurrentemente en crisis ambientales, sanitarias, económicas y políticas. Permite reformular debates sobre ayuda mutua y resiliencia no en términos de «más o menos cooperación», sino de <em>qué tipo</em> opera en cada contexto.
+      </p>
+    </div>
+
+    <div class="aport-card">
+      <div class="aport-icon">🌉</div>
+      <h4 class="aport-title">Marco puente entre teoría sociológica y sistemas complejos</h4>
+      <p class="aport-desc">
+        Al traducir los tipos de cooperación a reglas micro en modelos de agentes y redes complejas, la tesis ofrece un puente entre el lenguaje propio de la teoría sociológica (roles, obligaciones, expectativas normativas, poder) y los formalismos de la física estadística social y la teoría de juegos evolutiva. Refuerza la agenda de la sociofísica vinculando de forma explícita y comprobable los niveles micro y macro.
+      </p>
+    </div>
+
+    <div class="aport-card">
+      <div class="aport-icon">⚖️</div>
+      <h4 class="aport-title">Cooperación, poder y desigualdad</h4>
+      <p class="aport-desc">
+        Al modelar cómo diferentes tipos de cooperación operan en contextos con asimetrías de poder y recursos, la tesis generará resultados novedosos sobre desigualdad horizontal, estabilidad de coaliciones y efectos de las instituciones (mecanismos de <em>checks and balances</em>, normas de reparto) sobre la cooperación. Aportación directa a debates sobre conflicto, dominación y estratificación social.
+      </p>
+    </div>
+
+    <div class="aport-card">
+      <div class="aport-icon">🧰</div>
+      <h4 class="aport-title">Desarrollo metodológico para la sociología computacional</h4>
+      <p class="aport-desc">
+        La combinación de taxonomía, modelos de redes y aplicaciones a casos empíricos proporcionará una plantilla metodológica reutilizable: un procedimiento para codificar interacciones reales según tipos de cooperación, conectarlas con parámetros de modelos de agentes y utilizar simulaciones como laboratorio conceptual para explorar escenarios contrafácticos y dinámicas de cambio social en contextos complejos.
+      </p>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>tesis doctoral · objetivos y aportaciones · john vo</footer>
+
+</body>
+</html>

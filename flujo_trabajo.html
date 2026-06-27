@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tesis Doctoral — Flujo de Trabajo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #12151f;
+    --surface:   #1c2030;
+    --surface2:  #242840;
+    --border:    #2e3350;
+    --violet:    #9b7fd4;
+    --violet-dim:#6a5594;
+    --green:     #6aaa7a;
+    --gold:      #d4974a;
+    --red:       #e07070;
+    --cream:     #e8e4d9;
+    --muted:     #8890aa;
+    --tag-bg:    #2a2040;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: linear-gradient(135deg, #1a1030 0%, #0f1828 60%, #12151f 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(155,127,212,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--violet);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  /* ─── LAYOUT ─── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  /* ─── MEETING BLOCK ─── */
+  .meeting {
+    margin-bottom: 64px;
+  }
+
+  .meeting-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .meeting-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--violet);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(155,127,212,0.2);
+  }
+  .meeting-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .meeting-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ─── ENTRY CARD ─── */
+  .entry {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0 24px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .entry::before {
+    content: '';
+    position: absolute;
+    left: 44px;
+    top: 38px;
+    bottom: -20px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--border), transparent);
+  }
+  .entry:last-child::before { display: none; }
+
+  .entry-date {
+    padding-top: 14px;
+    text-align: right;
+  }
+  .date-day {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+  .date-month {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .entry-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: border-color 0.2s;
+  }
+  .entry-card:hover { border-color: var(--violet-dim); }
+
+  .entry-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .entry-card ul li {
+    padding-left: 18px;
+    position: relative;
+    color: #ccc;
+    font-size: 14px;
+  }
+  .entry-card ul li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--violet);
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+
+  /* nested lists */
+  .entry-card ul li ol,
+  .entry-card ul li ul {
+    margin-top: 8px;
+    padding-left: 4px;
+  }
+  .entry-card ul li ol li,
+  .entry-card ul li ul li {
+    font-size: 13px;
+    color: #aaa;
+    padding-left: 22px;
+  }
+  .entry-card ul li ol { counter-reset: item; list-style: none; }
+  .entry-card ul li ol li { counter-increment: item; }
+  .entry-card ul li ol li::before {
+    content: counter(item) '.';
+    color: var(--green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    left: 2px;
+  }
+
+  /* Highlight: resaltar */
+  .resaltar {
+    color: var(--green);
+    font-weight: 600;
+    font-size: 1.05em;
+  }
+
+  /* Bold inline */
+  strong { color: var(--cream); font-weight: 600; }
+
+  /* Pending tag */
+  .pending {
+    display: inline-block;
+    background: rgba(224,112,112,0.12);
+    border: 1px solid rgba(224,112,112,0.3);
+    color: var(--red);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+  }
+
+  /* Emphasis box inside card */
+  .insight {
+    background: rgba(155,127,212,0.07);
+    border-left: 3px solid var(--violet);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 13.5px;
+    color: #c4bedd;
+    font-style: italic;
+  }
+
+  /* ─── Concept chips ─── */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .chip {
+    background: var(--tag-bg);
+    border: 1px solid var(--violet-dim);
+    color: var(--violet);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--border);
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  @media (max-width: 600px) {
+    .entry { grid-template-columns: 72px 1fr; gap: 0 14px; }
+    .entry::before { left: 35px; }
+    .date-day { font-size: 1.5rem; }
+    header { padding: 40px 20px 36px; }
+    main { padding: 40px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Tesis Doctoral · John Vo</p>
+  <h1>Flujo de Trabajo</h1>
+  <p class="subtitle">Registro cronológico de avances, lecturas y decisiones</p>
+</header>
+
+<main>
+
+  <!-- ══════════════════════════════════════
+       REUNIÓN ABRIL 2026
+  ══════════════════════════════════════ -->
+  <section class="meeting">
+    <div class="meeting-header">
+      <span class="meeting-dot"></span>
+      <h2 class="meeting-title">Reunión Abril 2026</h2>
+      <span class="meeting-line"></span>
+    </div>
+
+    <!-- 16 Feb -->
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">16</span>
+        <span class="date-month">Feb</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Realizado y entregado el curso obligatorio sobre <strong>Búsqueda, Gestión, Evaluación y Comunicación de la Información Científica</strong> — Doctorado R.D. 2011.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2 Apr -->
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">2</span>
+        <span class="date-month">Abr</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Leído y resumido el paper de <strong>Khalil (2025)</strong>.</li>
+          <li>
+            Los 3 tipos de coordinación más relevantes para una crisis: <strong>altruismo</strong>, <strong>gifts</strong> y <strong>grants</strong> — con lealtad (<em>allegiance</em>) como cuarto a considerar.
+            <div class="chips">
+              <span class="chip">altruismo</span>
+              <span class="chip">gifts</span>
+              <span class="chip">grants</span>
+              <span class="chip">allegiance</span>
+            </div>
+          </li>
+          <li>
+            Lo que coloquialmente llamamos <strong>'volcarse con las víctimas'</strong> es una superposición de los tres tipos operando simultáneamente sobre distintos actores. El voluntario desconocido actúa por altruismo; el amigo que acompaña hace un gift; el familiar que financia la reparación realiza un grant.
+          </li>
+          <li>
+            <strong>Imperialismo interdisciplinar</strong>: si una catástrofe activa los tres tipos a la vez, ninguna disciplina sola puede explicar la respuesta social completa sin distorsionar los demás tipos.
+          </li>
+          <li>
+            <strong>Respuesta transdisciplinar</strong>: Khalil propone respetar el toolkit propio de cada disciplina para cada tipo de cooperación, sin reducirlo todo a un solo marco.
+            <div class="insight">«Each discipline effectively sculptures the other types after its own preconceived mode of conception toolkit — amounting to interdisciplinary social science imperialism.»</div>
+          </li>
+          <li>
+            <span class="resaltar">Núcleo del marco teórico</span> — tres niveles:
+            <ol>
+              <li><strong>Conceptos operativos</strong>: los 10 tipos de cooperación/reciprocidad permiten codificar formas de ayuda que el lenguaje cotidiano trata como si fueran lo mismo.</li>
+              <li><strong>Epistemología</strong>: la plataforma transdisciplinar justifica movilizar más de una disciplina para estudiar la respuesta social a una catástrofe.</li>
+              <li><strong>Argumento propio</strong>: <em>no single toolkit is suitable for all ten types</em>, lo que convierte la emergencia social en caso ejemplar de transdisciplinariedad necesaria.</li>
+            </ol>
+          </li>
+          <li>
+            <span class="resaltar">Posible planificación</span>:
+            <ol>
+              <li>La beneficencia como denominador común: ausencia de oportunismo, autoengrandecimiento y malevolencia.</li>
+              <li>Seleccionar y definir los tipos que operan en una emergencia (altruismo, gifts, grants, obligaciones, allegiance, hegemonía).</li>
+              <li>El argumento transdisciplinar: al menos tres disciplinas distintas (economía, antropología, sociología), con la taxonomía de Khalil como plataforma.</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3 Apr -->
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">3</span>
+        <span class="date-month">Abr</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Construido el <strong>Cuadro 1</strong>: dimensiones para distinguir altruismo, gifts y grants.</li>
+          <li>
+            Identificados <strong>7 parámetros contextuales</strong> no contemplados en Khalil que modulan la intención cooperadora de los agentes:
+            <ol>
+              <li><strong>Fase temporal de la emergencia</strong>: altruismo domina en la fase aguda; las obligaciones informales y grants cobran protagonismo en la reconstrucción.</li>
+              <li><strong>Percepción de identidad compartida (in-group / out-group)</strong>: la percepción de que las víctimas son «de los nuestros» amplifica los tres tipos; la otredad los inhibe.</li>
+              <li><strong>Visibilidad y mediación simbólica</strong>: la visibilidad pública del gesto puede desplazar el altruismo hacia autoengrandecimiento (excluido de la beneficencia por Khalil).</li>
+              <li><strong>Desigualdad previa entre ayudante y receptor</strong>: la asimetría socioeconómica modula forma y percepción de los tres tipos; un grant entre iguales ≠ un grant entre desiguales.</li>
+              <li><strong>Reciprocidad comunitaria diferida (capital social)</strong>: reciprocidad generalizada donde se devuelve a la comunidad en abstracto — no encaja en ninguno de los 10 tipos de Khalil.</li>
+              <li><strong>Distancia física entre ayudante y ayudado</strong>: proximidad → altruismo espontáneo; lejanía → grants mediados institucionalmente o gifts simbólicos.</li>
+              <li><strong>Percepción de intensidad mediada por los medios</strong>: la cobertura amplifica la respuesta en el momento agudo; con el tiempo genera fatiga de la compasión, inhibiendo especialmente los grants.</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6 Apr -->
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">6</span>
+        <span class="date-month">Abr</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Revisar con más profundidad los estudios que dan soporte teórico a los 7 parámetros del Cuadro 2.</li>
+          <li>
+            Decidir cómo <strong>validar dichos parámetros</strong> para parametrizarlos en el modelo ABM:
+            <ul>
+              <li>¿Metaanálisis?</li>
+              <li>¿Cuestionario propio? Accesibilidad de la muestra, extensión.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       REUNIÓN ENERO 2026
+  ══════════════════════════════════════ -->
+  <section class="meeting">
+    <div class="meeting-header">
+      <span class="meeting-dot" style="background:var(--green); box-shadow: 0 0 0 4px rgba(106,170,122,0.2);"></span>
+      <h2 class="meeting-title">Reunión Enero 2026</h2>
+      <span class="meeting-line"></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">4</span>
+        <span class="date-month">Ene</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Mejorado el archivo sobre distintos autores y sus concepciones de la «cooperación».</li>
+          <li>Corregidas erratas y añadidos más autores.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">22</span>
+        <span class="date-month">Dic</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Instalado <strong>Python, Mesa</strong> y dependencias del entorno ABM.</li>
+          <li>Primeras pruebas de código para entender la lógica del modelado basado en agentes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">11</span>
+        <span class="date-month">Dic</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Creado repositorio de <strong>GitHub</strong> con el proyecto de la tesis.</li>
+          <li>Depurado este documento de hoja de ruta.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       REUNIÓN DICIEMBRE 2025
+  ══════════════════════════════════════ -->
+  <section class="meeting">
+    <div class="meeting-header">
+      <span class="meeting-dot" style="background:var(--gold); box-shadow: 0 0 0 4px rgba(212,151,74,0.2);"></span>
+      <h2 class="meeting-title">Reunión Diciembre 2025</h2>
+      <span class="meeting-line"></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">8</span>
+        <span class="date-month">Dic</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Definidas mejor (y más certeramente) las <strong>preguntas principales</strong> de la tesis.</li>
+          <li>Redefinidos los <strong>objetivos</strong> de investigación.</li>
+          <li>Actualizadas las <strong>aportaciones</strong> de la tesis al campo de la sociología.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">7</span>
+        <span class="date-month">Dic</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Instalado <strong>NetLogo</strong> para simulaciones por modelado basado en agentes.</li>
+          <li>Ver tutoriales con más calma <span class="pending">PENDIENTE</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">27</span>
+        <span class="date-month">Nov</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Descargado el paper de <strong>Khalil</strong> sobre taxonomías de cooperación/reciprocidad.</li>
+          <li>Empezadas notas del paper.</li>
+          <li>Leer con más calma y acabar <span class="pending">PENDIENTE</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">25</span>
+        <span class="date-month">Nov</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Resumen de <strong>Social Revolution in the Modern World</strong> (Theda Skocpol).</li>
+          <li>Leer con más calma <span class="pending">PENDIENTE</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">
+        <span class="date-day">15</span>
+        <span class="date-month">Nov</span>
+      </div>
+      <div class="entry-card">
+        <ul>
+          <li>Resumen de <strong>Masa crítica: cambio, caos y complejidad</strong> (Philip Ball).</li>
+          <li>Notas del resumen — panorámica de las múltiples aplicaciones de la física estadística en ciencias sociales (lo hecho, lo que se está haciendo y lo que falta por hacer).</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>tesis doctoral · flujo de trabajo · john vo</footer>
+
+</body>
+</html>
