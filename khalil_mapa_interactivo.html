@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khalil (2025) — Taxonomía y parámetros contextuales</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F4EE;
+    --surface: #FFFFFF;
+    --surface-alt: #F2EFE9;
+    --border: #E0DBD0;
+    --border-strong: #C8C0B0;
+    --text: #1C1A16;
+    --text-2: #4A4640;
+    --text-3: #7A7570;
+    --accent-violet: #5B4FBE;
+    --accent-violet-light: #EAE8FA;
+    --accent-teal: #0F7B6C;
+    --accent-teal-light: #E0F4EF;
+    --accent-gold: #8A6000;
+    --accent-gold-light: #FDF3DC;
+    --accent-coral: #A83520;
+    --accent-coral-light: #FAEAE6;
+    --accent-sage: #3A6B3E;
+    --accent-sage-light: #E6F2E7;
+    --accent-slate: #2D4A6B;
+    --accent-slate-light: #E4EBF5;
+    --accent-rose: #8B2252;
+    --accent-rose-light: #F7E6EF;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 40px 24px;
+  }
+  .header-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--text-3);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  header h1 em {
+    font-style: italic;
+    color: var(--accent-violet);
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--text-3);
+    max-width: 680px;
+  }
+  .header-ref {
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-3);
+    border-left: 2px solid var(--border-strong);
+    padding-left: 10px;
+  }
+
+  /* ── NAV TABS ── */
+  .nav-tabs {
+    display: flex;
+    gap: 2px;
+    padding: 16px 40px 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 18px 11px;
+    border: none;
+    background: transparent;
+    color: var(--text-3);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.18s;
+    border-radius: 4px 4px 0 0;
+  }
+  .tab-btn:hover { color: var(--text); background: var(--surface-alt); }
+  .tab-btn.active { color: var(--accent-violet); border-bottom-color: var(--accent-violet); background: transparent; }
+
+  /* ── MAIN LAYOUT ── */
+  .main { display: flex; min-height: calc(100vh - 140px); }
+
+  /* ── PANEL VIEWS ── */
+  .panel-view { display: none; width: 100%; }
+  .panel-view.active { display: flex; }
+
+  /* ── VIEW 1: TAXONOMÍA ── */
+  #view-taxonomy { flex-direction: column; padding: 32px 40px; gap: 28px; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 14px;
+  }
+
+  .taxonomy-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  .tax-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 14px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .tax-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 10px 10px 0 0;
+  }
+  .tax-card:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+  .tax-card.selected { border-color: currentColor; }
+
+  .tax-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    opacity: 0.6;
+  }
+  .tax-card .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+  .tax-card .discipline-tag {
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 7px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .tax-card .satisfaction-tag {
+    font-size: 10px;
+    color: var(--text-3);
+  }
+  .tax-card .desc {
+    font-size: 12px;
+    color: var(--text-2);
+    line-height: 1.5;
+    margin-top: 8px;
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+    display: none;
+  }
+  .tax-card.expanded .desc { display: block; }
+
+  /* colores por disciplina */
+  .c-econ  { color: var(--accent-gold); }
+  .c-econ::before { background: var(--accent-gold); }
+  .c-econ .discipline-tag { background: var(--accent-gold-light); color: var(--accent-gold); }
+  .c-poli  { color: var(--accent-coral); }
+  .c-poli::before { background: var(--accent-coral); }
+  .c-poli .discipline-tag { background: var(--accent-coral-light); color: var(--accent-coral); }
+  .c-socio { color: var(--accent-teal); }
+  .c-socio::before { background: var(--accent-teal); }
+  .c-socio .discipline-tag { background: var(--accent-teal-light); color: var(--accent-teal); }
+  .c-antro { color: var(--accent-sage); }
+  .c-antro::before { background: var(--accent-sage); }
+  .c-antro .discipline-tag { background: var(--accent-sage-light); color: var(--accent-sage); }
+  .c-psico { color: var(--accent-violet); }
+  .c-psico::before { background: var(--accent-violet); }
+  .c-psico .discipline-tag { background: var(--accent-violet-light); color: var(--accent-violet); }
+  .c-hybrid { color: var(--accent-slate); }
+  .c-hybrid::before { background: var(--accent-slate); }
+  .c-hybrid .discipline-tag { background: var(--accent-slate-light); color: var(--accent-slate); }
+
+  /* satisfacciones */
+  .satisf-row { display: flex; gap: 8px; margin-top: 20px; }
+  .satisf-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .satisf-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .satisf-card p { font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
+  .satisf-card .tipos-list {
+    margin-top: 8px;
+    display: flex; flex-wrap: wrap; gap: 5px;
+  }
+  .satisf-card .tipo-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: var(--surface-alt);
+    color: var(--text-2);
+  }
+  .s-sust h3 { color: var(--accent-gold); }
+  .s-int  h3 { color: var(--accent-coral); }
+  .s-tras h3 { color: var(--accent-violet); }
+
+  /* ── VIEW 2: PARÁMETROS ── */
+  #view-params { flex-direction: row; }
+
+  .params-sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    overflow-y: auto;
+  }
+  .params-sidebar-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    padding: 0 20px 12px;
+  }
+  .param-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .param-item:hover { background: var(--surface-alt); }
+  .param-item.active { border-left-color: var(--accent-violet); background: var(--accent-violet-light); }
+  .param-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-3);
+    min-width: 20px;
+    margin-top: 1px;
+  }
+  .param-item.active .param-num { color: var(--accent-violet); }
+  .param-name { font-size: 13px; font-weight: 500; line-height: 1.35; }
+  .param-pattern {
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 3px;
+    color: var(--text-3);
+  }
+
+  .params-detail {
+    flex: 1;
+    padding: 32px 36px;
+    overflow-y: auto;
+  }
+  .param-detail-card { display: none; }
+  .param-detail-card.active { display: block; }
+
+  .param-detail-header {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .param-detail-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--border-strong);
+    line-height: 1;
+    min-width: 36px;
+  }
+  .param-detail-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text);
+  }
+  .param-detail-pattern {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .detail-section { margin-bottom: 22px; }
+  .detail-section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 8px;
+  }
+  .detail-section p {
+    font-size: 13.5px;
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+  .detail-section p + p { margin-top: 8px; }
+
+  .tipos-afectados {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 4px;
+  }
+  .tipo-afect {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12.5px;
+  }
+  .tipo-afect .intensidad {
+    font-size: 14px;
+    line-height: 1;
+  }
+  .tipo-afect .tipo-name { font-weight: 500; }
+  .tipo-afect .tipo-disc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-3);
+    margin-left: 2px;
+  }
+
+  .quote-block {
+    background: var(--surface-alt);
+    border-left: 3px solid var(--border-strong);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-size: 13px;
+    color: var(--text-2);
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .quote-block cite {
+    display: block;
+    font-style: normal;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-3);
+    margin-top: 6px;
+  }
+
+  .nota-tesis {
+    background: var(--accent-violet-light);
+    border: 1px solid #C5BFF5;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 8px;
+  }
+  .nota-tesis-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-violet);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .nota-tesis p {
+    font-size: 13px;
+    color: #3A3080;
+    line-height: 1.6;
+  }
+
+  .refs-list {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 4px;
+  }
+  .ref-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 9px;
+    color: var(--text-2);
+  }
+
+  .laguna-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: #FFF3CD;
+    border: 1px solid #D4A820;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11.5px;
+    color: #7A5800;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  /* ── VIEW 3: PATRONES ── */
+  #view-patterns { flex-direction: column; padding: 32px 40px; gap: 24px; }
+
+  .pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pattern-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .pattern-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .pattern-card p { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+  .pattern-card .params-in-pattern {
+    margin-top: 12px;
+    display: flex; flex-wrap: wrap; gap: 5px;
+  }
+  .pattern-card .pip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .p-mod h3 { color: var(--accent-teal); }
+  .p-mod { border-top: 3px solid var(--accent-teal); }
+  .p-mod .pip { background: var(--accent-teal-light); color: var(--accent-teal); }
+  .p-desp h3 { color: var(--accent-gold); }
+  .p-desp { border-top: 3px solid var(--accent-gold); }
+  .p-desp .pip { background: var(--accent-gold-light); color: var(--accent-gold); }
+  .p-ext h3 { color: var(--accent-violet); }
+  .p-ext { border-top: 3px solid var(--accent-violet); }
+  .p-ext .pip { background: var(--accent-violet-light); color: var(--accent-violet); }
+
+  .abm-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .abm-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .abm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .abm-card {
+    background: var(--surface-alt);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .abm-card h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .abm-card p { font-size: 12px; color: var(--text-2); line-height: 1.55; }
+  .abm-card .abm-code {
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 6px 10px;
+    color: var(--accent-violet);
+    line-height: 1.5;
+  }
+
+  /* IMPERIALISMO GRID */
+  .imp-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 4px; }
+  .imp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 12.5px;
+  }
+  .imp-card h4 { font-size: 12px; font-weight: 600; margin-bottom: 5px; }
+  .imp-card p { font-size: 11.5px; color: var(--text-2); line-height: 1.5; }
+
+  /* UTILS */
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+  .mt-4 { margin-top: 4px; }
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+
+  @media (max-width: 900px) {
+    .taxonomy-grid { grid-template-columns: repeat(2, 1fr); }
+    .pattern-grid, .abm-grid { grid-template-columns: 1fr; }
+    #view-params { flex-direction: column; }
+    .params-sidebar { width: 100%; min-width: unset; border-right: none; border-bottom: 1px solid var(--border); }
+    header, .nav-tabs, #view-taxonomy, #view-patterns { padding-left: 20px; padding-right: 20px; }
+    .params-detail { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">Tesis doctoral · Marco teórico · Notas de trabajo</div>
+  <h1>Taxonomía de cooperación y reciprocidad<br><em>más allá del imperialismo interdisciplinar</em></h1>
+  <p class="header-sub">Mapa interactivo del paper de Khalil (2025) con los 7 parámetros contextuales propios y su relación con los 10 tipos de cooperación beneficente y las 5 disciplinas.</p>
+  <div class="header-ref">Khalil, E.L. (2025). Taxonomy of Cooperation and Reciprocity: Beyond Interdisciplinary Social Science Imperialism. <em>Integrative Psychological and Behavioral Science</em>, 59:44. https://doi.org/10.1007/s12124-025-09906-7</div>
+</header>
+
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showView('taxonomy', this)">Taxonomía de Khalil</button>
+  <button class="tab-btn" onclick="showView('params', this)">7 Parámetros contextuales</button>
+  <button class="tab-btn" onclick="showView('patterns', this)">Patrones e implicaciones ABM</button>
+</div>
+
+<div class="main">
+
+  <!-- ══════════════════════════════ VIEW 1: TAXONOMÍA ══════════════════════════════ -->
+  <div id="view-taxonomy" class="panel-view active">
+
+    <div>
+      <div class="section-label">10 tipos de cooperación / reciprocidad — haz clic para expandir</div>
+      <div class="taxonomy-grid">
+
+        <div class="tax-card c-econ" onclick="toggleCard(this)">
+          <div class="num">01</div>
+          <div class="name">Quid pro quo</div>
+          <span class="discipline-tag">Economía</span><br>
+          <span class="satisfaction-tag">● Sustantiva</span>
+          <div class="desc">Intercambio directo y contractual entre partes. Es el tipo más ubicuo en las sociedades modernas, mediado por el mercado. Cada agente apela al interés propio del otro. La cooperación es beneficente siempre que esté libre de engaño y oportunismo. Adam Smith: «It is not from the benevolence of the butcher… but from their regard to their own interest.»<br><br><strong>Reciprocidad:</strong> inmediata y simétrica (o asimétrica si hay poder hegemónico). El incumplimiento habilita represalia legal o social.</div>
+        </div>
+
+        <div class="tax-card c-econ" onclick="toggleCard(this)">
+          <div class="num">02</div>
+          <div class="name">Asignación intertemporal</div>
+          <span class="discipline-tag">Economía</span><br>
+          <span class="satisfaction-tag">● Sustantiva</span>
+          <div class="desc">Cooperación del yo presente hacia el yo futuro mediante ahorro, inversión y sacrificio actual. Es la forma más elemental de cooperación, pues replica en el plano intrapersonal el dilema del prisionero: el yo futuro no puede castigar al yo presente que «hace trampa».<br><br><strong>Para Khalil:</strong> la isomorfía entre la asignación intertemporal y los juegos de bienes públicos demuestra que la cooperación no requiere necesariamente una segunda persona.</div>
+        </div>
+
+        <div class="tax-card c-econ" onclick="toggleCard(this)">
+          <div class="num">03</div>
+          <div class="name">Altruismo</div>
+          <span class="discipline-tag">Economía</span><br>
+          <span class="satisfaction-tag">● Sustantiva</span>
+          <div class="desc">Sacrificio de recursos propios para beneficiar a otro sin esperar retorno equivalente. Si hubiera expectativa de devolución, sería auto-interés mediado. En la versión ego-céntrica de Becker (1976), el altruista busca su propio bienestar vicariamente a través del bienestar del beneficiario.<br><br><strong>Clave para crisis:</strong> es el tipo dominante en la fase aguda (desconocidos excavando barro). Su activación es emocional e inmediata; no requiere vínculo previo.</div>
+        </div>
+
+        <div class="tax-card c-poli" onclick="toggleCard(this)">
+          <div class="num">04</div>
+          <div class="name">Obligaciones formales (justicia)</div>
+          <span class="discipline-tag">Ciencia política</span><br>
+          <span class="satisfaction-tag">◑ Integridad</span>
+          <div class="desc">Cooperación mediada por el reconocimiento recíproco de derechos y el respeto a contratos explícitos. El incumplimiento genera resentimiento moral y disposición a castigar incluso a coste propio (juego del ultimátum, Güth et al., 1982).<br><br><strong>Khalil / Hume:</strong> la justicia es una «virtud artificial» derivada del auto-interés y las circunstancias, no una virtud natural. Esto distingue las obligaciones formales del altruismo.</div>
+        </div>
+
+        <div class="tax-card c-socio" onclick="toggleCard(this)">
+          <div class="num">05</div>
+          <div class="name">Obligaciones informales (repayment)</div>
+          <span class="discipline-tag">Sociología</span><br>
+          <span class="satisfaction-tag">◑ Integridad</span>
+          <div class="desc">Devolución de favores regida por normas sociales y reputación, sin contrato explícito previo. El mecánico que patroniza el restaurante de su cliente no actúa por justicia formal sino por sentido de deuda social.<br><br><strong>Sobel (2005):</strong> «reciprocidad instrumental». Khalil la distingue de los gifts porque aquí la reciprocidad es calculada y esperada, aunque sin contrato. Es el cemento del capital social (Coleman, 1994; Putnam, 2000).</div>
+        </div>
+
+        <div class="tax-card c-antro" onclick="toggleCard(this)">
+          <div class="num">06</div>
+          <div class="name">Gifts (dones)</div>
+          <span class="discipline-tag">Antropología</span><br>
+          <span class="satisfaction-tag">● Trascendental</span>
+          <div class="desc">Entregas no contractuales que expresan amor y pertenencia comunitaria. El valor simbólico prima sobre el material; el don exactamente equivalente enviaría la señal equivocada (quid pro quo). Sobel (2005): «reciprocidad intrínseca».<br><br><strong>Tabúes:</strong> las culturas construyen muros protectores (tabúes) alrededor de los gifts para preservarlos de la contaminación del auto-interés (Steiner, 1999; Douglas, 2002). Mauss (1990): base de la solidaridad comunitaria.</div>
+        </div>
+
+        <div class="tax-card c-antro" onclick="toggleCard(this)">
+          <div class="num">07</div>
+          <div class="name">Lealtad (allegiance)</div>
+          <span class="discipline-tag">Antropología</span><br>
+          <span class="satisfaction-tag">◑ Sust. + Trasc.</span>
+          <div class="desc">Sumisión a una autoridad que ejerce tutela (guardianship). Se distingue de la hegemonía en que el superior vela genuinamente por el interés del subordinado. Steiner (1949): la relación amo-siervo arranca del altruismo del benefactor y se transforma en lealtad cuando el beneficiario cede autonomía a cambio de protección.<br><br><strong>Ejemplos:</strong> empleado-empleador, ciudadano-Estado paternalista, hijo-padre.</div>
+        </div>
+
+        <div class="tax-card c-poli" onclick="toggleCard(this)">
+          <div class="num">08</div>
+          <div class="name">Hegemonía</div>
+          <span class="discipline-tag">Ciencia política</span><br>
+          <span class="satisfaction-tag">● Sustantiva</span>
+          <div class="desc">Cooperación asimétrica donde el actor poderoso fija términos ventajosos sin guardianship. El débil acepta porque la alternativa es peor. Olson (1993): el Estado como «bandido estacionario» que no sobreexplota porque le interesa la productividad del sujeto.<br><br><strong>Beneficencia sin altruismo:</strong> la hegemonía puede ser «beneficente» en el sentido mínimo de Khalil (sin engaño ni malevolencia) aunque sea explotadora. La distinción explotación/injusticia requiere una teoría del alcance de la justicia.</div>
+        </div>
+
+        <div class="tax-card c-hybrid" onclick="toggleCard(this)">
+          <div class="num">09</div>
+          <div class="name">Grants (subvenciones)</div>
+          <span class="discipline-tag">Sociología / Antrop.</span><br>
+          <span class="satisfaction-tag">◑ Sust. + Trasc.</span>
+          <div class="desc">Amalgama de altruismo + gift: señala amor mientras proporciona ayuda material sustantiva. El tío que financia los estudios de su sobrino no solo ayuda (altruismo) ni solo expresa afecto (gift): hace ambas cosas simultáneamente.<br><br><strong>Reciprocidad esperada:</strong> afectiva a corto plazo y material a largo (el beneficiario actuará como benefactor en su red futura). Boulding (1973): los grants son la economía del amor y el miedo.</div>
+        </div>
+
+        <div class="tax-card c-psico" onclick="toggleCard(this)">
+          <div class="num">10</div>
+          <div class="name">Filantropía</div>
+          <span class="discipline-tag">Psicología</span><br>
+          <span class="satisfaction-tag">◑ Sust. + Trasc.</span>
+          <div class="desc">Amalgama de gift + quid pro quo: amor más expansión del yo más allá de la muerte. El filántropo pone su nombre en el edificio porque quiere que su yo expandido sobreviva a su cuerpo. Difiere del grant en que el ego está explícitamente implicado.<br><br><strong>Psique dividida:</strong> la filantropía solo es comprensible desde el toolkit psicológico (Laing, 1965; Freud). Becker explicaría la crianza de hijos como altruismo; Khalil la reinterpreta como filantropía.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">3 géneros de satisfacción primordial</div>
+      <div class="satisf-row">
+        <div class="satisf-card s-sust">
+          <h3>Sustantiva</h3>
+          <p>El agente mejora el bienestar propio o ajeno de forma directa y mensurable. Equivale a la «utilidad» o «welfare» de la economía estándar. Es el género más cercano a la racionalidad instrumental.</p>
+          <div class="tipos-list">
+            <span class="tipo-pill">Quid pro quo</span>
+            <span class="tipo-pill">Intertemporal</span>
+            <span class="tipo-pill">Altruismo</span>
+            <span class="tipo-pill">Hegemonía</span>
+          </div>
+        </div>
+        <div class="satisf-card s-int">
+          <h3>Integridad</h3>
+          <p>«Warm glow» al cumplir obligaciones y compromisos. No es reducible a utilidad porque expresaría un valor moral independiente. Sen (1977): «elección contraprefercial» — el agente actúa por principio a coste propio.</p>
+          <div class="tipos-list">
+            <span class="tipo-pill">Oblig. formales</span>
+            <span class="tipo-pill">Oblig. informales</span>
+          </div>
+        </div>
+        <div class="satisf-card s-tras">
+          <h3>Trascendental</h3>
+          <p>Pertenencia, identidad, legado. El agente trasciende la persecución cotidiana de bienestar y se siente parte de algo mayor (familia, comunidad, historia). Incommensurable con la satisfacción sustantiva.</p>
+          <div class="tipos-list">
+            <span class="tipo-pill">Gifts</span>
+            <span class="tipo-pill">Lealtad</span>
+            <span class="tipo-pill">Grants</span>
+            <span class="tipo-pill">Filantropía</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Imperialismo interdisciplinar — cada disciplina esculpe todos los tipos según su toolkit</div>
+      <div class="imp-grid">
+        <div class="imp-card">
+          <h4 style="color:var(--accent-gold)">Imperialismo económico</h4>
+          <p>Reduce todos los motivos a utilidad maximizable. El juez que no acepta soborno «simplemente tiene un precio demasiado alto». Toolkit: eficiencia.</p>
+        </div>
+        <div class="imp-card">
+          <h4 style="color:var(--accent-coral)">Imperialismo político</h4>
+          <p>Todo comportamiento persigue en última instancia el poder asimétrico. El altruismo es estrategia para acumular capital político. Toolkit: poder.</p>
+        </div>
+        <div class="imp-card">
+          <h4 style="color:var(--accent-teal)">Imperialismo sociológico</h4>
+          <p>Toda acción es cumplimiento de rol social para obtener aprobación. El filántropo «solo» busca estatus. Toolkit: roles sociales.</p>
+        </div>
+        <div class="imp-card">
+          <h4 style="color:var(--accent-sage)">Imperialismo antropológico</h4>
+          <p>Todos los motivos están moldeados por normas culturales cuya función última es sostener a la comunidad. Toolkit: normas culturales.</p>
+        </div>
+        <div class="imp-card">
+          <h4 style="color:var(--accent-violet)">Imperialismo psicológico</h4>
+          <p>Toda acción expresa la psique dividida y el intento de reconciliar selves en conflicto. El altruismo es gestión de culpa. Toolkit: psique dividida.</p>
+        </div>
+      </div>
+      <div class="nota-tesis mt-16">
+        <div class="nota-tesis-label">↳ Relevancia para la tesis</div>
+        <p>La plataforma transdisciplinar que propone Khalil es precisamente lo que justifica metodológicamente usar ABM con reglas micro derivadas de <em>múltiples</em> disciplinas. El imperialismo sería, en términos de tu modelo, asumir que todos los agentes cooperan siempre por el mismo tipo de motivo — lo que simplificaría artificialmente la dinámica emergente.</p>
+      </div>
+    </div>
+
+  </div><!-- /view-taxonomy -->
+
+
+  <!-- ══════════════════════════════ VIEW 2: PARÁMETROS ══════════════════════════════ -->
+  <div id="view-params" class="panel-view">
+
+    <div class="params-sidebar">
+      <div class="params-sidebar-title">Parámetros contextuales</div>
+
+      <div class="param-item active" onclick="showParam(1, this)">
+        <span class="param-num">P1</span>
+        <div>
+          <div class="param-name">Fase temporal de la emergencia</div>
+          <div class="param-pattern">Desplazador de tipo</div>
+        </div>
+      </div>
+      <div class="param-item" onclick="showParam(2, this)">
+        <span class="param-num">P2</span>
+        <div>
+          <div class="param-name">Identidad compartida (in-group / out-group)</div>
+          <div class="param-pattern">Modulador de intensidad</div>
+        </div>
+      </div>
+      <div class="param-item" onclick="showParam(3, this)">
+        <span class="param-num">P3</span>
+        <div>
+          <div class="param-name">Visibilidad y mediación simbólica</div>
+          <div class="param-pattern">Desplazador de tipo</div>
+        </div>
+      </div>
+      <div class="param-item" onclick="showParam(4, this)">
+        <span class="param-num">P4</span>
+        <div>
+          <div class="param-name">Desigualdad previa dador-receptor</div>
+          <div class="param-pattern">Modulador de intensidad</div>
+        </div>
+      </div>
+      <div class="param-item" onclick="showParam(5, this)">
+        <span class="param-num">P5</span>
+        <div>
+          <div class="param-name">Reciprocidad comunitaria diferida</div>
+          <div class="param-pattern">Extensor de la taxonomía</div>
+        </div>
+      </div>
+      <div class="param-item" onclick="showParam(6, this)">
+        <span class="param-num">P6</span>
+        <div>
+          <div class="param-name">Distancia física dador-receptor</div>
+          <div class="param-pattern">Modulador de intensidad</div>
+        </div>
+      </div>
+      <div class="param-item" onclick="showParam(7, this)">
+        <span class="param-num">P7</span>
+        <div>
+          <div class="param-name">Percepción mediada por medios</div>
+          <div class="param-pattern">Modulador de intensidad</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="params-detail">
+
+      <!-- P1 -->
+      <div id="param-1" class="param-detail-card active">
+        <div class="param-detail-header">
+          <div class="param-detail-num">P1</div>
+          <div>
+            <div class="param-detail-title">Fase temporal de la emergencia</div>
+            <span class="param-detail-pattern" style="background:var(--accent-gold-light);color:var(--accent-gold)">Desplazador de tipo</span>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Descripción</div>
+          <p>La taxonomía de Khalil es <strong>atemporal</strong>: describe los tipos como categorías estables sin considerar que el mismo agente puede transitar de un tipo a otro según el momento de la crisis. El voluntario que excava barro el día de la DANA actúa por altruismo (fase aguda); semanas después, cuando financia la reparación del techo de su primo, está haciendo un grant; meses más tarde, cuando organiza una colecta barrial para otra familia afectada, está cerca de la reciprocidad comunitaria diferida.</p>
+          <p>Altruismo, gifts y grants «no operan igual en el momento agudo de la catástrofe que en la fase de reconstrucción meses después» (notas propias sobre Khalil, 2025). En la fase inmediata dominan reacciones emocionales intensas que favorecen el altruismo entre desconocidos; con el tiempo cobran protagonismo las obligaciones informales y los grants entre redes cercanas.</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Tipos de Khalil afectados</div>
+          <div class="tipos-afectados">
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Altruismo</span><span class="tipo-disc">fase aguda</span></div>
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Grants</span><span class="tipo-disc">fase reconstrucción</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Oblig. informales</span><span class="tipo-disc">fase reconstrucción</span></div>
+            <div class="tipo-afect"><span class="intensidad">○</span><span class="tipo-name">Quid pro quo</span><span class="tipo-disc">estabilización</span></div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Lo que Khalil no contempla</div>
+          <p>Khalil no incorpora la dimensión temporal como modulador. Su taxonomía puede describir <em>qué</em> tipo de cooperación ocurre en un momento dado, pero no predice <em>cuándo</em> ni <em>por qué</em> se producen las transiciones entre tipos. Este parámetro introduce la idea de que el tipo activo del agente es una función del tiempo transcurrido desde el shock.</p>
+          <div class="laguna-badge">✦ Laguna: no hay dinámica temporal entre tipos en Khalil</div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Referencias de soporte</div>
+          <div class="refs-list">
+            <span class="ref-pill">Tierney (2019)</span>
+            <span class="ref-pill">Solnit (2009)</span>
+            <span class="ref-pill">Norris et al. (2008)</span>
+          </div>
+        </div>
+
+        <div class="nota-tesis">
+          <div class="nota-tesis-label">↳ Implicación para el ABM</div>
+          <p>En el modelo de agentes, el tipo activo del agente debe ser una variable de estado que cambia con el tiempo simulado. Una regla condicional del tipo <em>«si t &lt; umbral_agudo → activar altruismo; si t &gt; umbral_reconstrucción → activar grants»</em> permite capturar este desplazamiento. El umbral empírico puede calibrarse con datos de respuesta a desastres (DANA, Prestige). Este es uno de los dos parámetros que requieren reglas condicionales, no solo coeficientes escalares.</p>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div id="param-2" class="param-detail-card">
+        <div class="param-detail-header">
+          <div class="param-detail-num">P2</div>
+          <div>
+            <div class="param-detail-title">Identidad compartida (in-group / out-group)</div>
+            <span class="param-detail-pattern" style="background:var(--accent-teal-light);color:var(--accent-teal)">Modulador de intensidad</span>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Descripción</div>
+          <p>Khalil menciona que el altruista tiende a ayudar más a personas «familiar» que «nonfamiliar», pero no desarrolla el papel de la identidad de grupo como continuo social. Este parámetro va más allá: la percepción de que las víctimas pertenecen al propio grupo amplifica los tres tipos clave en crisis (altruismo, gifts, grants), mientras que la percepción de otredad puede inhibirlos incluso ante necesidad extrema.</p>
+          <p>La identidad compartida opera a través de categorías sociales múltiples —etnia, territorio, religión, clase, lengua— y no se reduce a la familiaridad biológica que menciona Khalil (siguiendo a Hamilton, 1964 y su «inclusive fitness»).</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Tipos de Khalil afectados</div>
+          <div class="tipos-afectados">
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Altruismo</span><span class="tipo-disc">amplifcado por in-group</span></div>
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Gifts</span><span class="tipo-disc">amplificado por in-group</span></div>
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Lealtad</span><span class="tipo-disc">definida por identidad</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Grants</span><span class="tipo-disc">modulado por red cercana</span></div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Relación con otros parámetros</div>
+          <p>P2 es <strong>ortogonal a P6</strong> (distancia física): alta distancia física es compatible con alta identidad compartida (diáspora). Un ciudadano español en Argentina puede hacer un grant a las víctimas de la DANA precisamente porque se identifica con ellas a pesar de estar lejos. Esta ortogonalidad es clave para el diseño del ABM: los dos parámetros deben ser independientes.</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Referencias</div>
+          <div class="refs-list">
+            <span class="ref-pill">Tajfel y Turner (1979)</span>
+            <span class="ref-pill">Levine et al. (2005)</span>
+            <span class="ref-pill">Stürmer y Snyder (2010)</span>
+          </div>
+        </div>
+
+        <div class="nota-tesis">
+          <div class="nota-tesis-label">↳ Implicación para el ABM</div>
+          <p>En el modelo, cada agente puede llevar un vector de identidades (territorio, etnia, clase, religión). La probabilidad de activación de altruismo, gifts o grants hacia otro agente es una función de la distancia identitaria entre ambos. Este parámetro es directamente parametrizable: la «intensidad identitaria» puede calibrarse mediante cuestionarios sobre comportamiento prosocial en la DANA o estudios de metaanálisis sobre ayuda y pertenencia grupal.</p>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div id="param-3" class="param-detail-card">
+        <div class="param-detail-header">
+          <div class="param-detail-num">P3</div>
+          <div>
+            <div class="param-detail-title">Visibilidad y mediación simbólica del gesto</div>
+            <span class="param-detail-pattern" style="background:var(--accent-gold-light);color:var(--accent-gold)">Desplazador de tipo</span>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Descripción</div>
+          <p>Opera desde el <strong>lado del dador</strong>. La visibilidad pública del acto cooperativo —redes sociales, cobertura mediática, reconocimiento colectivo— puede desplazar el motivo subyacente: un gesto que estructuralmente sería altruismo puede convertirse en algo más parecido al autoengrandecimiento si se hace visible. Esto es crítico porque Khalil excluye expresamente el autoengrandecimiento de la beneficencia.</p>
+          <p>El voluntario que publica su labor en redes sociales mientras excava barro no necesariamente deja de ser altruista, pero el gesto adquiere una capa de autoengrandecimiento que lo contamina. La distinción es sutil pero con consecuencias analíticas importantes: ¿es el tipo el mismo con y sin visibilidad pública?</p>
+          <div class="laguna-badge">✦ Tensión con el marco: la visibilidad puede sacar un acto del dominio de la beneficencia</div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Tipos de Khalil afectados</div>
+          <div class="tipos-afectados">
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Altruismo</span><span class="tipo-disc">riesgo de desplazamiento</span></div>
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Gifts</span><span class="tipo-disc">distorsión simbólica</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Filantropía</span><span class="tipo-disc">amplificado</span></div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Distinción con P7</div>
+          <p>P3 y P7 son complementarios pero distintos. P3 opera desde el <em>dador</em> (la visibilidad afecta al motivo del que ayuda). P7 opera desde el <em>receptor</em> o, más precisamente, desde la audiencia mediática (la cobertura construye la representación de la necesidad que activa a los potenciales dadores).</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Referencias</div>
+          <div class="refs-list">
+            <span class="ref-pill">Andreoni y Petrie (2004)</span>
+            <span class="ref-pill">Ariely et al. (2009)</span>
+            <span class="ref-pill">van Doesum et al. (2013)</span>
+          </div>
+        </div>
+
+        <div class="nota-tesis">
+          <div class="nota-tesis-label">↳ Implicación para el ABM</div>
+          <p>Este parámetro requiere una regla condicional (desplazador de tipo): <em>«si visibilidad_del_acto &gt; umbral → reclasificar altruismo como filantropía o excluir del tipo beneficente»</em>. Es el más difícil de parametrizar empíricamente porque depende de la percepción subjetiva del dador y de la audiencia. Una aproximación: usar el nivel de difusión en redes sociales del gesto como proxy de visibilidad. Requiere discusión metodológica sobre si los datos de redes son accesibles para el caso DANA.</p>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div id="param-4" class="param-detail-card">
+        <div class="param-detail-header">
+          <div class="param-detail-num">P4</div>
+          <div>
+            <div class="param-detail-title">Desigualdad previa entre dador y receptor</div>
+            <span class="param-detail-pattern" style="background:var(--accent-teal-light);color:var(--accent-teal)">Modulador de intensidad</span>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Descripción</div>
+          <p>La asimetría socioeconómica preexistente entre quien da y quien recibe modula la percepción y la forma concreta de los tipos cooperativos. Un grant de alguien con muchos recursos hacia alguien sin ninguno tiene dinámicas distintas al grant entre iguales: cambia la percepción del receptor (¿condescendencia? ¿deuda?), la del dador (¿obligación moral amplificada?) y los mecanismos de reciprocidad esperados.</p>
+          <p>Khalil distingue hegemonía de lealtad en función de si hay tutela genuina, pero no incorpora la desigualdad socioeconómica como variable continua que modula la forma concreta de todos los tipos, no solo los asimétricamente relacionados con el poder.</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Tipos de Khalil afectados</div>
+          <div class="tipos-afectados">
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Grants</span><span class="tipo-disc">forma y percepción alteradas</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Altruismo</span><span class="tipo-disc">amplificado si gran diferencia</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Hegemonía</span><span class="tipo-disc">reforzada por asimetría</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Lealtad</span><span class="tipo-disc">modulada por dependencia</span></div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Referencias</div>
+          <div class="refs-list">
+            <span class="ref-pill">Piff et al. (2010)</span>
+            <span class="ref-pill">Côté et al. (2015)</span>
+            <span class="ref-pill">Ord / Giving What We Can (2010)</span>
+          </div>
+        </div>
+
+        <div class="nota-tesis">
+          <div class="nota-tesis-label">↳ Implicación para el ABM</div>
+          <p>Cada agente lleva un atributo de riqueza o recursos. La probabilidad de activar cada tipo y la forma que adopta la reciprocidad esperada son funciones de la razón de recursos entre dador y receptor. El parámetro es directamente calibrable con datos socioeconómicos del caso empírico. Relevante también para el análisis de desigualdad horizontal que mencionas en los objetivos de la tesis.</p>
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div id="param-5" class="param-detail-card">
+        <div class="param-detail-header">
+          <div class="param-detail-num">P5</div>
+          <div>
+            <div class="param-detail-title">Reciprocidad comunitaria diferida (capital social)</div>
+            <span class="param-detail-pattern" style="background:var(--accent-violet-light);color:var(--accent-violet)">Extensor de la taxonomía</span>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Descripción</div>
+          <p>En situaciones de emergencia emerge una forma de reciprocidad que no encaja en ninguno de los diez tipos de Khalil: la <strong>reciprocidad generalizada</strong>, donde el beneficiario no devuelve al benefactor original sino a la comunidad en abstracto, en el futuro. «Te ayudo hoy; algún día ayudaré a alguien que me lo necesite, no necesariamente a ti.»</p>
+          <p>Khalil vincula la reciprocidad comunitaria a las obligaciones informales (repayment), pero esa vinculación asume una díada identificable. En emergencias, la cadena de reciprocidad se rompe y se generaliza: el receptor de ayuda de un desconocido no puede devolver al desconocido, pero sí puede convertirse en voluntario en la próxima catástrofe.</p>
+          <div class="laguna-badge">✦✦ Laguna mayor: P5 podría constituir un tipo 11 genuino en la taxonomía de Khalil</div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Posición respecto a los 10 tipos</div>
+          <div class="tipos-afectados">
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Oblig. informales</span><span class="tipo-disc">más difusa, sin díada</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Grants</span><span class="tipo-disc">sin vínculo afectivo previo</span></div>
+            <div class="tipo-afect"><span class="intensidad">✦</span><span class="tipo-name">Tipo 11 propuesto</span><span class="tipo-disc">reciprocidad generalizada</span></div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Fundamento teórico</div>
+          <p>Putnam (2000) habla de «bridging social capital» como la forma de capital social que conecta grupos distintos sin vínculo previo fuerte. Gouldner (1960) ya apuntó la existencia de una «norma de reciprocidad» universal y generalizada. Ostrom (1990) documenta cómo comunidades gestionan bienes comunes mediante reciprocidad difusa sin contrato explícito.</p>
+          <p>La pregunta para la tesis es si este tipo merece una categoría propia o si puede integrarse en los 10 existentes como caso límite de las obligaciones informales con díada indefinida.</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Referencias</div>
+          <div class="refs-list">
+            <span class="ref-pill">Putnam (2000)</span>
+            <span class="ref-pill">Ostrom (1990)</span>
+            <span class="ref-pill">Gouldner (1960)</span>
+          </div>
+        </div>
+
+        <div class="nota-tesis">
+          <div class="nota-tesis-label">↳ Implicación para el ABM</div>
+          <p>Si se acepta como tipo 11, requiere un mecanismo de «reciprocidad hacia el sistema» en lugar de hacia un agente específico: el receptor de ayuda incrementa su probabilidad de ayudar a <em>cualquier</em> agente en el futuro, no solo al que le ayudó. Esto conecta directamente con los modelos de cooperación en bienes comunes de Ostrom y con los modelos de simulación de capital social. Es el aporte teórico más original potencial de tu tesis al marco de Khalil.</p>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div id="param-6" class="param-detail-card">
+        <div class="param-detail-header">
+          <div class="param-detail-num">P6</div>
+          <div>
+            <div class="param-detail-title">Distancia física entre dador y receptor</div>
+            <span class="param-detail-pattern" style="background:var(--accent-teal-light);color:var(--accent-teal)">Modulador de intensidad</span>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Descripción</div>
+          <p>La proximidad espacial aumenta la probabilidad de ayuda espontánea entre desconocidos (altruismo), mientras que la ayuda desde lugares lejanos tiende a canalizarse como grants mediados institucionalmente (transferencias bancarias, plataformas de crowdfunding, donaciones a ONG) o como gifts simbólicos (mensajes de apoyo, campañas de visibilización).</p>
+          <p>Khalil no introduce la distancia física como variable independiente, pese a que condiciona fuertemente <em>qué tipo</em> de cooperación se activa, no solo su intensidad. La distancia transforma la naturaleza del vínculo cooperativo: el altruismo cara a cara (excavar barro junto al afectado) y la donación a distancia son cualitativamente distintos.</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Tipos de Khalil afectados</div>
+          <div class="tipos-afectados">
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Altruismo</span><span class="tipo-disc">favorecido por proximidad</span></div>
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Grants</span><span class="tipo-disc">mediados a distancia</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Gifts simbólicos</span><span class="tipo-disc">distancia digital</span></div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Ortogonalidad con P2</div>
+          <p>P6 es ortogonal a P2 (identidad compartida). Un miembro de la diáspora puede estar muy lejos físicamente (P6 alto) y tener una identidad compartida muy alta (P2 alto). La interacción entre ambos parámetros en el ABM produce patrones interesantes: diáspora → grants mediados institucionalmente con alta carga emocional e identitaria, que son difíciles de clasificar en la taxonomía de Khalil.</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Referencias</div>
+          <div class="refs-list">
+            <span class="ref-pill">Butts et al. (2022)</span>
+            <span class="ref-pill">Small et al. (2007)</span>
+            <span class="ref-pill">Nagel y Waldmann (2013)</span>
+          </div>
+        </div>
+
+        <div class="nota-tesis">
+          <div class="nota-tesis-label">↳ Implicación para el ABM</div>
+          <p>En la red del modelo, la distancia entre nodos (medida en la topología de la red) puede operar como proxy de distancia física. La proximidad en red aumenta la probabilidad de activar altruismo directo; la lejanía en red la redirige hacia grants mediados. Esto conecta con la elección del tipo de red (Erdős-Rényi vs. Barabasi-Albert vs. Watts-Strogatz) que vas a usar: redes con alta modularidad capturan mejor la segregación espacial y su efecto sobre el tipo cooperativo activado.</p>
+        </div>
+      </div>
+
+      <!-- P7 -->
+      <div id="param-7" class="param-detail-card">
+        <div class="param-detail-header">
+          <div class="param-detail-num">P7</div>
+          <div>
+            <div class="param-detail-title">Percepción de la intensidad mediada por los medios</div>
+            <span class="param-detail-pattern" style="background:var(--accent-teal-light);color:var(--accent-teal)">Modulador de intensidad</span>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Descripción</div>
+          <p>La decisión de cooperar no depende únicamente de la necesidad objetiva del receptor ni de la distancia física real, sino de la <strong>representación</strong> que el agente tiene de esa necesidad, que está fuertemente mediada por la cobertura mediática. Esta percepción opera en dos sentidos opuestos: amplifica la respuesta cooperativa en el momento agudo, especialmente el altruismo entre desconocidos, e inhibe con el tiempo por «fatiga de la compasión» (Moeller, 1999).</p>
+          <p>Khalil no contempla este modulador porque su taxonomía opera en el nivel del motivo individual, no en el de los mecanismos de construcción social de la necesidad. El toolkit de ninguna de sus cinco disciplinas capta adecuadamente la mediación comunicativa como variable independiente.</p>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Tipos de Khalil afectados</div>
+          <div class="tipos-afectados">
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Altruismo</span><span class="tipo-disc">amplificado en fase aguda</span></div>
+            <div class="tipo-afect"><span class="intensidad">●</span><span class="tipo-name">Grants</span><span class="tipo-disc">inhibido por fatiga a largo plazo</span></div>
+            <div class="tipo-afect"><span class="intensidad">◐</span><span class="tipo-name">Gifts simbólicos</span><span class="tipo-disc">solidaridad digital</span></div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">El efecto identidad estadística</div>
+          <p>Slovic (2007) demuestra que la compasión disminuye conforme aumenta el número de víctimas representadas: una víctima singular genera más empatía y donación que mil (psicofísica moral, «collapse of compassion»). Esto es relevante para el ABM: la intensidad percibida de la crisis no es proporcional al daño real sino a cómo se representa mediáticamente.</p>
+          <div class="quote-block">
+            «If I look at the mass, I will never act. If I look at the one, I will.»
+            <cite>— Atribuido a Madre Teresa; citado en Slovic (2007) para ilustrar el colapso de la compasión colectiva.</cite>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Referencias</div>
+          <div class="refs-list">
+            <span class="ref-pill">Moeller (1999)</span>
+            <span class="ref-pill">Small et al. (2007)</span>
+            <span class="ref-pill">Slovic (2007)</span>
+            <span class="ref-pill">RTVE (2024)</span>
+          </div>
+        </div>
+
+        <div class="nota-tesis">
+          <div class="nota-tesis-label">↳ Implicación para el ABM</div>
+          <p>P7 puede modelarse como una señal global del entorno que afecta a todos los agentes simultáneamente (campo medio). En la fase aguda, la señal mediática amplifica la probabilidad de activar altruismo. Conforme transcurre el tiempo simulado, la señal decae según una función de fatiga (exponencial negativa o función de Weibull). Este mecanismo de señal global es inusual en ABM típicos, que modelan solo interacciones locales, y constituye una aportación metodológica interesante al campo de la sociología computacional.</p>
+        </div>
+      </div>
+
+    </div><!-- /params-detail -->
+  </div><!-- /view-params -->
+
+
+  <!-- ══════════════════════════════ VIEW 3: PATRONES ══════════════════════════════ -->
+  <div id="view-patterns" class="panel-view">
+
+    <div>
+      <div class="section-label">3 patrones estructurales de los parámetros respecto a la taxonomía</div>
+      <div class="pattern-grid">
+
+        <div class="pattern-card p-mod">
+          <h3>Moduladores de intensidad</h3>
+          <p>Amplifican o inhiben tipos ya existentes en Khalil sin alterar cuál tipo está activo. Son los más directamente parametrizables como coeficientes escalares en el ABM. Cada uno añade una dimensión continua que Khalil no contempla pero que no cuestiona la taxonomía como tal.</p>
+          <div class="params-in-pattern">
+            <span class="pip">P2 · Identidad</span>
+            <span class="pip">P4 · Desigualdad</span>
+            <span class="pip">P6 · Distancia física</span>
+            <span class="pip">P7 · Medios</span>
+          </div>
+          <div style="margin-top:12px;font-size:12px;color:var(--text-3)">Estrategia ABM: coeficientes que escalan la probabilidad de activación de cada tipo.</div>
+        </div>
+
+        <div class="pattern-card p-desp">
+          <h3>Desplazadores de tipo</h3>
+          <p>El agente no solo coopera más o menos, sino que <em>cambia de tipo</em> según contexto o visibilidad. Esto requiere reglas condicionales en el modelo, no solo coeficientes escalares. Son los más interesantes teóricamente porque implican que la taxonomía de Khalil no es suficiente por sí sola para modelar la dinámica de crisis.</p>
+          <div class="params-in-pattern">
+            <span class="pip">P1 · Fase temporal</span>
+            <span class="pip">P3 · Visibilidad</span>
+          </div>
+          <div style="margin-top:12px;font-size:12px;color:var(--text-3)">Estrategia ABM: variables de estado del agente que cambian con el tiempo o el contexto.</div>
+        </div>
+
+        <div class="pattern-card p-ext">
+          <h3>Extensores de la taxonomía</h3>
+          <p>No caben en ninguno de los 10 tipos de Khalil y sugieren la existencia de un mecanismo cooperativo nuevo que la taxonomía no captura. Son el aporte teórico más original potencial: amplían el marco en lugar de solo aplicarlo. P5 es el candidato más sólido a tipo 11.</p>
+          <div class="params-in-pattern">
+            <span class="pip">P5 · Reciprocidad diferida</span>
+            <span class="pip">(P2 parcialmente)</span>
+          </div>
+          <div style="margin-top:12px;font-size:12px;color:var(--text-3)">Estrategia ABM: nuevo mecanismo de reciprocidad hacia el sistema, no a un agente.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Implicaciones para el modelo ABM — por capa de implementación</div>
+      <div class="abm-section">
+        <h3>Traducción de parámetros a reglas micro del ABM</h3>
+        <div class="abm-grid">
+
+          <div class="abm-card">
+            <h4>Capa 1 · Atributos del agente</h4>
+            <p>Cada agente tiene atributos fijos o de evolución lenta que determinan su predisposición cooperativa en cada tipo.</p>
+            <div class="abm-code">recursos (P4)<br>vector_identidad (P2)<br>tipo_activo (P1, P3)<br>red_cercana (P6)</div>
+          </div>
+
+          <div class="abm-card">
+            <h4>Capa 2 · Reglas de interacción local</h4>
+            <p>En cada tick, cuando dos agentes interactúan, la distancia identitaria (P2), la distancia en red (P6) y la desigualdad de recursos (P4) modulan qué tipo se activa y con qué probabilidad.</p>
+            <div class="abm-code">P(tipo | distancia_id, distancia_red,<br>  diferencia_recursos)</div>
+          </div>
+
+          <div class="abm-card">
+            <h4>Capa 3 · Señal global del entorno</h4>
+            <p>P7 (medios) opera como campo medio: una señal que afecta simultáneamente a todos los agentes. Amplifica en t=0 y decae con función de fatiga.</p>
+            <div class="abm-code">señal_media(t) =<br>  I₀ · e^(−λt)<br>λ = tasa de fatiga compasión</div>
+          </div>
+
+          <div class="abm-card">
+            <h4>Capa 4 · Reglas condicionales de transición</h4>
+            <p>P1 y P3 requieren lógica condicional: el tipo activo del agente cambia según umbrales temporales o de visibilidad.</p>
+            <div class="abm-code">si t &lt; t_agudo:<br>  tipo ← altruismo<br>si t &gt; t_reconstrucción:<br>  tipo ← grants / oblig.<br>si visibilidad &gt; umbral:<br>  tipo ← filantropía</div>
+          </div>
+
+          <div class="abm-card">
+            <h4>Capa 5 · Mecanismo tipo 11 (P5)</h4>
+            <p>Reciprocidad generalizada: el receptor de ayuda incrementa su probabilidad de ayudar a cualquier agente futuro en crisis, no solo al que le ayudó.</p>
+            <div class="abm-code">al recibir ayuda:<br>  p_cooperar_futuro += δ<br>  (sin díada fija)<br>  (hacia cualquier agente)</div>
+          </div>
+
+          <div class="abm-card">
+            <h4>Validación empírica sugerida</h4>
+            <p>Los 7 parámetros necesitan calibración. La estrategia depende de la accesibilidad de datos.</p>
+            <div class="abm-code">P1: series temporales DANA<br>P2, P4: cuestionario propio<br>P3: análisis de redes sociales<br>P5, P6: metaanálisis<br>P7: datos cobertura mediática</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Argumento propio de la tesis — síntesis</div>
+      <div style="background:var(--accent-violet-light);border:1px solid #C5BFF5;border-radius:12px;padding:22px 24px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-violet);margin-bottom:12px;">Núcleo del marco teórico</div>
+        <p style="font-size:14px;color:#2A2070;line-height:1.7;font-family:'Playfair Display',serif;font-weight:400;">Khalil demuestra que <em>no single toolkit is suitable for all ten types</em>, lo que convierte el objeto de estudio —la emergencia social— en un caso ejemplar de por qué la transdisciplinariedad es necesaria, no opcional. Los 7 parámetros contextuales propios no contradicen la taxonomía sino que la <strong>dinamizan</strong>: convierten una clasificación estática de tipos en un sistema de reglas micro capaces de generar dinámica emergente. La combinación de los tres niveles —tipos como vocabulario, parámetros como moduladores, ABM como laboratorio conceptual— es el aporte metodológico central de la tesis al campo de la sociología computacional.</p>
+        <div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div style="background:white;border-radius:8px;padding:12px;font-size:12px;color:var(--text-2);">
+            <strong style="color:var(--accent-violet);display:block;margin-bottom:4px;">Conceptos operativos</strong>
+            Los 10 tipos permiten codificar y distinguir empíricamente formas de ayuda que el lenguaje cotidiano trata como si fueran lo mismo.
+          </div>
+          <div style="background:white;border-radius:8px;padding:12px;font-size:12px;color:var(--text-2);">
+            <strong style="color:var(--accent-violet);display:block;margin-bottom:4px;">Epistemología</strong>
+            La plataforma transdisciplinar justifica movilizar más de una disciplina para estudiar la respuesta social a catástrofes, sin caer en imperialismo.
+          </div>
+          <div style="background:white;border-radius:8px;padding:12px;font-size:12px;color:var(--text-2);">
+            <strong style="color:var(--accent-violet);display:block;margin-bottom:4px;">Argumento propio</strong>
+            Los 7 parámetros + el posible tipo 11 (P5) constituyen una extensión empírica de la taxonomía de Khalil desde los contextos de crisis.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /view-patterns -->
+
+</div><!-- /main -->
+
+<script>
+  function showView(id, btn) {
+    document.querySelectorAll('.panel-view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('view-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleCard(card) {
+    const wasExpanded = card.classList.contains('expanded');
+    document.querySelectorAll('.tax-card').forEach(c => c.classList.remove('expanded', 'selected'));
+    if (!wasExpanded) {
+      card.classList.add('expanded', 'selected');
+    }
+  }
+
+  function showParam(num, item) {
+    document.querySelectorAll('.param-item').forEach(i => i.classList.remove('active'));
+    document.querySelectorAll('.param-detail-card').forEach(c => c.classList.remove('active'));
+    item.classList.add('active');
+    document.getElementById('param-' + num).classList.add('active');
+  }
+</script>
+</body>
+</html>

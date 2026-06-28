@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referencias bibliográficas — Marco teórico de la tesis</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F7F4EE;
+  --surface: #FFFFFF;
+  --surface-alt: #F2EFE9;
+  --border: #E0DBD0;
+  --border-strong: #C8C0B0;
+  --text: #1C1A16;
+  --text-2: #4A4640;
+  --text-3: #7A7570;
+  --violet: #5B4FBE;
+  --violet-light: #EAE8FA;
+  --violet-dark: #3C3489;
+  --teal: #0F7B6C;
+  --teal-light: #E0F4EF;
+  --teal-dark: #085041;
+  --gold: #8A6000;
+  --gold-light: #FDF3DC;
+  --gold-dark: #633806;
+  --coral: #A83520;
+  --coral-light: #FAEAE6;
+  --coral-dark: #712B13;
+  --sage: #3A6B3E;
+  --sage-light: #E6F2E7;
+  --slate: #2D4A6B;
+  --slate-light: #E4EBF5;
+  --amber: #B45309;
+  --amber-light: #FEF3C7;
+  --warn: #92400E;
+  --warn-bg: #FFFBEB;
+  --warn-border: #D97706;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 40px 22px;
+}
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+header h1 em { font-style: italic; color: var(--violet); }
+.header-sub { font-size: 13px; color: var(--text-3); max-width: 700px; }
+
+/* ── FILTROS ── */
+.filters-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.filters-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+.filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-btn:hover { background: var(--surface-alt); }
+.filter-btn.active { color: white; border-color: transparent; }
+.filter-btn.f-param.active  { background: var(--teal); }
+.filter-btn.f-taxon.active  { background: var(--gold); }
+.filter-btn.f-tesis.active  { background: var(--violet); }
+.filter-btn.f-all.active    { background: var(--text); }
+
+.count-badge {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+/* ── GRID DE FICHAS ── */
+.refs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+  padding: 28px 40px;
+}
+
+/* ── FICHA ── */
+.ref-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+}
+.ref-card:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+.ref-card.hidden { display: none; }
+
+.ref-card-header {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.ref-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.status-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.status-ok {
+  background: #DCFCE7;
+  color: #166534;
+}
+.status-warn {
+  background: var(--warn-bg);
+  color: var(--warn);
+  border: 1px solid #FDE68A;
+}
+.year-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-3);
+}
+
+.ref-author {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+.ref-title {
+  font-size: 12.5px;
+  color: var(--text-2);
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.ref-cite {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+.ref-doi {
+  display: inline-block;
+  margin-top: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--violet);
+  text-decoration: none;
+  word-break: break-all;
+}
+.ref-doi:hover { text-decoration: underline; }
+
+/* ── TAGS DE CONEXIÓN ── */
+.tags-row {
+  padding: 10px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-alt);
+}
+.conn-tag {
+  font-size: 10.5px;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.tag-param  { background: var(--teal-light);  color: var(--teal-dark); }
+.tag-taxon  { background: var(--gold-light);  color: var(--gold-dark); }
+.tag-tesis  { background: var(--violet-light); color: var(--violet-dark); }
+
+/* ── SECCIONES DE APORTACIÓN ── */
+.ref-body { padding: 14px 18px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+
+.aport-section {}
+.aport-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.aport-label .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-param  { background: var(--teal); }
+.dot-taxon  { background: var(--gold); }
+.dot-tesis  { background: var(--violet); }
+
+.aport-label span { color: var(--text-3); }
+.aport-text {
+  font-size: 12.5px;
+  color: var(--text-2);
+  line-height: 1.65;
+}
+.aport-text strong { color: var(--text); font-weight: 500; }
+
+.params-list {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  margin-top: 5px;
+}
+.param-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+}
+
+/* ── ADVERTENCIA ── */
+.warn-block {
+  margin: 0 18px 14px;
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--warn);
+  line-height: 1.55;
+}
+.warn-block strong { font-weight: 600; }
+
+/* ── DIVIDER ── */
+.aport-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2px 0;
+}
+
+/* ── LEYENDA ── */
+.legend {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 16px 40px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; color: var(--text-2);
+}
+
+@media (max-width: 800px) {
+  header, .filters-bar, .refs-grid, .legend { padding-left: 16px; padding-right: 16px; }
+  .refs-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Tesis doctoral · Revisión bibliográfica · Marco teórico</div>
+  <h1>Referencias bibliográficas<br><em>aportación a los parámetros, la taxonomía y la tesis</em></h1>
+  <p class="header-sub">Cada ficha indica qué aporta la referencia a los 7 parámetros contextuales propios, a la taxonomía de Khalil (2025) y al marco teórico general de la tesis. Las referencias no verificadas se marcan con advertencia.</p>
+</header>
+
+<div class="filters-bar">
+  <span class="filters-label">Filtrar por</span>
+  <div class="filter-group">
+    <button class="filter-btn f-all active" onclick="filterCards('all', this)">Todas</button>
+    <button class="filter-btn f-param" onclick="filterCards('param', this)">Parámetros contextuales</button>
+    <button class="filter-btn f-taxon" onclick="filterCards('taxon', this)">Taxonomía Khalil</button>
+    <button class="filter-btn f-tesis" onclick="filterCards('tesis', this)">Marco tesis</button>
+  </div>
+  <span class="count-badge" id="count-badge">14 referencias</span>
+</div>
+
+<div class="refs-grid" id="refs-grid">
+
+
+  <!-- ══ 1. TIERNEY 2019 ══ -->
+  <div class="ref-card" data-tags="param tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-ok">✓ Verificada</span>
+        <span class="year-tag">2019</span>
+      </div>
+      <div class="ref-author">Tierney, K.</div>
+      <div class="ref-title">Disasters: A Sociological Approach</div>
+      <div class="ref-cite">Polity Press. ISBN 9780745671017</div>
+    </div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P1 · Fase temporal</span>
+      <span class="conn-tag tag-tesis">Marco general</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Fundamento empírico central de <strong>P1 (fase temporal)</strong>. Tierney documenta que las respuestas sociales a los desastres siguen fases temporales distintas —impacto, emergencia, recuperación y reconstrucción— y que los comportamientos prosociales varían cualitativamente entre ellas. El altruismo espontáneo entre desconocidos es propio de la fase aguda; la ayuda organizada y los compromisos a largo plazo emergen más tarde. Esto da soporte empírico directo al argumento de que la taxonomía de Khalil necesita una dimensión temporal para modelar crisis.</div>
+        <div class="params-list">
+          <span class="param-pill">P1 · Fase temporal ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">Tierney muestra que en desastres coexisten múltiples formas de cooperación simultáneas —voluntariado espontáneo, ayuda institucional, redes de vecindad— que se corresponden con varios tipos de Khalil a la vez (altruismo, obligaciones informales, grants). Esto refuerza la idea de que la taxonomía de Khalil es útil como vocabulario analítico pero insuficiente sin un eje temporal que explique las transiciones.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Es la referencia de sociología de desastres más relevante para la tesis. Proporciona el marco disciplinar en el que inscribir los casos empíricos (DANA, Prestige) y la distinción entre comportamiento prosocial y respuesta institucional ante catástrofes. Su revisión del campo también justifica la necesidad de modelos formales (ABM) para capturar la complejidad que los estudios cualitativos documentan pero no pueden generalizar.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 2. SOLNIT 2009 ══ -->
+  <div class="ref-card" data-tags="param tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-ok">✓ Verificada</span>
+        <span class="year-tag">2009</span>
+      </div>
+      <div class="ref-author">Solnit, R.</div>
+      <div class="ref-title">A Paradise Built in Hell: The Extraordinary Communities That Arise in Disaster</div>
+      <div class="ref-cite">Viking Press. ISBN 9780143118077</div>
+    </div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P1 · Fase temporal</span>
+      <span class="conn-tag tag-param">P2 · Identidad</span>
+      <span class="conn-tag tag-tesis">Marco general</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Soporte empírico para <strong>P1</strong> y parcialmente para <strong>P2</strong>. Solnit documenta en cinco desastres históricos (San Francisco 1906, Halifax 1917, Ciudad de México 1985, 9/11, Katrina 2005) cómo emergen comunidades de cooperación mutua espontánea en la fase aguda, que luego se disuelven cuando retornan las instituciones ordinarias. La cooperación no es uniforme: depende de si las víctimas son percibidas como «de los nuestros» (in-group), lo que apoya la relevancia de P2. También introduce la noción de «pánico de élites» como inhibidor institucional de la cooperación espontánea.</div>
+        <div class="params-list">
+          <span class="param-pill">P1 · Fase temporal ●</span>
+          <span class="param-pill">P2 · Identidad ◐</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">Aunque no usa la taxonomía de Khalil, los fenómenos que Solnit describe son fácilmente codificables en ella: el voluntariado masivo en la fase aguda es altruismo; las redes de vecindad sostenidas son obligaciones informales; los esfuerzos colectivos de largo plazo se acercan a los grants y a la reciprocidad comunitaria diferida (P5). Solnit ofrece casos concretos que permiten «probar» la taxonomía sobre material empírico real.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Contraargumento empírico al modelo hobbesiano (estado de naturaleza → violencia en crisis) que subyace a muchos modelos ABM. Para la tesis, Solnit justifica que el agente por defecto en una crisis no es el oportunista sino el cooperador, lo que tiene consecuencias directas para la inicialización del modelo y para la distribución de tipos cooperativos en la población de agentes.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 3. NORRIS ET AL. 2008 ══ -->
+  <div class="ref-card" data-tags="param tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-ok">✓ Verificada</span>
+        <span class="year-tag">2008</span>
+      </div>
+      <div class="ref-author">Norris, F.H., Stevens, S.P., Pfefferbaum, B., Wyche, K.F. y Pfefferbaum, R.L.</div>
+      <div class="ref-title">Community resilience as a metaphor, theory, set of capacities, and strategy for disaster readiness</div>
+      <div class="ref-cite">American Journal of Community Psychology, 41(1–2), 127–150.</div>
+      <a class="ref-doi" href="https://doi.org/10.1007/s10464-007-9156-6" target="_blank">https://doi.org/10.1007/s10464-007-9156-6</a>
+    </div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P1 · Fase temporal</span>
+      <span class="conn-tag tag-param">P5 · Reciprocidad diferida</span>
+      <span class="conn-tag tag-tesis">Marco general</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Da soporte empírico y conceptual a <strong>P1</strong> y <strong>P5</strong>. Norris et al. proponen que la resiliencia comunitaria emerge de cuatro tipos de capacidades adaptativas: desarrollo económico, capital social, información y comunicación, y competencia comunitaria. Esta distinción es relevante para P1 porque muestra que las capacidades de respuesta cambian a lo largo del tiempo. Para P5, el concepto de «capital social» como recurso colectivo que se activa en crisis y luego se reconstituye es la base teórica de la reciprocidad comunitaria diferida.</div>
+        <div class="params-list">
+          <span class="param-pill">P1 · Fase temporal ●</span>
+          <span class="param-pill">P5 · Reciprocidad diferida ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">El concepto de «capital social» como red de capacidades adaptativas conecta directamente con las obligaciones informales (tipo 5 de Khalil). Norris et al. desagregan el capital social en componentes —confianza, normas de reciprocidad, redes— que se corresponden con distintos tipos de la taxonomía de Khalil, lo que permite operacionalizar la taxonomía en indicadores medibles.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Ofrece una teoría de la resiliencia comunitaria que puede usarse como marco de validación del ABM: si el modelo genera dinámicas de recuperación coherentes con los patrones que Norris et al. documentan (no linealidad, importancia del capital social pre-existente, asimetría entre grupos), eso constituye un criterio de validación empírica del modelo.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 4. LEVINE ET AL. 2005 ══ -->
+  <div class="ref-card" data-tags="param taxon tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-ok">✓ Verificada</span>
+        <span class="year-tag">2005</span>
+      </div>
+      <div class="ref-author">Levine, R.M., Evans, D., Prosser, A. y Reicher, S.</div>
+      <div class="ref-title">Identity and emergency intervention: How social group membership and inclusiveness of group boundaries shapes helping behavior</div>
+      <div class="ref-cite">Personality and Social Psychology Bulletin, 31(4), 443–453.</div>
+      <a class="ref-doi" href="https://doi.org/10.1177/0146167204271651" target="_blank">https://doi.org/10.1177/0146167204271651</a>
+    </div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P2 · Identidad compartida</span>
+      <span class="conn-tag tag-taxon">Altruismo · Lealtad</span>
+      <span class="conn-tag tag-tesis">Parámetro ABM</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">La referencia empírica más directa para <strong>P2</strong>. En dos experimentos con aficionados al fútbol, Levine et al. demuestran que la probabilidad de ayudar a una persona herida depende de si lleva la camiseta del grupo propio, del grupo rival o una camiseta neutra. En el segundo experimento, cuando se activa una identidad más inclusiva (aficionados al fútbol en general), la ayuda se extiende también al rival. Esto prueba que la identidad compartida no es binaria sino que opera como continuo modulable, lo que es clave para P2.</div>
+        <div class="params-list">
+          <span class="param-pill">P2 · Identidad ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">Muestra que el altruismo (tipo 3 de Khalil) está condicionado por la identidad grupal de maneras que Khalil no contempla. Khalil señala que el altruista ayuda más a personas «familiares», pero Levine et al. demuestran que «familiaridad» es en realidad una categoría social activable contextualmente, no una propiedad fija del agente. Esto complica la taxonomía: el mismo agente puede ser altruista hacia el in-group y no-cooperador hacia el out-group simultáneamente.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Permite operacionalizar P2 en el ABM: la identidad compartida entre agentes puede representarse como un vector de categorías sociales, y la distancia entre vectores determina la probabilidad de activar altruismo. El experimento de Levine et al. también justifica explorar cómo la amplitud de la identidad activada (barrio, ciudad, país, humanidad) afecta al alcance de la cooperación en el modelo, lo que conecta con el análisis de redes y la estructura del grafo social.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 5. STÜRMER Y SNYDER 2010 ══ -->
+  <div class="ref-card" data-tags="param taxon tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-ok">✓ Verificada</span>
+        <span class="year-tag">2010</span>
+      </div>
+      <div class="ref-author">Stürmer, S. y Snyder, M. (Eds.)</div>
+      <div class="ref-title">The Psychology of Prosocial Behavior: Group Processes, Intergroup Relations, and Helping</div>
+      <div class="ref-cite">Wiley-Blackwell. ISBN 9781405178808</div>
+    </div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P2 · Identidad</span>
+      <span class="conn-tag tag-param">P3 · Visibilidad</span>
+      <span class="conn-tag tag-taxon">Altruismo · Gifts · Lealtad</span>
+      <span class="conn-tag tag-tesis">Marco general</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Volumen colectivo que ofrece soporte para <strong>P2</strong> y <strong>P3</strong>. Los capítulos sobre procesos intergrupales documentan cómo la identidad de grupo amplifica o inhibe el comportamiento prosocial (P2). Los capítulos sobre motivaciones para el voluntariado muestran que la visibilidad pública de los actos prosociales afecta tanto a la decisión de ayudar como al tipo de ayuda ofrecida (P3). Stürmer y Snyder distinguen entre motivaciones intrínsecas e instrumentales del comportamiento prosocial, distinción que es clave para P3 (si la ayuda se hace visible, el motivo puede derivar hacia lo instrumental).</div>
+        <div class="params-list">
+          <span class="param-pill">P2 · Identidad ●</span>
+          <span class="param-pill">P3 · Visibilidad ◐</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">La distinción que hace el volumen entre ayuda intra-grupo e inter-grupo tiene correspondencia directa en Khalil: la ayuda intra-grupo activa principalmente gifts, lealtad y grants; la ayuda inter-grupo activa altruismo. Los capítulos sobre voluntariado organizado aportan evidencia de que las obligaciones informales (tipo 5) son un mecanismo central de mantenimiento del comportamiento prosocial a largo plazo.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Proporciona la base psicosocial del ABM: los mecanismos por los que los grupos modulan el comportamiento prosocial individual pueden traducirse en reglas de interacción entre agentes. El volumen también revisa intervenciones diseñadas para fomentar la ayuda en contextos reales, lo que puede inspirar el diseño de escenarios contrafácticos en el modelo.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 6. SLOVIC 2007 ══ -->
+  <div class="ref-card" data-tags="param taxon tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-ok">✓ Verificada</span>
+        <span class="year-tag">2007</span>
+      </div>
+      <div class="ref-author">Slovic, P.</div>
+      <div class="ref-title">"If I look at the mass I will never act": Psychic numbing and genocide</div>
+      <div class="ref-cite">Judgment and Decision Making, 2(2), 79–95.</div>
+    </div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P7 · Mediación mediática</span>
+      <span class="conn-tag tag-taxon">Altruismo · Grants</span>
+      <span class="conn-tag tag-tesis">Señal global ABM</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Referencia central para <strong>P7</strong>. Slovic demuestra experimentalmente el «efecto identidad estadística»: la compasión y la donación disminuyen conforme aumenta el número de víctimas representadas. Una víctima singular identificable genera más empatía y más cooperación que mil estadísticas. Esto tiene consecuencias directas para P7: la cobertura mediática que personaliza a las víctimas amplifica la respuesta cooperativa; la que presenta cifras agregadas la inhibe. También documenta el «colapso de la compasión» cuando se presentan dos víctimas en lugar de una, lo que conecta con la fatiga compasional de largo plazo.</div>
+        <div class="params-list">
+          <span class="param-pill">P7 · Mediación mediática ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">El efecto psicológico que describe Slovic afecta diferencialmente a los tipos de Khalil: el altruismo (tipo 3) responde fuertemente a la representación singular e identificable de la víctima; los grants (tipo 9) requieren un compromiso más sostenido que es especialmente vulnerable a la fatiga compasional. La taxonomía de Khalil necesita este parámetro para explicar por qué el altruismo se activa en la fase aguda (representación mediática intensa y personalizada) pero decae antes que los grants.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Justifica el diseño de P7 como señal global del entorno en el ABM (campo medio). La función de decaimiento de la respuesta cooperativa con el tiempo es directamente modelable como función exponencial negativa con parámetro de «fatiga compasional» calibrable. El modelo puede explorar qué ocurre si la señal mediática es más o menos personalizada: escenario contrafáctico relevante para el diseño de comunicación de emergencias.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 7. PIFF ET AL. 2010 ══ -->
+  <div class="ref-card" data-tags="param taxon tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-ok">✓ Verificada</span>
+        <span class="year-tag">2010</span>
+      </div>
+      <div class="ref-author">Piff, P.K., Kraus, M.W., Côté, S., Cheng, B.H. y Keltner, D.</div>
+      <div class="ref-title">Having less, giving more: The influence of social class on prosocial behavior</div>
+      <div class="ref-cite">Journal of Personality and Social Psychology, 99(5), 771–784.</div>
+      <a class="ref-doi" href="https://doi.org/10.1037/a0020092" target="_blank">https://doi.org/10.1037/a0020092</a>
+    </div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P4 · Desigualdad previa</span>
+      <span class="conn-tag tag-taxon">Altruismo · Grants</span>
+      <span class="conn-tag tag-tesis">Parámetro ABM</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Referencia empírica principal para <strong>P4</strong>. En cuatro estudios, Piff et al. demuestran el resultado contraintuitivo de que los individuos de clase baja son más generosos, caritativos, confiados y serviciales que los de clase alta. El mecanismo propuesto es que la menor sensación de control personal que tienen los individuos de menor estatus les orienta hacia el bienestar de otros como estrategia de adaptación a entornos más hostiles. Esto implica que la desigualdad previa entre dador y receptor no solo modula la intensidad de la cooperación sino también su dirección.</div>
+        <div class="params-list">
+          <span class="param-pill">P4 · Desigualdad ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">Khalil distingue hegemonía de lealtad en función de si hay tutela genuina, pero no contempla cómo la desigualdad socioeconómica preexistente modula todos los tipos. Piff et al. sugieren que el altruismo (tipo 3) puede ser más frecuente en los de menor estatus, lo que invierte la lógica intuitiva de que «quien más tiene, más da». Un grant (tipo 9) de alguien con muchos recursos puede estar más cerca de la filantropía (con componente de autoengrandecimiento) que de la solidaridad genuina.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Permite calibrar P4 con datos empíricos: el atributo de recursos de cada agente del ABM no solo afecta a su capacidad de dar sino a su disposición a hacerlo y al tipo que activará. El resultado de Piff et al. también es un escenario contrafáctico relevante: ¿qué ocurre en el modelo si se aumenta la desigualdad de recursos inicial? ¿Se incrementa el altruismo entre los menos favorecidos o se producen dinámicas de exclusión? Este es un análisis de sensibilidad directamente relacionado con los objetivos 3 y 4 de la tesis.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 8. ANDREONI Y PETRIE 2004 ══ -->
+  <div class="ref-card" data-tags="param taxon">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-warn">⚠ Verificar antes de citar</span>
+        <span class="year-tag">2004</span>
+      </div>
+      <div class="ref-author">Andreoni, J. y Petrie, R.</div>
+      <div class="ref-title">Public goods experiments without confidentiality: a glimpse into fund-raising</div>
+      <div class="ref-cite">Journal of Public Economics — verificar volumen y páginas en Google Scholar</div>
+    </div>
+    <div class="warn-block"><strong>Advertencia:</strong> autoría y año son probablemente correctos, pero el título exacto y los datos de publicación no han sido verificados directamente. Buscar en Google Scholar: «Andreoni Petrie 2004 public goods confidentiality» antes de incluir en bibliografía.</div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P3 · Visibilidad</span>
+      <span class="conn-tag tag-taxon">Altruismo · Filantropía</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Soporte experimental para <strong>P3</strong>. Andreoni y Petrie estudian cómo la eliminación de la confidencialidad en experimentos de bienes públicos —es decir, hacer visible quién da y cuánto— altera el comportamiento cooperativo. Cuando las contribuciones son públicas, aumentan en promedio, pero también cambia la distribución: aparecen estrategias de señalización social que no son puramente altruistas. Esto apoya el argumento de que la visibilidad desplaza el tipo cooperativo activo.</div>
+        <div class="params-list">
+          <span class="param-pill">P3 · Visibilidad ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">El hallazgo de que la visibilidad incrementa las contribuciones pero cambia su motivación es relevante para la distinción entre altruismo (tipo 3) y filantropía (tipo 10) en Khalil: cuando el gesto se hace público y hay componente de legado o reputación, el acto migra del altruismo a la filantropía o incluso al autoengrandecimiento —que Khalil excluye de la beneficencia.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 9. ARIELY ET AL. 2009 ══ -->
+  <div class="ref-card" data-tags="param taxon">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-warn">⚠ Verificar antes de citar</span>
+        <span class="year-tag">2009</span>
+      </div>
+      <div class="ref-author">Ariely, D., Bracha, A. y Meier, S.</div>
+      <div class="ref-title">Doing good or doing well? Image motivation and monetary incentives in behaving prosocially</div>
+      <div class="ref-cite">American Economic Review — verificar volumen y páginas en Google Scholar</div>
+    </div>
+    <div class="warn-block"><strong>Advertencia:</strong> el título y los autores son probablemente correctos pero los datos de publicación exactos no han sido verificados. Buscar: «Ariely Bracha Meier 2009 image motivation prosocial» en Google Scholar.</div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P3 · Visibilidad</span>
+      <span class="conn-tag tag-taxon">Altruismo · Filantropía</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Complemento experimental para <strong>P3</strong>. Ariely et al. distinguen entre motivación de imagen (comportarse prosocialmente para proyectar una buena imagen ante otros) y motivación intrínseca. Demuestran que los incentivos monetarios reducen el comportamiento prosocial impulsado por motivación de imagen —efecto crowding-out— pero no el impulsado por motivación intrínseca. Esto es relevante para P3 porque sugiere que la visibilidad pública activa motivación de imagen, que es diferente cualitativamente del altruismo puro.</div>
+        <div class="params-list">
+          <span class="param-pill">P3 · Visibilidad ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">La distinción imagen/intrínseco de Ariely et al. mapea bien sobre la distinción altruismo/filantropía de Khalil. La motivación de imagen tiene componente de autoengrandecimiento (reputación), que Khalil excluye de la beneficencia estricta. Esto plantea la pregunta de si la filantropía (tipo 10) es realmente beneficente en el sentido de Khalil o si cruza la línea hacia el autoengrandecimiento cuando la imagen es el motor principal.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 10. VAN DOESUM ET AL. 2013 ══ -->
+  <div class="ref-card" data-tags="param taxon">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-warn">⚠ Verificar antes de citar</span>
+        <span class="year-tag">2013</span>
+      </div>
+      <div class="ref-author">van Doesum, N.J., van Lange, D.A.W. y van Lange, P.A.M.</div>
+      <div class="ref-title">Social mindfulness: Skill and will to navigate the social world</div>
+      <div class="ref-cite">Journal of Personality and Social Psychology — verificar en Google Scholar</div>
+    </div>
+    <div class="warn-block"><strong>Advertencia:</strong> los datos de publicación no han sido verificados directamente. Puede que la cita que se usó sea de un paper diferente de van Doesum et al. Buscar: «van Doesum van Lange 2013 social mindfulness visibility» en Google Scholar.</div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P3 · Visibilidad</span>
+      <span class="conn-tag tag-taxon">Gifts · Altruismo</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Soporte adicional para <strong>P3</strong>. El concepto de «social mindfulness» —atención deliberada al bienestar ajeno en situaciones cotidianas— introduce una distinción entre quienes son conscientes del impacto social de sus actos y quienes no. Cuando el gesto cooperativo es visible, los agentes con alta social mindfulness pueden inhibir su comportamiento para evitar parecer ostentosos, lo que introduce un mecanismo inverso al crowding-out estándar.</div>
+        <div class="params-list">
+          <span class="param-pill">P3 · Visibilidad ◐</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">Conecta con los gifts (tipo 6 de Khalil): los gestos de afecto y pertenencia comunitaria requieren sensibilidad al contexto simbólico. Un gift hecho con excesiva ostentación deja de ser gift para convertirse en autoengrandecimiento. La «social mindfulness» sería la capacidad del agente de leer ese contexto simbólico correctamente.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 11. SMALL ET AL. 2007 ══ -->
+  <div class="ref-card" data-tags="param taxon tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-warn">⚠ Verificar antes de citar</span>
+        <span class="year-tag">2007</span>
+      </div>
+      <div class="ref-author">Small, D.A., Loewenstein, G. y Slovic, P.</div>
+      <div class="ref-title">Sympathy and callousness: The impact of deliberative thought on donations to identifiable and statistical victims</div>
+      <div class="ref-cite">Organizational Behavior and Human Decision Processes, 102(2), 143–153 — verificar en Google Scholar</div>
+    </div>
+    <div class="warn-block"><strong>Advertencia:</strong> título y autores probablemente correctos; datos de revista y páginas por verificar. Buscar: «Small Loewenstein Slovic 2007 sympathy callousness identifiable» en Google Scholar.</div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P6 · Distancia física</span>
+      <span class="conn-tag tag-param">P7 · Mediación mediática</span>
+      <span class="conn-tag tag-taxon">Altruismo</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Relevante para <strong>P6</strong> y <strong>P7</strong>. Small et al. estudian cómo la identifiabilidad de la víctima —que está relacionada tanto con la distancia (se conoce mejor a quien está cerca) como con la representación mediática— afecta a la donación. Las víctimas identificables generan más simpatía y cooperación que las estadísticas anónimas, incluso cuando la magnitud del problema es mayor en el segundo caso. Esto conecta P6 (proximidad facilita identificación) con P7 (los medios pueden crear identificabilidad a distancia).</div>
+        <div class="params-list">
+          <span class="param-pill">P6 · Distancia física ◐</span>
+          <span class="param-pill">P7 · Mediación mediática ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">El efecto víctima identificable afecta principalmente al altruismo (tipo 3): la disposición a ayudar sin retorno esperado es máxima cuando la víctima es concreta y cercana. A distancia, la cooperación tiende a canalizarse como grant mediado institucionalmente (tipo 9), donde la relación emocional directa es sustituida por intermediarios.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Junto con Slovic (2007), proporciona la base empírica para diseñar la señal mediática global del ABM (P7). El «efecto identifiabilidad» puede modelarse como un multiplicador que la señal mediática aplica sobre la probabilidad de altruismo: cuanto más personalizada y concreta es la cobertura, mayor el multiplicador.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 12. MOELLER 1999 ══ -->
+  <div class="ref-card" data-tags="param tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-warn">⚠ Verificar antes de citar</span>
+        <span class="year-tag">1999</span>
+      </div>
+      <div class="ref-author">Moeller, S.</div>
+      <div class="ref-title">Compassion Fatigue: How the Media Sell Disease, Famine, War and Death</div>
+      <div class="ref-cite">Routledge — verificar ISBN y datos exactos en Google Scholar o catálogo editorial</div>
+    </div>
+    <div class="warn-block"><strong>Advertencia:</strong> título y autora probablemente correctos; año y editorial por confirmar directamente en catálogo de Routledge o WorldCat antes de citar.</div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P7 · Mediación mediática</span>
+      <span class="conn-tag tag-tesis">Señal global ABM</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Referencia canónica para la noción de «fatiga compasional» que es central en <strong>P7</strong>. Moeller analiza cómo los medios de comunicación construyen y agoten la empatía del público ante crisis humanitarias repetidas o prolongadas. El mecanismo es: cobertura intensa → activación emocional → saturación → normalización → indiferencia. Este ciclo tiene consecuencias directas sobre la trayectoria temporal de la cooperación: alta en la fase aguda, decreciente con el tiempo.</div>
+        <div class="params-list">
+          <span class="param-pill">P7 · Mediación mediática ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Proporciona la base conceptual para modelar el decaimiento temporal de la señal mediática en el ABM. El «ciclo de fatiga» de Moeller puede formalizarse como una función de respuesta temporal (respuesta impulsiva seguida de decaimiento exponencial) que modula globalmente la probabilidad de activación de altruismo en el modelo. Este es uno de los pocos parámetros globales del ABM (campo medio), lo que lo hace metodológicamente relevante.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 13. NAGEL Y WALDMANN 2013 ══ -->
+  <div class="ref-card" data-tags="param taxon">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-warn">⚠ Verificar antes de citar</span>
+        <span class="year-tag">2013</span>
+      </div>
+      <div class="ref-author">Nagel, J. y Waldmann, M.R.</div>
+      <div class="ref-title">Deconfounding distance effects in judgments of moral obligation</div>
+      <div class="ref-cite">Journal of Experimental Psychology: General — verificar volumen y páginas en Google Scholar</div>
+    </div>
+    <div class="warn-block"><strong>Advertencia:</strong> autoría y año probablemente correctos; título y datos de publicación no verificados directamente. Buscar: «Nagel Waldmann 2013 distance moral obligation» en Google Scholar.</div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P6 · Distancia física</span>
+      <span class="conn-tag tag-taxon">Altruismo · Oblig. formales</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Soporte para <strong>P6</strong>. Nagel y Waldmann estudian si el efecto de la distancia física sobre la obligación moral de ayudar es genuino o está confundido con otras variables (como la identidad, la causalidad o la viabilidad de la ayuda). Sus resultados sugieren que la distancia per se tiene un efecto independiente: a mayor distancia, menor sentido de obligación moral inmediata, incluso controlando otras variables. Esto justifica P6 como parámetro independiente de P2.</div>
+        <div class="params-list">
+          <span class="param-pill">P6 · Distancia física ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">El resultado de Nagel y Waldmann tiene implicaciones para las obligaciones formales (tipo 4 de Khalil): la distancia física puede reducir la extensión de los principios de justicia que el agente considera aplicables, lo que conecta con el debate sobre el «alcance de la justicia» que Khalil discute en referencia a Hume y Smith. Las obligaciones informales (tipo 5) también se ven afectadas: la reciprocidad de favores requiere proximidad para ser operativa.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 14. CÔTÉ ET AL. 2015 ══ -->
+  <div class="ref-card" data-tags="param taxon tesis">
+    <div class="ref-card-header">
+      <div class="ref-status-row">
+        <span class="status-badge status-warn">⚠ Verificar antes de citar</span>
+        <span class="year-tag">2015</span>
+      </div>
+      <div class="ref-author">Côté, S., House, J. y Willer, R.</div>
+      <div class="ref-title">High economic inequality leads higher-income individuals to be less generous</div>
+      <div class="ref-cite">Proceedings of the National Academy of Sciences — verificar volumen y páginas en Google Scholar</div>
+    </div>
+    <div class="warn-block"><strong>Advertencia:</strong> autoría y año probablemente correctos; título exacto y datos de publicación no verificados directamente. Buscar: «Côté House Willer 2015 inequality generosity PNAS» en Google Scholar.</div>
+    <div class="tags-row">
+      <span class="conn-tag tag-param">P4 · Desigualdad previa</span>
+      <span class="conn-tag tag-taxon">Altruismo · Grants · Hegemonía</span>
+      <span class="conn-tag tag-tesis">Análisis desigualdad</span>
+    </div>
+    <div class="ref-body">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-param"></span><span>Aportación a los parámetros contextuales</span></div>
+        <div class="aport-text">Complemento a Piff et al. (2010) para <strong>P4</strong>. Côté et al. añaden una dimensión contextual importante: no es solo el nivel absoluto de recursos del individuo lo que importa, sino la desigualdad del contexto en que vive. En contextos de alta desigualdad, los individuos de mayor ingreso son menos generosos, posiblemente porque la desigualdad refuerza la separación psicológica entre grupos. Esto implica que P4 debe considerar tanto la desigualdad relativa entre dador y receptor como la desigualdad estructural del entorno.</div>
+        <div class="params-list">
+          <span class="param-pill">P4 · Desigualdad ●</span>
+        </div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-taxon"></span><span>Aportación a la taxonomía de Khalil</span></div>
+        <div class="aport-text">En contextos de alta desigualdad estructural, los grants (tipo 9) entre clases distintas pueden adquirir rasgos de hegemonía (tipo 8): la asimetría de recursos hace que la ayuda material, aunque sincera, lleve implícita una relación de dependencia que puede no contemplar tutela genuina. Esto conecta con la distinción entre hegemonía y lealtad en Khalil, y con el debate sobre explotación vs. injusticia.</div>
+      </div>
+      <hr class="aport-divider">
+      <div class="aport-section">
+        <div class="aport-label"><span class="dot dot-tesis"></span><span>Aportación al marco teórico de la tesis</span></div>
+        <div class="aport-text">Justifica incluir la desigualdad estructural del contexto (no solo la desigualdad entre díadas de agentes) como variable del ABM. El modelo puede inicializarse con distintos niveles de desigualdad de la distribución de recursos y explorar cómo eso afecta a los patrones de cooperación emergente, conectando con los objetivos 3 y 4 de la tesis sobre desigualdad y poder.</div>
+      </div>
+    </div>
+  </div>
+
+
+</div><!-- /refs-grid -->
+
+<div class="legend">
+  <div class="legend-item"><span style="width:10px;height:10px;border-radius:50%;background:var(--teal);display:inline-block"></span> Parámetros contextuales</div>
+  <div class="legend-item"><span style="width:10px;height:10px;border-radius:50%;background:var(--gold);display:inline-block"></span> Taxonomía de Khalil</div>
+  <div class="legend-item"><span style="width:10px;height:10px;border-radius:50%;background:var(--violet);display:inline-block"></span> Marco teórico de la tesis</div>
+  <div class="legend-item" style="margin-left:auto">
+    <span style="background:#DCFCE7;color:#166534;font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:2px 7px;border-radius:20px">✓ Verificada</span>
+    &nbsp;
+    <span style="background:var(--warn-bg);color:var(--warn);border:1px solid #FDE68A;font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:2px 7px;border-radius:20px">⚠ Verificar</span>
+  </div>
+</div>
+
+<script>
+function filterCards(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.ref-card');
+  let visible = 0;
+  cards.forEach(card => {
+    const tags = card.dataset.tags || '';
+    if (tag === 'all' || tags.includes(tag)) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  const labels = { all: 'referencias', param: 'referencias', taxon: 'referencias', tesis: 'referencias' };
+  document.getElementById('count-badge').textContent = visible + ' ' + labels[tag];
+}
+</script>
+</body>
+</html>

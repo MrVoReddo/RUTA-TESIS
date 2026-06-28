@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1400" viewBox="0 0 1800 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Mindmap Khalil – Taxonomy of Cooperation and Reciprocity</title>
+  <desc id="desc">Mapa mental del paper de Elias L. Khalil sobre la taxonomía de la cooperación/reciprocidad, los tipos, disciplinas y satisfacciones.</desc>
+  <style>
+    .bg{fill:#f7f6f2}
+    .line{fill:none;stroke:#8aa8a8;stroke-width:4;stroke-linecap:round}
+    .line2{fill:none;stroke:#b7c7c7;stroke-width:2.5;stroke-linecap:round}
+    .center{fill:#01696f;stroke:#0f3638;stroke-width:3}
+    .main{fill:#fbfbf9;stroke:#d4d1ca;stroke-width:2}
+    .sub{fill:#f3f0ec;stroke:#d4d1ca;stroke-width:1.5}
+    .ctitle{font:700 30px Inter,Arial,sans-serif;fill:#fff}
+    .h1{font:700 24px Inter,Arial,sans-serif;fill:#28251d}
+    .txt{font:400 18px Inter,Arial,sans-serif;fill:#28251d}
+    .small{font:400 16px Inter,Arial,sans-serif;fill:#28251d}
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1800" height="1400"/>
+
+  <!-- Ramas principales desde el nodo central -->
+  <path class="line" d="M900 700 C760 700, 720 260, 520 220"/>   <!-- Tipos -->
+  <path class="line" d="M900 700 C760 700, 720 520, 510 520"/>   <!-- Beneficencia -->
+  <path class="line" d="M900 700 C760 700, 700 840, 500 980"/>   <!-- Satisfacciones -->
+  <path class="line" d="M900 700 C1040 700, 1080 250, 1290 220"/> <!-- Disciplinas/toolkits -->
+  <path class="line" d="M900 700 C1040 700, 1080 520, 1295 520"/> <!-- Imperialismo -->
+  <path class="line" d="M900 700 C1040 700, 1100 860, 1310 1040"/> <!-- Transdisciplinariedad -->
+
+  <!-- Nodo central: cooperación/reciprocidad como portmanteau -->
+  <rect class="center" x="690" y="600" rx="34" ry="34" width="420" height="200"/>
+  <text class="ctitle" x="900" y="650" text-anchor="middle">Cooperation / Reciprocity</text>
+  <text class="ctitle" x="900" y="695" text-anchor="middle">Portmanteau</text>
+  <text class="ctitle" x="900" y="740" text-anchor="middle">10 types + Beneficence</text>
+
+  <!-- Bloque: diez tipos de cooperación/reciprocidad -->
+  <rect class="main" x="220" y="120" rx="24" ry="24" width="420" height="260"/>
+  <text class="h1" x="250" y="165">Ten types of cooperation</text>
+  <text class="txt" x="250" y="205">1. Quid pro quo</text>
+  <text class="txt" x="250" y="235">2. Intertemporal allocation</text>
+  <text class="txt" x="250" y="265">3. Altruism</text>
+  <text class="txt" x="250" y="295">4. Formal obligations (justice)</text>
+  <text class="txt" x="250" y="325">5. Informal obligations (repayment)</text>
+  <text class="txt" x="250" y="355">6. Gifts</text>
+  <text class="txt" x="250" y="385">7. Allegiance</text>
+  <text class="txt" x="250" y="415">8. Hegemony</text>
+  <text class="txt" x="250" y="445">9. Grants</text>
+  <text class="txt" x="250" y="475">10. Philanthropy</text>
+
+  <!-- Bloque: beneficencia, definición y condiciones -->
+  <rect class="main" x="220" y="440" rx="24" ry="24" width="420" height="240"/>
+  <text class="h1" x="250" y="485">Beneficence</text>
+  <text class="txt" x="250" y="525">“Promotion of the good”</text>
+  <text class="small" x="250" y="555">• Includes good of others and of the actor</text>
+  <text class="small" x="250" y="585">• Free from deception & opportunism</text>
+  <text class="small" x="250" y="615">• Free from self-aggrandizement</text>
+  <text class="small" x="250" y="645">• Free from malevolence (envy, schadenfreude)</text>
+
+  <!-- Bloque: tres géneros de satisfacción -->
+  <rect class="main" x="180" y="880" rx="24" ry="24" width="470" height="230"/>
+  <text class="h1" x="210" y="925">Three genera of satisfaction</text>
+  <text class="txt" x="210" y="965">Substantive</text>
+  <text class="small" x="230" y="995">• Self-interest, altruism</text>
+  <text class="small" x="230" y="1020">• Quid pro quo, intertemporal allocation</text>
+  <text class="small" x="230" y="1045">• Hegemony</text>
+
+  <text class="txt" x="210" y="1085">Integrity</text>
+  <text class="small" x="230" y="1115">• Warm glow from fulfilling obligations</text>
+  <text class="small" x="230" y="1140">• Formal & informal obligations</text>
+
+  <text class="txt" x="210" y="1180">Transcendental</text>
+  <text class="small" x="230" y="1210">• Gifts, allegiance</text>
+  <text class="small" x="230" y="1235">• Grants & philanthropy</text>
+
+  <!-- Bloque: cinco disciplinas y toolkits (tabla 1) -->
+  <rect class="main" x="1200" y="120" rx="24" ry="24" width="430" height="290"/>
+  <text class="h1" x="1230" y="165">Disciplines & toolkits</text>
+  <text class="txt" x="1230" y="205">Anthropology → Cultural norms</text>
+  <text class="small" x="1250" y="235">• Gifts, Allegiance</text>
+  <text class="txt" x="1230" y="270">Economics → Efficiency</text>
+  <text class="small" x="1250" y="300">• Quid pro quo, Intertemporal</text>
+  <text class="small" x="1250" y="325">• Altruism</text>
+  <text class="txt" x="1230" y="360">Political science → Power</text>
+  <text class="small" x="1250" y="390">• Formal obligations, Hegemony</text>
+  <text class="txt" x="1230" y="425">Sociology → Social roles</text>
+  <text class="small" x="1250" y="455">• Informal obligations, Grants</text>
+  <text class="txt" x="1230" y="490">Psychology → Divided-psyche</text>
+  <text class="small" x="1250" y="520">• Philanthropy</text>
+
+  <!-- Bloque: imperialismo interdisciplinar -->
+  <rect class="main" x="1210" y="430" rx="24" ry="24" width="420" height="230"/>
+  <text class="h1" x="1240" y="475">Interdisciplinary imperialism</text>
+  <text class="small" x="1240" y="515">• Each discipline treats its toolkit</text>
+  <text class="small" x="1240" y="540">  as primary and invades adjacent types</text>
+  <text class="small" x="1240" y="570">• “Queen of the social sciences” attitude</text>
+  <text class="small" x="1240" y="600">• Misappropriation/mutilation of other types</text>
+
+  <!-- Bloque: plataforma transdisciplinar -->
+  <rect class="main" x="1180" y="930" rx="24" ry="24" width="470" height="230"/>
+  <text class="h1" x="1210" y="975">Transdisciplinary platform</text>
+  <text class="small" x="1210" y="1015">• Recognizes uniqueness of each toolkit</text>
+  <text class="small" x="1210" y="1040">• Uses 10-type taxonomy as common map</text>
+  <text class="small" x="1210" y="1065">• Avoids reducing all types to one lens</text>
+  <text class="small" x="1210" y="1090">• Basis for unifying social sciences</text>
+</svg>
