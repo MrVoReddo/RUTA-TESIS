@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuaderno de preguntas — Tesis doctoral</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F7F4EE;
+  --surface: #FFFFFF;
+  --surface-alt: #F2EFE9;
+  --border: #E0DBD0;
+  --border-strong: #C8C0B0;
+  --text: #1C1A16;
+  --text-2: #4A4640;
+  --text-3: #7A7570;
+  --violet: #5B4FBE;
+  --violet-light: #EAE8FA;
+  --violet-dark: #3C3489;
+  --teal: #0F7B6C;
+  --teal-light: #E0F4EF;
+  --teal-dark: #085041;
+  --gold: #8A6000;
+  --gold-light: #FDF3DC;
+  --gold-dark: #633806;
+  --coral: #A83520;
+  --coral-light: #FAEAE6;
+  --coral-dark: #712B13;
+  --sage: #3A6B3E;
+  --sage-light: #E6F2E7;
+  --rose: #8B2252;
+  --rose-light: #F7E6EF;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 40px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.header-left {}
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+header h1 em { font-style: italic; color: var(--violet); }
+.header-sub { font-size: 12.5px; color: var(--text-3); }
+.header-stats {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.stat-box {
+  text-align: center;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  min-width: 60px;
+}
+.stat-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--violet);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 10px;
+  color: var(--text-3);
+  margin-top: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── TOOLBAR ── */
+.toolbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 320px;
+}
+.search-wrap input {
+  width: 100%;
+  padding: 7px 12px 7px 32px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  background: var(--surface-alt);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.search-wrap input:focus { border-color: var(--violet); background: var(--surface); }
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  font-size: 13px;
+  pointer-events: none;
+}
+.filter-group { display: flex; gap: 5px; flex-wrap: wrap; }
+.filter-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.filter-btn:hover { background: var(--surface-alt); }
+.filter-btn.active { color: white; border-color: transparent; }
+.filter-btn[data-filter="all"].active    { background: var(--text); }
+.filter-btn[data-filter="teorica"].active   { background: var(--violet); }
+.filter-btn[data-filter="metodologica"].active { background: var(--teal); }
+.filter-btn[data-filter="abierta"].active  { background: var(--coral); }
+.filter-btn[data-filter="respondida"].active { background: var(--sage); }
+
+.sort-select {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface-alt);
+  color: var(--text-2);
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-new {
+  margin-left: auto;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: none;
+  background: var(--violet);
+  color: white;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-new:hover { background: var(--violet-dark); }
+
+/* ── LAYOUT PRINCIPAL ── */
+.main {
+  display: flex;
+  min-height: calc(100vh - 130px);
+}
+
+/* ── LISTA DE PREGUNTAS ── */
+.qa-list {
+  flex: 1;
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-3);
+}
+.empty-state .empty-icon { font-size: 36px; margin-bottom: 12px; }
+.empty-state p { font-size: 14px; line-height: 1.6; }
+.empty-state strong { color: var(--text-2); }
+
+/* ── TARJETA DE PREGUNTA ── */
+.qa-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.qa-card:hover { border-color: var(--border-strong); }
+.qa-card.hidden { display: none; }
+
+.qa-card-header {
+  padding: 14px 18px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+.qa-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-3);
+  min-width: 28px;
+  margin-top: 2px;
+}
+.qa-header-main { flex: 1; }
+.qa-type-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.badge-teorica      { background: var(--violet-light); color: var(--violet-dark); }
+.badge-metodologica { background: var(--teal-light);   color: var(--teal-dark); }
+.badge-abierta      { background: var(--coral-light);  color: var(--coral-dark); }
+.badge-respondida   { background: var(--sage-light);   color: var(--sage); }
+
+.qa-question {
+  font-family: 'Playfair Display', serif;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+.qa-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-3);
+  margin-top: 5px;
+}
+.qa-chevron {
+  color: var(--text-3);
+  font-size: 14px;
+  transition: transform 0.2s;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.qa-card.expanded .qa-chevron { transform: rotate(180deg); }
+
+.qa-body {
+  display: none;
+  padding: 0 18px 16px 58px;
+  border-top: 1px solid var(--border);
+}
+.qa-card.expanded .qa-body { display: block; }
+
+.qa-answer-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 12px 0 7px;
+}
+.qa-answer-text {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.qa-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 12px;
+}
+.qa-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--text-3);
+}
+
+.qa-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.btn-action {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-action:hover { background: var(--surface-alt); }
+.btn-delete { color: var(--coral); border-color: var(--coral-light); }
+.btn-delete:hover { background: var(--coral-light); }
+.btn-toggle-status {
+  color: var(--sage);
+  border-color: var(--sage-light);
+}
+.btn-toggle-status:hover { background: var(--sage-light); }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(28,26,22,0.45);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.modal h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+.form-field { margin-bottom: 16px; }
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  padding: 9px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface-alt);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+  resize: vertical;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--violet);
+  background: var(--surface);
+}
+.form-textarea { min-height: 140px; }
+.form-hint {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+
+.type-selector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.type-option {
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.type-option:hover { border-color: var(--border-strong); background: var(--surface-alt); }
+.type-option.selected-teorica      { border-color: var(--violet); background: var(--violet-light); }
+.type-option.selected-metodologica { border-color: var(--teal);   background: var(--teal-light); }
+.type-option.selected-abierta      { border-color: var(--coral);  background: var(--coral-light); }
+.type-option.selected-respondida   { border-color: var(--sage);   background: var(--sage-light); }
+.type-option-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.type-option-desc {
+  font-size: 11px;
+  color: var(--text-3);
+  line-height: 1.4;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.btn-cancel {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.btn-cancel:hover { background: var(--surface-alt); }
+.btn-save {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 22px;
+  border-radius: 8px;
+  border: none;
+  background: var(--violet);
+  color: white;
+  cursor: pointer;
+}
+.btn-save:hover { background: var(--violet-dark); }
+
+/* ── CONFIRM DELETE ── */
+.confirm-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(28,26,22,0.5);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+.confirm-overlay.open { display: flex; }
+.confirm-box {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 380px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+.confirm-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.confirm-box p { font-size: 13px; color: var(--text-2); margin-bottom: 18px; }
+.confirm-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.btn-confirm-delete {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 7px;
+  border: none;
+  background: var(--coral);
+  color: white;
+  cursor: pointer;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.backup-row {
+  display: flex;
+  gap: 7px;
+}
+.btn-backup {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 13px;
+  border-radius: 7px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-alt);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.btn-backup:hover { background: var(--border); color: var(--text); }
+.btn-import { cursor: pointer; }
+.backup-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--text);
+  color: white;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 300;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.success { background: var(--teal); }
+.toast.error   { background: var(--coral); }
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-3);
+  font-size: 13.5px;
+  display: none;
+}
+
+@media (max-width: 700px) {
+  header { flex-direction: column; padding: 18px 20px; }
+  .toolbar, .qa-list { padding-left: 16px; padding-right: 16px; }
+  .btn-new { margin-left: 0; width: 100%; text-align: center; }
+  .qa-body { padding-left: 18px; }
+  .type-selector { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-left">
+    <div class="eyebrow">Tesis doctoral · Cooperación en contextos de crisis · Notas de trabajo</div>
+    <h1>Cuaderno de preguntas<br><em>y respuestas</em></h1>
+    <div class="header-sub">Registro interactivo de preguntas teóricas, metodológicas y abiertas relevantes para la tesis. Añade, edita y filtra desde el navegador.</div>
+  </div>
+  <div class="header-right">
+    <div class="header-stats">
+      <div class="stat-box"><div class="stat-num" id="stat-total">0</div><div class="stat-label">Total</div></div>
+      <div class="stat-box"><div class="stat-num" id="stat-abiertas" style="color:var(--coral)">0</div><div class="stat-label">Abiertas</div></div>
+      <div class="stat-box"><div class="stat-num" id="stat-respondidas" style="color:var(--sage)">0</div><div class="stat-label">Respondidas</div></div>
+    </div>
+    <div class="backup-row">
+      <button class="btn-backup" onclick="exportJSON()" title="Descarga un archivo .json con todas tus preguntas">⬇ Exportar copia</button>
+      <label class="btn-backup btn-import" title="Carga un archivo .json exportado previamente">⬆ Importar copia<input type="file" accept=".json" id="import-input" onchange="importJSON(event)" style="display:none"></label>
+    </div>
+    <div class="backup-hint">Exporta periódicamente para no perder tus datos</div>
+  </div>
+</header>
+
+<!-- ══ TOOLBAR ══ -->
+<div class="toolbar">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Buscar pregunta o respuesta…" oninput="applyFilters()">
+  </div>
+  <div class="filter-group">
+    <button class="filter-btn active" data-filter="all"           onclick="setFilter('all', this)">Todas</button>
+    <button class="filter-btn" data-filter="teorica"              onclick="setFilter('teorica', this)">Teóricas</button>
+    <button class="filter-btn" data-filter="metodologica"         onclick="setFilter('metodologica', this)">Metodológicas</button>
+    <button class="filter-btn" data-filter="abierta"              onclick="setFilter('abierta', this)">Abiertas</button>
+    <button class="filter-btn" data-filter="respondida"           onclick="setFilter('respondida', this)">Respondidas</button>
+  </div>
+  <select class="sort-select" id="sort-select" onchange="applyFilters()">
+    <option value="newest">Más recientes primero</option>
+    <option value="oldest">Más antiguas primero</option>
+    <option value="type">Por tipo</option>
+    <option value="alpha">Alfabético</option>
+  </select>
+  <button class="btn-new" onclick="openModal()">+ Nueva pregunta</button>
+</div>
+
+<!-- ══ LISTA ══ -->
+<div class="main">
+  <div class="qa-list" id="qa-list">
+    <div class="empty-state" id="empty-state">
+      <div class="empty-icon">📋</div>
+      <p>Aún no hay preguntas registradas.<br><strong>Haz clic en «+ Nueva pregunta»</strong> para empezar a construir el cuaderno.</p>
+    </div>
+    <div class="no-results" id="no-results">No hay preguntas que coincidan con el filtro o la búsqueda.</div>
+  </div>
+</div>
+
+<!-- ══ MODAL NUEVA / EDITAR ══ -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <h2 id="modal-title">Nueva pregunta</h2>
+
+    <div class="form-field">
+      <label class="form-label">Tipo de pregunta</label>
+      <div class="type-selector" id="type-selector">
+        <div class="type-option" data-type="teorica" onclick="selectType('teorica')">
+          <span class="type-option-name">🔵 Teórica</span>
+          <span class="type-option-desc">Marco conceptual, definiciones, relaciones entre conceptos</span>
+        </div>
+        <div class="type-option" data-type="metodologica" onclick="selectType('metodologica')">
+          <span class="type-option-name">🟢 Metodológica</span>
+          <span class="type-option-desc">ABM, parámetros, validación, diseño del modelo</span>
+        </div>
+        <div class="type-option" data-type="abierta" onclick="selectType('abierta')">
+          <span class="type-option-name">🔴 Abierta</span>
+          <span class="type-option-desc">Sin respuesta clara aún, requiere más investigación</span>
+        </div>
+        <div class="type-option" data-type="respondida" onclick="selectType('respondida')">
+          <span class="type-option-name">✅ Respondida</span>
+          <span class="type-option-desc">Pregunta con respuesta consolidada para la tesis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label" for="input-question">Pregunta</label>
+      <textarea class="form-textarea" id="input-question" placeholder="Escribe la pregunta de forma clara y precisa…" style="min-height:80px"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label" for="input-answer">Respuesta <span style="font-weight:400;color:var(--text-3)">(opcional si está abierta)</span></label>
+      <textarea class="form-textarea" id="input-answer" placeholder="Desarrolla la respuesta, incluyendo matices, referencias o implicaciones para la tesis…"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label class="form-label" for="input-tags">Etiquetas <span style="font-weight:400;color:var(--text-3)">(opcional)</span></label>
+      <input class="form-input" type="text" id="input-tags" placeholder="Ej: Khalil, P1, ABM, altruismo, DANA — separadas por coma">
+      <div class="form-hint">Palabras clave para localizar la pregunta más fácilmente</div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveEntry()">Guardar pregunta</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONFIRM DELETE ══ -->
+<div class="confirm-overlay" id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Eliminar pregunta</h3>
+    <p>¿Seguro que quieres eliminar esta pregunta? Esta acción no se puede deshacer.</p>
+    <div class="confirm-actions">
+      <button class="btn-cancel" onclick="closeConfirm()">Cancelar</button>
+      <button class="btn-confirm-delete" onclick="confirmDelete()">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── ESTADO ──
+let entries = [];
+let editingId = null;
+let deletingId = null;
+let selectedType = null;
+let activeFilter = 'all';
+let idCounter = 1;
+
+const TYPE_LABELS = {
+  teorica:      'Teórica',
+  metodologica: 'Metodológica',
+  abierta:      'Abierta',
+  respondida:   'Respondida'
+};
+
+// ── CARGA INICIAL con preguntas de ejemplo ──
+const INITIAL = [
+  {
+    id: idCounter++,
+    type: 'teorica',
+    question: '¿Cómo distingue Khalil (2025) la beneficencia del altruismo?',
+    answer: 'Khalil define la beneficencia de forma más amplia que el altruismo. La beneficencia es el denominador común a los 10 tipos de cooperación: la promoción del bien libre de oportunismo, autoengrandecimiento y malevolencia. El altruismo es solo uno de los diez tipos, específicamente el que implica sacrificio de recursos propios para beneficiar a otro sin esperar retorno equivalente. La beneficencia incluye incluso el auto-interés (quid pro quo) siempre que esté libre de los tres elementos excluyentes. El altruismo, en cambio, requiere que el agente extienda su función de utilidad para incluir el bienestar del otro (Becker, 1976: ego-centered altruism).',
+    tags: ['Khalil', 'beneficencia', 'altruismo', 'taxonomía'],
+    date: new Date().toISOString()
+  },
+  {
+    id: idCounter++,
+    type: 'metodologica',
+    question: '¿Qué tipo de red social es más adecuada para modelar la cooperación en una crisis ambiental tipo DANA?',
+    answer: 'La elección del tipo de red depende de qué aspecto de la dinámica social se quiere capturar. Para una crisis ambiental con respuesta espontánea (DANA):\n\n— Watts-Strogatz (small-world): captura bien las redes de vecindad con alta clusterización local y algunos vínculos largos. Adecuada para modelar la fase aguda donde el altruismo entre desconocidos próximos es dominante.\n\n— Barabasi-Albert (libre de escala): más adecuada si queremos modelar la influencia de actores con alta centralidad (organizaciones, nodos mediáticos) en la propagación de la cooperación.\n\n— Red modular multicapa: podría ser la más realista para una crisis como la DANA, donde coexisten redes familiares (alta densidad, vínculos fuertes) y redes de voluntariado (baja densidad, vínculos débiles).\n\nDecisión pendiente: diseñar un experimento de sensibilidad comparando los tres tipos de red para el mismo conjunto de parámetros.',
+    tags: ['ABM', 'redes complejas', 'DANA', 'Watts-Strogatz', 'Barabasi-Albert'],
+    date: new Date(Date.now() - 86400000).toISOString()
+  },
+  {
+    id: idCounter++,
+    type: 'abierta',
+    question: '¿La reciprocidad comunitaria diferida (P5) constituye realmente un tipo 11 en la taxonomía de Khalil o es un caso límite de las obligaciones informales?',
+    answer: 'Esta es la pregunta teórica más abierta del marco. Argumentos a favor de que es un tipo 11 genuino:\n— La díada es indefinida: el beneficiario no devuelve al benefactor sino a la comunidad en abstracto.\n— Putnam (2000) y Ostrom (1990) documentan mecanismos de reciprocidad generalizada que operan a escala colectiva, no diádica.\n— Las obligaciones informales (tipo 5 de Khalil) requieren un benefactor identificable al que devolver el favor.\n\nArgumentos en contra:\n— Podría interpretarse como un caso de obligaciones informales con horizonte temporal muy largo y díada difusa.\n— Khalil podría contestar que la «comunidad» es simplemente la suma de futuros benefactores con los que se tendrá obligación informal.\n\nPendiente: revisar si Gouldner (1960) en «The Norm of Reciprocity» distingue ya entre reciprocidad específica y generalizada.',
+    tags: ['P5', 'reciprocidad generalizada', 'Khalil', 'tipo 11', 'capital social'],
+    date: new Date(Date.now() - 172800000).toISOString()
+  },
+  {
+    id: idCounter++,
+    type: 'respondida',
+    question: '¿Por qué la plataforma transdisciplinar de Khalil justifica el uso del ABM en la tesis?',
+    answer: 'El ABM es la herramienta formal que permite implementar la transdisciplinariedad de Khalil sin imperialismo disciplinar. La razón es la siguiente:\n\nKhalil demuestra que cada disciplina tiene un toolkit (eficiencia, poder, roles sociales, normas culturales, psique dividida) adecuado para uno o dos tipos de cooperación, pero ninguno para todos los diez. Si la tesis usara solo el toolkit económico (ecuaciones de utilidad), cometería imperialismo económico. Si usara solo la teoría de redes sociológica, imperialismo sociológico.\n\nEl ABM permite:\n1. Incorporar agentes con motivaciones heterogéneas (cada agente puede tener distinto tipo activo).\n2. Implementar reglas micro derivadas de múltiples disciplinas sin reducirlas a un denominador común.\n3. Observar qué dinámicas macro emergen de la combinación.\n\nEsto convierte al ABM en la implementación computacional natural de la plataforma transdisciplinar de Khalil. No hay imperialismo porque no hay un toolkit único que dicte las reglas de todos los agentes.',
+    tags: ['ABM', 'transdisciplinariedad', 'Khalil', 'marco teórico', 'imperialismo interdisciplinar'],
+    date: new Date(Date.now() - 259200000).toISOString()
+  }
+];
+
+// ── INIT ──
+function init() {
+  const saved = localStorage.getItem('tesis_qa_entries');
+  const savedCounter = localStorage.getItem('tesis_qa_counter');
+  if (saved) {
+    entries = JSON.parse(saved);
+    idCounter = savedCounter ? parseInt(savedCounter) : entries.length + 1;
+  } else {
+    entries = INITIAL;
+    idCounter = INITIAL.length + 1;
+    saveToStorage();
+  }
+  renderAll();
+}
+
+function saveToStorage() {
+  try {
+    localStorage.setItem('tesis_qa_entries', JSON.stringify(entries));
+    localStorage.setItem('tesis_qa_counter', idCounter.toString());
+  } catch(e) {}
+}
+
+// ── RENDER ──
+function renderAll() {
+  updateStats();
+  applyFilters();
+}
+
+function updateStats() {
+  document.getElementById('stat-total').textContent = entries.length;
+  document.getElementById('stat-abiertas').textContent = entries.filter(e => e.type === 'abierta').length;
+  document.getElementById('stat-respondidas').textContent = entries.filter(e => e.type === 'respondida').length;
+}
+
+function applyFilters() {
+  const search = document.getElementById('search-input').value.toLowerCase().trim();
+  const sort = document.getElementById('sort-select').value;
+
+  let filtered = entries.filter(e => {
+    const matchFilter = activeFilter === 'all' || e.type === activeFilter;
+    const matchSearch = !search ||
+      e.question.toLowerCase().includes(search) ||
+      e.answer.toLowerCase().includes(search) ||
+      e.tags.some(t => t.toLowerCase().includes(search));
+    return matchFilter && matchSearch;
+  });
+
+  // sort
+  filtered = filtered.slice();
+  if (sort === 'newest') filtered.sort((a,b) => new Date(b.date) - new Date(a.date));
+  if (sort === 'oldest') filtered.sort((a,b) => new Date(a.date) - new Date(b.date));
+  if (sort === 'type')   filtered.sort((a,b) => a.type.localeCompare(b.type));
+  if (sort === 'alpha')  filtered.sort((a,b) => a.question.localeCompare(b.question));
+
+  renderList(filtered);
+}
+
+function renderList(list) {
+  const container = document.getElementById('qa-list');
+  const emptyState = document.getElementById('empty-state');
+  const noResults = document.getElementById('no-results');
+
+  // Remove old cards
+  container.querySelectorAll('.qa-card').forEach(c => c.remove());
+  emptyState.style.display = 'none';
+  noResults.style.display = 'none';
+
+  if (entries.length === 0) {
+    emptyState.style.display = 'block';
+    return;
+  }
+  if (list.length === 0) {
+    noResults.style.display = 'block';
+    return;
+  }
+
+  list.forEach((entry, idx) => {
+    const card = buildCard(entry, idx + 1);
+    container.appendChild(card);
+  });
+}
+
+function buildCard(entry, displayNum) {
+  const card = document.createElement('div');
+  card.className = 'qa-card';
+  card.dataset.id = entry.id;
+
+  const dateStr = new Date(entry.date).toLocaleDateString('es-ES', { day:'2-digit', month:'short', year:'numeric' });
+  const tagsHtml = entry.tags.length > 0
+    ? `<div class="qa-tags-row">${entry.tags.map(t => `<span class="qa-tag">${escHtml(t)}</span>`).join('')}</div>`
+    : '';
+
+  const typeLabel = TYPE_LABELS[entry.type] || entry.type;
+  const answerHtml = entry.answer
+    ? `<div class="qa-answer-label">Respuesta</div><div class="qa-answer-text">${escHtml(entry.answer)}</div>`
+    : `<div class="qa-answer-label">Respuesta</div><div class="qa-answer-text" style="color:var(--text-3);font-style:italic">Sin respuesta registrada aún.</div>`;
+
+  const toggleLabel = entry.type === 'respondida'
+    ? '↩ Marcar como abierta'
+    : '✓ Marcar como respondida';
+
+  card.innerHTML = `
+    <div class="qa-card-header" onclick="toggleCard(${entry.id})">
+      <span class="qa-num">#${String(displayNum).padStart(2,'0')}</span>
+      <div class="qa-header-main">
+        <span class="qa-type-badge badge-${entry.type}">${typeLabel}</span>
+        <div class="qa-question">${escHtml(entry.question)}</div>
+        <div class="qa-meta">${dateStr}</div>
+      </div>
+      <span class="qa-chevron">▼</span>
+    </div>
+    <div class="qa-body">
+      ${answerHtml}
+      ${tagsHtml}
+      <div class="qa-actions">
+        <button class="btn-action" onclick="editEntry(${entry.id})">✎ Editar</button>
+        <button class="btn-action btn-toggle-status" onclick="toggleStatus(${entry.id})">${toggleLabel}</button>
+        <button class="btn-action btn-delete" onclick="askDelete(${entry.id})">✕ Eliminar</button>
+      </div>
+    </div>
+  `;
+  return card;
+}
+
+function toggleCard(id) {
+  const card = document.querySelector(`.qa-card[data-id="${id}"]`);
+  if (card) card.classList.toggle('expanded');
+}
+
+function escHtml(str) {
+  return str
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/\n/g,'<br>');
+}
+
+// ── FILTROS ──
+function setFilter(filter, btn) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+// ── MODAL ──
+function openModal(id = null) {
+  editingId = id;
+  selectedType = null;
+  document.getElementById('modal-title').textContent = id ? 'Editar pregunta' : 'Nueva pregunta';
+  document.getElementById('input-question').value = '';
+  document.getElementById('input-answer').value = '';
+  document.getElementById('input-tags').value = '';
+  document.querySelectorAll('.type-option').forEach(o => o.className = 'type-option');
+
+  if (id) {
+    const entry = entries.find(e => e.id === id);
+    if (entry) {
+      selectedType = entry.type;
+      document.getElementById('input-question').value = entry.question;
+      document.getElementById('input-answer').value = entry.answer;
+      document.getElementById('input-tags').value = entry.tags.join(', ');
+      const opt = document.querySelector(`.type-option[data-type="${entry.type}"]`);
+      if (opt) opt.classList.add(`selected-${entry.type}`);
+    }
+  }
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('input-question').focus();
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  editingId = null;
+  selectedType = null;
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+function selectType(type) {
+  selectedType = type;
+  document.querySelectorAll('.type-option').forEach(o => o.className = 'type-option');
+  const opt = document.querySelector(`.type-option[data-type="${type}"]`);
+  if (opt) opt.classList.add(`selected-${type}`);
+}
+
+function saveEntry() {
+  const question = document.getElementById('input-question').value.trim();
+  const answer   = document.getElementById('input-answer').value.trim();
+  const tagsRaw  = document.getElementById('input-tags').value.trim();
+  const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [];
+
+  if (!question) { alert('La pregunta no puede estar vacía.'); return; }
+  if (!selectedType) { alert('Selecciona un tipo de pregunta.'); return; }
+
+  if (editingId) {
+    const idx = entries.findIndex(e => e.id === editingId);
+    if (idx > -1) {
+      entries[idx] = { ...entries[idx], type: selectedType, question, answer, tags };
+    }
+  } else {
+    entries.unshift({
+      id: idCounter++,
+      type: selectedType,
+      question,
+      answer,
+      tags,
+      date: new Date().toISOString()
+    });
+  }
+
+  saveToStorage();
+  closeModal();
+  renderAll();
+}
+
+function editEntry(id) {
+  openModal(id);
+}
+
+function toggleStatus(id) {
+  const entry = entries.find(e => e.id === id);
+  if (!entry) return;
+  entry.type = entry.type === 'respondida' ? 'abierta' : 'respondida';
+  saveToStorage();
+  renderAll();
+}
+
+// ── DELETE ──
+function askDelete(id) {
+  deletingId = id;
+  document.getElementById('confirm-overlay').classList.add('open');
+}
+function closeConfirm() {
+  deletingId = null;
+  document.getElementById('confirm-overlay').classList.remove('open');
+}
+function confirmDelete() {
+  entries = entries.filter(e => e.id !== deletingId);
+  saveToStorage();
+  closeConfirm();
+  renderAll();
+}
+
+// ── KEYBOARD ──
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); closeConfirm(); }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    if (document.getElementById('modal-overlay').classList.contains('open')) saveEntry();
+  }
+});
+
+// ── EXPORT ──
+function exportJSON() {
+  if (entries.length === 0) { showToast('No hay preguntas que exportar.', 'error'); return; }
+  const data = JSON.stringify({ version: 1, exported: new Date().toISOString(), entries, idCounter }, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const date = new Date().toISOString().slice(0,10);
+  a.href = url;
+  a.download = `tesis_preguntas_${date}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast(`✓ Exportadas ${entries.length} preguntas`, 'success');
+}
+
+// ── IMPORT ──
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.entries || !Array.isArray(data.entries)) throw new Error('Formato incorrecto');
+      const n = data.entries.length;
+      if (!confirm(`Se van a cargar ${n} preguntas del archivo "${file.name}".\n\nEsto reemplazará las preguntas actuales. ¿Continuar?`)) return;
+      entries = data.entries;
+      idCounter = data.idCounter || (entries.length + 1);
+      saveToStorage();
+      renderAll();
+      showToast(`✓ Importadas ${n} preguntas correctamente`, 'success');
+    } catch(err) {
+      showToast('Error al leer el archivo. ¿Es un JSON válido exportado desde este cuaderno?', 'error');
+    }
+    event.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+// ── TOAST ──
+function showToast(msg, type = '') {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.className = `toast ${type}`;
+  void toast.offsetWidth;
+  toast.classList.add('show');
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ── ARRANQUE ──
+init();
+</script>
+</body>
+</html>
